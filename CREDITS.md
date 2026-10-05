@@ -1,7 +1,7 @@
 # Credits
 
 - **SoulToxic3119 (Soul):** original lab implementations, development direction, integration and manual testing.
-- **Nextendo Network:** platform, upstream projects and maintainer coordination.
+- **[Nextendo Network](https://github.com/NextendoNetworkProfile):** platform, upstream projects and maintainer coordination. The [NextendoNetwork organization](https://github.com/NextendoNetwork) hosts the upstream repositories.
 - **Codex:** investigation, source organization, documentation and validation assistance.
 - **Claude Code:** earlier Genesis assistance recorded in the imported project's history; no additional contribution to this import is claimed.
 

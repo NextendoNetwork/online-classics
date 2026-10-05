@@ -79,7 +79,7 @@ Tests used [Ryujinx-Nextendo](https://github.com/NextendoNetwork/Ryujinx-Nextend
 | Contributor | Work |
 | --- | --- |
 | [SoulToxic3119](https://github.com/SoulToxic3119) | Project direction, original lab implementation, integration and manual testing |
-| [Nextendo Network](https://github.com/NextendoNetwork) | Platform, upstream projects and maintainer coordination |
+| [Nextendo Network](https://github.com/NextendoNetworkProfile) | Platform, upstream projects and maintainer coordination; [organization repositories](https://github.com/NextendoNetwork) |
 | [OpenAI Codex](https://github.com/openai/codex) | Investigation, English documentation, repository organization and validation assistance |
 | [Claude Code](https://github.com/anthropics/claude-code) | Earlier Genesis development and review assistance recorded in the imported project |
 
