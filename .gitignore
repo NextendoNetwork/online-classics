@@ -1,0 +1,16 @@
+artifacts/
+**/server
+**/server.exe
+*.local.json
+*.log
+*.nsp
+*.xci
+*.nca
+*.ips
+*.keys
+*.pem
+*.pfx
+*.zip
+*.exe
+*.dll
+.env
