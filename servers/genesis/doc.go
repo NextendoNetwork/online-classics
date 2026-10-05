@@ -14,5 +14,5 @@
 // Integrating with the Nextendo service requires its account validation, TLS
 // configuration, external ICE destinations and relay authorization. The current
 // executable is a local test backend; Internet gameplay remains unverified.
-// See ../docs/server-integration.md for the maintainer handoff and test sequence.
+// See ../../docs/integration.md for the maintainer handoff and test sequence.
 package main

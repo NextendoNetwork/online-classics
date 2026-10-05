@@ -29,6 +29,8 @@ Review command-line options with `go run . -help`. Lab identity pairing and gene
 - [Scope, provenance and licensing](docs/contribution-scope.md)
 - [Manual test coverage](docs/test-matrix.md)
 - [Maintainer integration checklist](docs/integration.md)
+- [Source architecture and title-specific behavior](docs/architecture.md)
+- [Automated import validation](docs/validation.md)
 
 No game archives, extracted game data, firmware, system keys, IPS binaries, emulator binaries, account profiles or raw captures are included. Client patch installation and emulator fixes are separate from these Go backends.
 
