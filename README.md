@@ -74,6 +74,17 @@ Tests used [Ryujinx-Nextendo](https://github.com/NextendoNetwork/Ryujinx-Nextend
 - [Contributing](CONTRIBUTING.md)
 - [Credits](CREDITS.md)
 
+## Contributors and AI assistance
+
+| Contributor | Work |
+| --- | --- |
+| [SoulToxic3119](https://github.com/SoulToxic3119) | Project direction, original lab implementation, integration and manual testing |
+| [Nextendo Network](https://github.com/NextendoNetwork) | Platform, upstream projects and maintainer coordination |
+| [OpenAI Codex](https://github.com/openai/codex) | Investigation, English documentation, repository organization and validation assistance |
+| [Claude Code](https://github.com/anthropics/claude-code) | Earlier Genesis development and review assistance recorded in the imported project |
+
+See [credits and provenance](CREDITS.md) for attribution scope. GitHub generates its sidebar Contributors list from commit history; this table also recognizes documented tool assistance.
+
 ## Included material
 
 Original server source, tests, protocol implementation notes and documentation are included. Game archives, extracted game data, firmware, system keys, IPS binaries, emulator binaries, account profiles and raw captures are excluded. Nintendo trademarks identify the applications being tested; this project is not affiliated with Nintendo.
