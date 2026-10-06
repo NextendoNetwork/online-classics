@@ -57,7 +57,7 @@ N64 consolidates the Nextendo account-integrated implementation and preserves th
 
 These are owner-reported tests on a local network. Separate-network gameplay, four-player coverage, Switch/Switch and Citron/Switch remain unverified. See the [test matrix](docs/test-matrix.md) for the precise scope.
 
-N64's [documentation](docs/n64-testing.md) includes the observed failures and four-player test plan. Its server consolidation does not establish a repair of Ryujinx game-load crashes. SpeedRunners 2 is outside this repository's scope.
+N64's [documentation](docs/n64-testing.md) includes the observed failures and four-player test plan. Its server consolidation does not establish a repair of Ryujinx game-load crashes.
 
 ## Build and run
 
