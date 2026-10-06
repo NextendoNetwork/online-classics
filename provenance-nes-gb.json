@@ -1,0 +1,994 @@
+[
+  {
+    "server": "nes",
+    "source": "Owner-maintained private Classics lab; derived from the Genesis server baseline",
+    "sourceRevision": null,
+    "snapshotDate": "2026-10-05",
+    "selection": "Top-level Go source/tests, module manifests, MIT license and attribution only",
+    "files": [
+      {
+        "path": "auth.go",
+        "sourceSha256": "ab62c495b493af746982f09001abb2b24ce42a9a0279982b2b50e87b228a94b2",
+        "publishedSha256": "8e9b586329ad13b4f8a4a073cfe51606b943f744311552dc8a3e5f2d7061d056",
+        "transformations": []
+      },
+      {
+        "path": "certificate_test.go",
+        "sourceSha256": "f19acf769ade3472e7986ca39137c2be6022b4391f09e46c26156d73f62c5a85",
+        "publishedSha256": "adec14547d9b2bfba6b8285e06f6bb7bf7cb4d2a7702c978a39095e600d4fada",
+        "transformations": []
+      },
+      {
+        "path": "CREDITS.md",
+        "sourceSha256": "da5308991ec72b877fb80219f44a6958c5f06c0e7a302fd980193d81cd5ee858",
+        "publishedSha256": "c39276f24dbf5750722f6923c228b9ff28b5d436dd3b81857cf01c111fbe380d",
+        "transformations": [
+          "Point attribution to this source snapshot manifest."
+        ]
+      },
+      {
+        "path": "doc.go",
+        "sourceSha256": "e4c317d26be085af91e2bb5c4ef100bf2bf57c8e4029a8f3ce2d23a88d5bb45e",
+        "publishedSha256": "e732c4d5d731a188a16f0fdf437dea3bfda2433cdeeff1732132c36849d24b61",
+        "transformations": [
+          "Update command documentation for the imported title."
+        ]
+      },
+      {
+        "path": "friends_test.go",
+        "sourceSha256": "9dba2b4d3eb73f2243f5d80a06d98f16ab92fff39d943ded302e78a2006f27e2",
+        "publishedSha256": "46ab031960e12a5b47f3e50c0cdc9013edb60804d5d8ddfee38f60320cea7210",
+        "transformations": []
+      },
+      {
+        "path": "friends.go",
+        "sourceSha256": "b8e9124d3f673ba92d126042a990f2f0f42bab546ec34a042fda15f4bf75fed7",
+        "publishedSha256": "2c7571978e508946bbf4b8ed872eb5f0082ff7c488d3a9991a39750a7878dff6",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_diagnostic_test.go",
+        "sourceSha256": "3facf4f5032d67e77d71716f3cba6e5c193a316fe81ba9947faf8f209ea96eb0",
+        "publishedSha256": "a47b3ee243da289b88f6de200c69560bc7b279c0b523fa8c71785390f308e7f2",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_diagnostic.go",
+        "sourceSha256": "738e66d4f53bd193d620fc4098773035fc75955d8cf594e883fd0bf11976d1c6",
+        "publishedSha256": "36805f9417a722edc23ee70147bc6c08e6b9323304a4fa788bb8d44874c49a91",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_document_test.go",
+        "sourceSha256": "15c818d31100915cb0ecbc4f3854e4edda7199702ee9404f8be1cdf900076db0",
+        "publishedSha256": "0c18138c9d45547c5d257bb0c00dc50dfd09b33b98a5f0592bae86b83eb882a8",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_document.go",
+        "sourceSha256": "0603eaac9eb9b822469926768ceb5b16b04c14e4b7d5b1fa5214ffef89a2820c",
+        "publishedSha256": "ae09f71d9163e34084f2843a0adfc3b10dc26c647e556ad7f51fd863bc35c93f",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_field_path_test.go",
+        "sourceSha256": "a46a4731fd3ec1f00081ec018241487eb3455d47ca37004929e184d84c526c4b",
+        "publishedSha256": "724bf068653e3f736ff7fd5b9917df05f519f313fece83f10a92030db287b4c1",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_field_path.go",
+        "sourceSha256": "73e8a64b784483a0bc11b9ed92a05a855aed23854e33e0db84c35d573ad58b64",
+        "publishedSha256": "040dcf532ec5cc0ba9423f7442254c9f9a455ce0c01dc5809b6352b98faba004",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_fixed_test.go",
+        "sourceSha256": "c19813a48fd56a85f850a8277ad513bec0657fd760f40a1db58ee54c37b19f95",
+        "publishedSha256": "b848590c82be8ca32ae3a71daacc4a6c37fba74ad9e16b0d1d4cea7345ee6a15",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_fixed.go",
+        "sourceSha256": "e39489b30c06fa0a52baf11f7497a4db5570c870330877a8297b5f99b261ef84",
+        "publishedSha256": "149f1350fe1f282b58df677b9a016ac813b625fe2a64bc7e48b92126a1626b7d",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_list_test.go",
+        "sourceSha256": "40ab5a82187ff2316235e8319c14c8372713eb1f666d50e843d60f2a347e6124",
+        "publishedSha256": "e4b59d952a48a7ca8c8a5cc07985871c0ffd37f8cf9cc066f493a3cccdfbc6ed",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_list.go",
+        "sourceSha256": "1269eb584a59d8f10709acf5ddf9d8f02084e8bc0a4a8dab3e755e95646dfbcb",
+        "publishedSha256": "69e457104bd48592c0db63bf4d8c2b645d07cdbb62f918e9ce4eeafbf3ce1045",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_next_test.go",
+        "sourceSha256": "ab2dc6ca48a75559f9b6cc6e08fd53560a16db2161a438d8ce85442eb47c68dc",
+        "publishedSha256": "17819a2f5787f3b668638f40eba4ebe9989b9cf4d83ef6294cfa871780fdc21a",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_rank_test.go",
+        "sourceSha256": "26af02d9705a4c054913ab4291d570779a4bbd14c13b469a469903de7414cc47",
+        "publishedSha256": "b6a21568f202bb1537c15c2b90d237b81df8e05fdac80b00f0a6abfec39522b2",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_signaling_test.go",
+        "sourceSha256": "4956264b384721e8877b5b3b1cae11d552c5f7633503f3c98ef4417a2363ec72",
+        "publishedSha256": "9dd6b726dbb216ff53dc15a7b68967222d13566736a91af74c2eeb8de9f13a10",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_signaling.go",
+        "sourceSha256": "6e0f8fcd0d63c72dc24b93bd4c6cc48cfab9c287cfc568e6610cd814698195f6",
+        "publishedSha256": "e303f5d23da405d3163c93531b1d62ea1c3b7594b5c3e3a124fd83d1c12f277c",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_stage_test.go",
+        "sourceSha256": "9a7c0d1ddaac6b23d6c9ad2109de9d36dfea181f8eb1c481d27b7aaf8803f284",
+        "publishedSha256": "0f8d84c21ae83846b97249a008a242aa03b7a087a3fcf2f884dfd4182f59ca90",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_stage.go",
+        "sourceSha256": "df27afe6d87770ee52c323fc58ca25135df5c68c1df27579bac03e3c0538b39d",
+        "publishedSha256": "a426893bbf2629a17349defde8070af08718c807f3dc825fdacecdf551f4b376",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_store_test.go",
+        "sourceSha256": "08b13da907764c1d630fe16f04556671d63c7b4f14d0998a9e7fc769dfdc38c5",
+        "publishedSha256": "88c4ff10153a8bf46180b89727dec4c0197b58af87447170eb8dc22df1a494a3",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_store.go",
+        "sourceSha256": "0ddf5753b76b1fb4b4d90ad1c83c7d7dd900dc8219010ac175e59af1e85bc5ec",
+        "publishedSha256": "877c53319fb0a46fa56b1385095b1c407b6ea84e21e8e12a6dad8ad0ea167886",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_stream_test.go",
+        "sourceSha256": "2a5ed37b7b0ff5f5c2c51b6c9226589f0a62211260c62ebf4eb913947fbefa83",
+        "publishedSha256": "d2cc9f3b0ad4af1f8f82b93519119e0f536f40be7c168cb2ea9b39f073e58ff9",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_stream.go",
+        "sourceSha256": "dc2e628961eeb8e8a9594dd18e9f0f72180ad8307754cfbf8203db9cadce9806",
+        "publishedSha256": "a5b0d10e6bb1addb2df654290828e2a9f2a5f4d43be55c13ee8e8567ce507969",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_test.go",
+        "sourceSha256": "6a2595c0e36f5969fbbe87fc20b6a7baeab92857263d6c7bfde96bce5a047231",
+        "publishedSha256": "b15210b4d61debbd768d996f5c55c76d8d65d1021677b58d373d669e22074033",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_user_state_test.go",
+        "sourceSha256": "df1a2b0245c546aeab95921032eca9f9bf3598801fe4e7001f626f58a8a4c68b",
+        "publishedSha256": "48f1ac629bf8a90a240c02c65f072fe8e874e06d3fcc6ed61184fad11693b84a",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_write.go",
+        "sourceSha256": "ea09697420c73fb5723cd33008a9f6a5337cb30da505aa5c35493af741cff8f7",
+        "publishedSha256": "d0fdb4b971c9fe738784140b2d895fc340503c62b1db3da48eb08a007fbf80e0",
+        "transformations": []
+      },
+      {
+        "path": "gamesync.go",
+        "sourceSha256": "002b947aee850487313536b0feb1c1516738f7e72ab027136fe214ce8ca05d10",
+        "publishedSha256": "0277683535791c0cd6bc49fc7ba554c9cbad2466ed375a9a7e65664eea62dcac",
+        "transformations": []
+      },
+      {
+        "path": "go.mod",
+        "sourceSha256": "571485caf0ec79f7777d1aa19d2900177eb8eb0973d3ea6cc1ee1dd92363eb12",
+        "publishedSha256": "7cda955ec45cc36774f32d5131de0bbf0750b1322d902e2abcd7b97ebab43df5",
+        "transformations": []
+      },
+      {
+        "path": "go.sum",
+        "sourceSha256": "3a4a87978aa5b3a37d216c947c3c599b7ae5a09e6c41211741282e7fb5722c6e",
+        "publishedSha256": "3b443e0272c767a13bc9667d1325e26c80f2483af0c1d7dacf88968007f8abb6",
+        "transformations": []
+      },
+      {
+        "path": "h2_trace_test.go",
+        "sourceSha256": "6a0e93baf370b0cf485b49a5125fe788042d741113ae837dde0632920d689438",
+        "publishedSha256": "26c71b5bb3891cb146324c33de100b7c1223b2c15ccb99d8f6eaa4d3e378ddd5",
+        "transformations": []
+      },
+      {
+        "path": "h2_trace.go",
+        "sourceSha256": "ab1a1a35ae8b48da05c8af3e5253ea5895f25dede788f08ac24022c9fc1bc567",
+        "publishedSha256": "9bd546a4bb3f6bf3066cda529b673f6987d250f25c7965b79e91c331484fca67",
+        "transformations": []
+      },
+      {
+        "path": "ice_test.go",
+        "sourceSha256": "f033531b986df18022b303ff976375167f61e343cfcdc2dc28e4775acc103cf5",
+        "publishedSha256": "443b830d19f454299a0effeade2594c4adcd6fa1f4fdc4d0033f24696264225d",
+        "transformations": []
+      },
+      {
+        "path": "ice.go",
+        "sourceSha256": "f03d7c12d742eb0a71f6d7712f60cabad1ff802ef2aa4e2bd3ed63bc3c70d9ab",
+        "publishedSha256": "5ebcabd6aee0b195f15009c115554df96520fb80deea200b69f4b987aa099da8",
+        "transformations": []
+      },
+      {
+        "path": "identity_diagnostic_test.go",
+        "sourceSha256": "ae0599e6c099378592b6ed45270e2f05b604b1869ee1adc3e8abb7aa96a50ded",
+        "publishedSha256": "4796cc518bee5d3970ba286f05c9be65fcc3c989ea0786a57606d2b7e3f8bb67",
+        "transformations": [
+          "Replace historical LAN test addresses with synthetic private-network fixtures."
+        ]
+      },
+      {
+        "path": "identity_diagnostic.go",
+        "sourceSha256": "6b98f6941ffe7c4b6912f05b634d01354de800564bc9f3d60364aff9f369b6e5",
+        "publishedSha256": "bdf83e7db4d9da5454b51beea9d2c4852fbb1d71626a6903348ddcb45241ebe0",
+        "transformations": []
+      },
+      {
+        "path": "LICENSE.md",
+        "sourceSha256": "f4515645078f79e0484f17c5de8fe693623291f32925c49f1b772bf5ac923443",
+        "publishedSha256": "52f4471bcb17e3c8c7638b7c03129e0997dbfd653e02e2df50f5f317eef818ec",
+        "transformations": []
+      },
+      {
+        "path": "local_friends_test.go",
+        "sourceSha256": "87bb672e686ae2d4335fc49569d2744111b2bc601bad74bceebfae9500613b16",
+        "publishedSha256": "f60f6223b54752ebf65ba1da63a49b80de840c7e1584056bc4987bb7d6b65f93",
+        "transformations": [
+          "Replace historical LAN test addresses with synthetic private-network fixtures."
+        ]
+      },
+      {
+        "path": "local_friends.go",
+        "sourceSha256": "2f1240346b6129845d99a4b27e21decf967a494fe810b1e9265ca573c08fd23a",
+        "publishedSha256": "7fe226257f7bf755877e67c3903d020c6a8949b1cf67559bb3443974a589e3a1",
+        "transformations": []
+      },
+      {
+        "path": "local_messaging_test.go",
+        "sourceSha256": "a4d2b9db732805d88743ae712d81d40a79061d60165c9ad40ed2ca815be3bde9",
+        "publishedSha256": "4a4bd2c147a009bd1e55dcf0e612f28797f938e1e0f2b9f79a8fc46fdd63ea11",
+        "transformations": [
+          "Replace historical LAN test addresses with synthetic private-network fixtures."
+        ]
+      },
+      {
+        "path": "local_messaging.go",
+        "sourceSha256": "c8064e77aac6230fa4ff3b949208153e74661af40d34de4c1e70e696a7eb5aa7",
+        "publishedSha256": "216d6b6481eddf83c97e820e0ff1560a262f661f312b9c30dabe7bd905f7ae44",
+        "transformations": []
+      },
+      {
+        "path": "local_presence_test.go",
+        "sourceSha256": "af02e50ba401ed7d58f588b4c394a625aa036d2c70b46a9917ab3163ce37f164",
+        "publishedSha256": "4fe33f8126f0fa196a2c79b5c96ab44e87c6a885d49b615bcf3656fce2e36650",
+        "transformations": [
+          "Replace historical LAN test addresses with synthetic private-network fixtures."
+        ]
+      },
+      {
+        "path": "local_presence.go",
+        "sourceSha256": "ce129603be47245fdf64caf5408d8e47f4f57c56e9cce52badb4c7e65ecd0eb4",
+        "publishedSha256": "b72bdfd96707ff2b37348789c33d21a134ce44038b31a5ba251c531aae5266bb",
+        "transformations": []
+      },
+      {
+        "path": "main_test.go",
+        "sourceSha256": "a8569450ef6640d2d7a53f489d21dcaada93b8fdf1051bbfe0dca02c5755b893",
+        "publishedSha256": "7bea0d13e538a91e0679c43c652c8a1aca364555302a29e53d1e67195c2e199c",
+        "transformations": []
+      },
+      {
+        "path": "main.go",
+        "sourceSha256": "633bef56b22f07291f39f98f8e259863e8cbcb71dcc989199e091e0942122689",
+        "publishedSha256": "21b37bd685aff6108ffefbd24473f8697414d00dc5c4f4ca50d188abb63409d2",
+        "transformations": []
+      },
+      {
+        "path": "match_join_tokens_test.go",
+        "sourceSha256": "b6c9985a06e9676a2a007c092cbe7c73cbb473a93baec21bcdfb384e5e9fe625",
+        "publishedSha256": "76c806fdb68d40abd379d16f1be46c98a1b319f01797bf9325bcc0755c60c296",
+        "transformations": []
+      },
+      {
+        "path": "match_response_test.go",
+        "sourceSha256": "44c14fc2a50bfa109a86527855a2bf1311a837a63a38e81de43f77980a798bf4",
+        "publishedSha256": "0cc449cea05601cebc3b5e3ddd673b5589f96d44d7fd1592f7ea7652f990cab2",
+        "transformations": []
+      },
+      {
+        "path": "match_rooms_test.go",
+        "sourceSha256": "082da69511955d856bb831cd13aff379f522e57f76739a7e9ffaf4ff523dbc97",
+        "publishedSha256": "dd1e4f06869f35b75f193138b8abe0d08ff05d4b4b90a880a397f2ef8f91025e",
+        "transformations": [
+          "Replace historical LAN test addresses with synthetic private-network fixtures."
+        ]
+      },
+      {
+        "path": "match_rooms.go",
+        "sourceSha256": "8f1d4670a49b1bf2758eabcb6c3119626af601cb840a3518d00ce7a8611afb69",
+        "publishedSha256": "62ccc7c1188ef16d735bfcde364b5481166feabe733912568dd4d6b7d016cab3",
+        "transformations": []
+      },
+      {
+        "path": "match_search_genesis_test.go",
+        "sourceSha256": "21d6faad341a07f63654ea7c0a604c8e820dc808386979b89fb0a21c3fa31ab9",
+        "publishedSha256": "3cda216ca54a088d997c1a253cd3ab6b12f3651e887dd6ad25c1becff60eef3f",
+        "transformations": []
+      },
+      {
+        "path": "messaging_diagnostic_test.go",
+        "sourceSha256": "949e7f9ae648173ba8e5ced0e576bc03f858165a7eaf2b08389783ccc4341e76",
+        "publishedSha256": "ad89e8d33ab8c0d2667e7d53a3ab9884dfbc8f466df80921fdba32931b0536b6",
+        "transformations": [
+          "Replace historical LAN test addresses with synthetic private-network fixtures."
+        ]
+      },
+      {
+        "path": "messaging.go",
+        "sourceSha256": "b2da2e444798df6dad30c810e281cd03990e30658d0fb4c109c3bf7aed008e89",
+        "publishedSha256": "efd12c734cc0c4e793503b39bf9752be493faaeac89603c02c90353c6dba0bea",
+        "transformations": []
+      },
+      {
+        "path": "network_lan.go",
+        "sourceSha256": "63f5c10e6be23317df5dce8ad11c40b76ae27f3b96f2bb3cc99fe284868b466d",
+        "publishedSha256": "0f9d268515cc9e863ae0fc26ce8aa3ad760e21ec5f2d5c4f5b87235d3e3b8da1",
+        "transformations": []
+      },
+      {
+        "path": "npln_test.go",
+        "sourceSha256": "17811a1a02c1253066d00b5b7678160633948d50b80048d35337245c4cec043f",
+        "publishedSha256": "15261f0f25e6105e92029089768fdede4926789886aff05fb4770e97c47bf7c5",
+        "transformations": []
+      },
+      {
+        "path": "npln.go",
+        "sourceSha256": "c7dc0d0af791f350457ea2cbdca714c0123cfcd561bb2c4ce09b7f538983fa68",
+        "publishedSha256": "f92e679e9bfb8d8b75c36f2c8265f1534745f10c4936553f50f47f4d84a36cbf",
+        "transformations": []
+      },
+      {
+        "path": "presence_diagnostic.go",
+        "sourceSha256": "5cbd614c2d5db0ea32d1840323775c711a59c53488e71aca096a9f48e86da961",
+        "publishedSha256": "0e5087b09d578db633b4c5b605838af0aeba4bc352365c858cf849797928a01c",
+        "transformations": []
+      },
+      {
+        "path": "presence_keepalive_test.go",
+        "sourceSha256": "8fd44e55d974c8bc4010a6a98f4ab70b1c84c52da199f74a5578ec0ea812354f",
+        "publishedSha256": "9e437f84dc990b3a4fbb8f421f3d2a5baeca3e04e33cb4862af8dcf4138efe4f",
+        "transformations": []
+      },
+      {
+        "path": "presence_keepalive.go",
+        "sourceSha256": "b61658f04289c3b72a50378bf789774d5ab0a06cadbc2855447e704d720997de",
+        "publishedSha256": "5010c99db020d9c0c7556803f95ea499e3c641635a5980d530c3c0f6358ed71b",
+        "transformations": []
+      },
+      {
+        "path": "rooms_test.go",
+        "sourceSha256": "d8236efa91ce0591a820987d82e803967677c7040b814d649a3278e139bf58b6",
+        "publishedSha256": "2383d41ced3776d7e67929ae129da95ffb8fb6c74427996efb7ddcf673a6e195",
+        "transformations": []
+      },
+      {
+        "path": "rooms.go",
+        "sourceSha256": "aad4d999b8012eb3b4a31d5904aad2415b18211e6c3305dcad3d374c6500fa49",
+        "publishedSha256": "44b2a167bf9cf1bcdb907e3af6d76a009d2fb6c6e5f156bb04f3ada66047353f",
+        "transformations": []
+      },
+      {
+        "path": "session_profile_test.go",
+        "sourceSha256": "e1f376439f6e8abd480715c34361330b90ff41cd92aeec0be9c2257063bbc7d0",
+        "publishedSha256": "ed9e9a7a99f14ba7695783a53ff8eccec3782bec60f9e042334a923d3a522c1e",
+        "transformations": []
+      },
+      {
+        "path": "session_times_test.go",
+        "sourceSha256": "6f98d9d85efbb2b4000b6b5e217ec2ab262aa340c4a300eda01bacacb8707b27",
+        "publishedSha256": "44bc494964dca8f21d8228e582b8b07f708ffd9598d451d32541265b0f2b8ffd",
+        "transformations": []
+      },
+      {
+        "path": "session_token_test.go",
+        "sourceSha256": "e66fd92262d3783dd2ac417f80f9f6054441ddb38f083ebd3b9b085d94dc015f",
+        "publishedSha256": "f447481d988309524a26f3a975a2c2b0cb4ca00b176ef2f975dda541e371a53b",
+        "transformations": []
+      },
+      {
+        "path": "session_token.go",
+        "sourceSha256": "ff95e5db0a84a199781d6f1a6e51eefcf11618b510d1455af63d290d5872aeb6",
+        "publishedSha256": "a237601c73e21d3a8a59691b4b5f7452bd63209dfc83a5948ebb1f4b32fdb903",
+        "transformations": []
+      },
+      {
+        "path": "streams_test.go",
+        "sourceSha256": "10dc80582ff4db884c9b9eb3a6458ed7970f50d32ebdb11750561c1d7bc0eb58",
+        "publishedSha256": "a7a22b4291e50791f260779c854dc2f3f9b611762e4f488d0b829dd6b75c8437",
+        "transformations": []
+      },
+      {
+        "path": "streams.go",
+        "sourceSha256": "612a6ab1fd06e5c16373601a6c709e701fcbfab39c5d91bd52ba52f5af7c0fa7",
+        "publishedSha256": "0950080808c2c5ff7b0ca62f6af33c299c15a923d72c7dfabe903f6d0d9fa88e",
+        "transformations": []
+      },
+      {
+        "path": "THIRD_PARTY_NOTICES.md",
+        "sourceSha256": "39e159d43f2746266aa2fdadc2f360934471564931c5b84d1d1d53672041f259",
+        "publishedSha256": "6a443e57f991284b3cefdd52cc7564b21094dfc9dd2752d6b09ce355433cbc92",
+        "transformations": []
+      },
+      {
+        "path": "ticket_diagnostic_test.go",
+        "sourceSha256": "3ee671990bde3add0efc94963351b7a39f39621d4a218e29b62d0af427654db7",
+        "publishedSha256": "f71fc038b1d078357c731c16bd952fa1afb06330f26f422cb7a279237936374d",
+        "transformations": []
+      },
+      {
+        "path": "ticket_diagnostic.go",
+        "sourceSha256": "ae298200ed7c7511765143405260197104b3e0e872800181084291fdab502aaa",
+        "publishedSha256": "3188e0cee5cd2f0e42fad3ee943ce84e3d8af852c139d649078d55b34980fb40",
+        "transformations": []
+      },
+      {
+        "path": "ticket_uuid_test.go",
+        "sourceSha256": "bc22aebcbc90e6018f331c64c5e1e26d32194a210ac73a4938fdb3d9b2c55bc1",
+        "publishedSha256": "d2bc95e3723b3b345a78aae52832b8947172ece0e30b7a8e20f4995387a2bf35",
+        "transformations": []
+      },
+      {
+        "path": "transport_test.go",
+        "sourceSha256": "3ea7a599b45de9633a10a0498c244cbd6c1665824c4db91fc0e3f0d8d60be067",
+        "publishedSha256": "613b461217513204280d375cb79d24197fe093dc10240c78ec7f1c16830fd606",
+        "transformations": []
+      },
+      {
+        "path": "transport.go",
+        "sourceSha256": "fd2e228656330705de7b5a3c233df6a7305c44287c2b6dcf4f8a066670282326",
+        "publishedSha256": "5706f9becc6042d15881477a978956e2a60d947308990bbc8806e18f528915a7",
+        "transformations": []
+      },
+      {
+        "path": "turn_local_test.go",
+        "sourceSha256": "95cc0b1175e5fd7a72e3005e42def292f5d9b2275a40a2486d2c3b4dd709d534",
+        "publishedSha256": "d6718ecc25085c344a06bcea0f7e23d978dd43e9029406511cd888298a711347",
+        "transformations": []
+      },
+      {
+        "path": "turn_local.go",
+        "sourceSha256": "31724324fdd919b82154b8899049ffe45a3988df73af70f6fe47849d4b351c14",
+        "publishedSha256": "49484e0c0ebf46d06f3d7cbd12db127f35b077a4f123cf62d785b48e3d1b9568",
+        "transformations": []
+      },
+      {
+        "path": "udp_diagnostic_test.go",
+        "sourceSha256": "7a3fcba30560e2cfab409e92146abbdc39c718468fe1b0417b00b8c1d4b89733",
+        "publishedSha256": "73e091314a38c0c3170820c032b02008afa586c161bf9e3d7e6da70a4ba23e3c",
+        "transformations": [
+          "Replace historical LAN test addresses with synthetic private-network fixtures."
+        ]
+      },
+      {
+        "path": "udp_diagnostic.go",
+        "sourceSha256": "5af4b8eadb5b90b060e4b373ca95bcb45853f5ecb82d16a276c8b96e06496a5f",
+        "publishedSha256": "46192f6138891c7f2ed05c066a41d9e25c93fe268a3699dbf8d34de2f2d6eef7",
+        "transformations": []
+      }
+    ],
+    "publishedHashScope": "Git indexed file bytes after text normalization"
+  },
+  {
+    "server": "gb",
+    "source": "Owner-maintained private Classics lab; derived from the Genesis server baseline",
+    "sourceRevision": null,
+    "snapshotDate": "2026-10-05",
+    "selection": "Top-level Go source/tests, module manifests, MIT license and attribution only",
+    "files": [
+      {
+        "path": "auth.go",
+        "sourceSha256": "709b41bc097a344297d9fd0d74d17c9f19f95b9b8959b9814f49ba08eed1977b",
+        "publishedSha256": "beb37b8688aa4b591bd9aacaaed9d0b4a14d1d59cefdc7e9622788ba596d0e3b",
+        "transformations": []
+      },
+      {
+        "path": "certificate_test.go",
+        "sourceSha256": "f19acf769ade3472e7986ca39137c2be6022b4391f09e46c26156d73f62c5a85",
+        "publishedSha256": "adec14547d9b2bfba6b8285e06f6bb7bf7cb4d2a7702c978a39095e600d4fada",
+        "transformations": []
+      },
+      {
+        "path": "CREDITS.md",
+        "sourceSha256": "da5308991ec72b877fb80219f44a6958c5f06c0e7a302fd980193d81cd5ee858",
+        "publishedSha256": "c39276f24dbf5750722f6923c228b9ff28b5d436dd3b81857cf01c111fbe380d",
+        "transformations": [
+          "Point attribution to this source snapshot manifest."
+        ]
+      },
+      {
+        "path": "doc.go",
+        "sourceSha256": "e4c317d26be085af91e2bb5c4ef100bf2bf57c8e4029a8f3ce2d23a88d5bb45e",
+        "publishedSha256": "ad21c250a18309e4040f4a5a46ce5f793c30d323f64399d5eb4470ecccf8c9de",
+        "transformations": [
+          "Update command documentation for the imported title."
+        ]
+      },
+      {
+        "path": "friends_test.go",
+        "sourceSha256": "9dba2b4d3eb73f2243f5d80a06d98f16ab92fff39d943ded302e78a2006f27e2",
+        "publishedSha256": "46ab031960e12a5b47f3e50c0cdc9013edb60804d5d8ddfee38f60320cea7210",
+        "transformations": []
+      },
+      {
+        "path": "friends.go",
+        "sourceSha256": "b8e9124d3f673ba92d126042a990f2f0f42bab546ec34a042fda15f4bf75fed7",
+        "publishedSha256": "2c7571978e508946bbf4b8ed872eb5f0082ff7c488d3a9991a39750a7878dff6",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_diagnostic_test.go",
+        "sourceSha256": "3facf4f5032d67e77d71716f3cba6e5c193a316fe81ba9947faf8f209ea96eb0",
+        "publishedSha256": "a47b3ee243da289b88f6de200c69560bc7b279c0b523fa8c71785390f308e7f2",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_diagnostic.go",
+        "sourceSha256": "738e66d4f53bd193d620fc4098773035fc75955d8cf594e883fd0bf11976d1c6",
+        "publishedSha256": "36805f9417a722edc23ee70147bc6c08e6b9323304a4fa788bb8d44874c49a91",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_document_test.go",
+        "sourceSha256": "15c818d31100915cb0ecbc4f3854e4edda7199702ee9404f8be1cdf900076db0",
+        "publishedSha256": "0c18138c9d45547c5d257bb0c00dc50dfd09b33b98a5f0592bae86b83eb882a8",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_document.go",
+        "sourceSha256": "0603eaac9eb9b822469926768ceb5b16b04c14e4b7d5b1fa5214ffef89a2820c",
+        "publishedSha256": "ae09f71d9163e34084f2843a0adfc3b10dc26c647e556ad7f51fd863bc35c93f",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_field_path_test.go",
+        "sourceSha256": "a46a4731fd3ec1f00081ec018241487eb3455d47ca37004929e184d84c526c4b",
+        "publishedSha256": "724bf068653e3f736ff7fd5b9917df05f519f313fece83f10a92030db287b4c1",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_field_path.go",
+        "sourceSha256": "73e8a64b784483a0bc11b9ed92a05a855aed23854e33e0db84c35d573ad58b64",
+        "publishedSha256": "040dcf532ec5cc0ba9423f7442254c9f9a455ce0c01dc5809b6352b98faba004",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_fixed_test.go",
+        "sourceSha256": "c19813a48fd56a85f850a8277ad513bec0657fd760f40a1db58ee54c37b19f95",
+        "publishedSha256": "b848590c82be8ca32ae3a71daacc4a6c37fba74ad9e16b0d1d4cea7345ee6a15",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_fixed.go",
+        "sourceSha256": "e39489b30c06fa0a52baf11f7497a4db5570c870330877a8297b5f99b261ef84",
+        "publishedSha256": "149f1350fe1f282b58df677b9a016ac813b625fe2a64bc7e48b92126a1626b7d",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_list_test.go",
+        "sourceSha256": "40ab5a82187ff2316235e8319c14c8372713eb1f666d50e843d60f2a347e6124",
+        "publishedSha256": "e4b59d952a48a7ca8c8a5cc07985871c0ffd37f8cf9cc066f493a3cccdfbc6ed",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_list.go",
+        "sourceSha256": "1269eb584a59d8f10709acf5ddf9d8f02084e8bc0a4a8dab3e755e95646dfbcb",
+        "publishedSha256": "69e457104bd48592c0db63bf4d8c2b645d07cdbb62f918e9ce4eeafbf3ce1045",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_next_test.go",
+        "sourceSha256": "ab2dc6ca48a75559f9b6cc6e08fd53560a16db2161a438d8ce85442eb47c68dc",
+        "publishedSha256": "17819a2f5787f3b668638f40eba4ebe9989b9cf4d83ef6294cfa871780fdc21a",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_rank_test.go",
+        "sourceSha256": "26af02d9705a4c054913ab4291d570779a4bbd14c13b469a469903de7414cc47",
+        "publishedSha256": "b6a21568f202bb1537c15c2b90d237b81df8e05fdac80b00f0a6abfec39522b2",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_signaling_test.go",
+        "sourceSha256": "4956264b384721e8877b5b3b1cae11d552c5f7633503f3c98ef4417a2363ec72",
+        "publishedSha256": "9dd6b726dbb216ff53dc15a7b68967222d13566736a91af74c2eeb8de9f13a10",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_signaling.go",
+        "sourceSha256": "6e0f8fcd0d63c72dc24b93bd4c6cc48cfab9c287cfc568e6610cd814698195f6",
+        "publishedSha256": "e303f5d23da405d3163c93531b1d62ea1c3b7594b5c3e3a124fd83d1c12f277c",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_stage_test.go",
+        "sourceSha256": "9a7c0d1ddaac6b23d6c9ad2109de9d36dfea181f8eb1c481d27b7aaf8803f284",
+        "publishedSha256": "0f8d84c21ae83846b97249a008a242aa03b7a087a3fcf2f884dfd4182f59ca90",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_stage.go",
+        "sourceSha256": "df27afe6d87770ee52c323fc58ca25135df5c68c1df27579bac03e3c0538b39d",
+        "publishedSha256": "a426893bbf2629a17349defde8070af08718c807f3dc825fdacecdf551f4b376",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_store_test.go",
+        "sourceSha256": "08b13da907764c1d630fe16f04556671d63c7b4f14d0998a9e7fc769dfdc38c5",
+        "publishedSha256": "88c4ff10153a8bf46180b89727dec4c0197b58af87447170eb8dc22df1a494a3",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_store.go",
+        "sourceSha256": "0ddf5753b76b1fb4b4d90ad1c83c7d7dd900dc8219010ac175e59af1e85bc5ec",
+        "publishedSha256": "877c53319fb0a46fa56b1385095b1c407b6ea84e21e8e12a6dad8ad0ea167886",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_stream_test.go",
+        "sourceSha256": "2a5ed37b7b0ff5f5c2c51b6c9226589f0a62211260c62ebf4eb913947fbefa83",
+        "publishedSha256": "d2cc9f3b0ad4af1f8f82b93519119e0f536f40be7c168cb2ea9b39f073e58ff9",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_stream.go",
+        "sourceSha256": "dc2e628961eeb8e8a9594dd18e9f0f72180ad8307754cfbf8203db9cadce9806",
+        "publishedSha256": "a5b0d10e6bb1addb2df654290828e2a9f2a5f4d43be55c13ee8e8567ce507969",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_test.go",
+        "sourceSha256": "6a2595c0e36f5969fbbe87fc20b6a7baeab92857263d6c7bfde96bce5a047231",
+        "publishedSha256": "b15210b4d61debbd768d996f5c55c76d8d65d1021677b58d373d669e22074033",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_user_state_test.go",
+        "sourceSha256": "df1a2b0245c546aeab95921032eca9f9bf3598801fe4e7001f626f58a8a4c68b",
+        "publishedSha256": "48f1ac629bf8a90a240c02c65f072fe8e874e06d3fcc6ed61184fad11693b84a",
+        "transformations": []
+      },
+      {
+        "path": "gamesync_write.go",
+        "sourceSha256": "ea09697420c73fb5723cd33008a9f6a5337cb30da505aa5c35493af741cff8f7",
+        "publishedSha256": "d0fdb4b971c9fe738784140b2d895fc340503c62b1db3da48eb08a007fbf80e0",
+        "transformations": []
+      },
+      {
+        "path": "gamesync.go",
+        "sourceSha256": "002b947aee850487313536b0feb1c1516738f7e72ab027136fe214ce8ca05d10",
+        "publishedSha256": "0277683535791c0cd6bc49fc7ba554c9cbad2466ed375a9a7e65664eea62dcac",
+        "transformations": []
+      },
+      {
+        "path": "go.mod",
+        "sourceSha256": "9d887a279b27bf657c39fd7cc0517650bc3aedff6a7f93d7a1d7bcfaa2b75cd2",
+        "publishedSha256": "c1e3395ae527dbb73d12f4beef28bbddd1581766a21acaf7bb58f219a27f0fa5",
+        "transformations": []
+      },
+      {
+        "path": "go.sum",
+        "sourceSha256": "3a4a87978aa5b3a37d216c947c3c599b7ae5a09e6c41211741282e7fb5722c6e",
+        "publishedSha256": "3b443e0272c767a13bc9667d1325e26c80f2483af0c1d7dacf88968007f8abb6",
+        "transformations": []
+      },
+      {
+        "path": "h2_trace_test.go",
+        "sourceSha256": "6a0e93baf370b0cf485b49a5125fe788042d741113ae837dde0632920d689438",
+        "publishedSha256": "26c71b5bb3891cb146324c33de100b7c1223b2c15ccb99d8f6eaa4d3e378ddd5",
+        "transformations": []
+      },
+      {
+        "path": "h2_trace.go",
+        "sourceSha256": "ab1a1a35ae8b48da05c8af3e5253ea5895f25dede788f08ac24022c9fc1bc567",
+        "publishedSha256": "9bd546a4bb3f6bf3066cda529b673f6987d250f25c7965b79e91c331484fca67",
+        "transformations": []
+      },
+      {
+        "path": "ice_test.go",
+        "sourceSha256": "f033531b986df18022b303ff976375167f61e343cfcdc2dc28e4775acc103cf5",
+        "publishedSha256": "443b830d19f454299a0effeade2594c4adcd6fa1f4fdc4d0033f24696264225d",
+        "transformations": []
+      },
+      {
+        "path": "ice.go",
+        "sourceSha256": "f03d7c12d742eb0a71f6d7712f60cabad1ff802ef2aa4e2bd3ed63bc3c70d9ab",
+        "publishedSha256": "5ebcabd6aee0b195f15009c115554df96520fb80deea200b69f4b987aa099da8",
+        "transformations": []
+      },
+      {
+        "path": "identity_diagnostic_test.go",
+        "sourceSha256": "ae0599e6c099378592b6ed45270e2f05b604b1869ee1adc3e8abb7aa96a50ded",
+        "publishedSha256": "4796cc518bee5d3970ba286f05c9be65fcc3c989ea0786a57606d2b7e3f8bb67",
+        "transformations": [
+          "Replace historical LAN test addresses with synthetic private-network fixtures."
+        ]
+      },
+      {
+        "path": "identity_diagnostic.go",
+        "sourceSha256": "6b98f6941ffe7c4b6912f05b634d01354de800564bc9f3d60364aff9f369b6e5",
+        "publishedSha256": "bdf83e7db4d9da5454b51beea9d2c4852fbb1d71626a6903348ddcb45241ebe0",
+        "transformations": []
+      },
+      {
+        "path": "LICENSE.md",
+        "sourceSha256": "f4515645078f79e0484f17c5de8fe693623291f32925c49f1b772bf5ac923443",
+        "publishedSha256": "52f4471bcb17e3c8c7638b7c03129e0997dbfd653e02e2df50f5f317eef818ec",
+        "transformations": []
+      },
+      {
+        "path": "local_friends_test.go",
+        "sourceSha256": "87bb672e686ae2d4335fc49569d2744111b2bc601bad74bceebfae9500613b16",
+        "publishedSha256": "f60f6223b54752ebf65ba1da63a49b80de840c7e1584056bc4987bb7d6b65f93",
+        "transformations": [
+          "Replace historical LAN test addresses with synthetic private-network fixtures."
+        ]
+      },
+      {
+        "path": "local_friends.go",
+        "sourceSha256": "2f1240346b6129845d99a4b27e21decf967a494fe810b1e9265ca573c08fd23a",
+        "publishedSha256": "7fe226257f7bf755877e67c3903d020c6a8949b1cf67559bb3443974a589e3a1",
+        "transformations": []
+      },
+      {
+        "path": "local_messaging_test.go",
+        "sourceSha256": "a4d2b9db732805d88743ae712d81d40a79061d60165c9ad40ed2ca815be3bde9",
+        "publishedSha256": "4a4bd2c147a009bd1e55dcf0e612f28797f938e1e0f2b9f79a8fc46fdd63ea11",
+        "transformations": [
+          "Replace historical LAN test addresses with synthetic private-network fixtures."
+        ]
+      },
+      {
+        "path": "local_messaging.go",
+        "sourceSha256": "c8064e77aac6230fa4ff3b949208153e74661af40d34de4c1e70e696a7eb5aa7",
+        "publishedSha256": "216d6b6481eddf83c97e820e0ff1560a262f661f312b9c30dabe7bd905f7ae44",
+        "transformations": []
+      },
+      {
+        "path": "local_presence_test.go",
+        "sourceSha256": "af02e50ba401ed7d58f588b4c394a625aa036d2c70b46a9917ab3163ce37f164",
+        "publishedSha256": "4fe33f8126f0fa196a2c79b5c96ab44e87c6a885d49b615bcf3656fce2e36650",
+        "transformations": [
+          "Replace historical LAN test addresses with synthetic private-network fixtures."
+        ]
+      },
+      {
+        "path": "local_presence.go",
+        "sourceSha256": "ce129603be47245fdf64caf5408d8e47f4f57c56e9cce52badb4c7e65ecd0eb4",
+        "publishedSha256": "b72bdfd96707ff2b37348789c33d21a134ce44038b31a5ba251c531aae5266bb",
+        "transformations": []
+      },
+      {
+        "path": "main_test.go",
+        "sourceSha256": "a8569450ef6640d2d7a53f489d21dcaada93b8fdf1051bbfe0dca02c5755b893",
+        "publishedSha256": "7bea0d13e538a91e0679c43c652c8a1aca364555302a29e53d1e67195c2e199c",
+        "transformations": []
+      },
+      {
+        "path": "main.go",
+        "sourceSha256": "633bef56b22f07291f39f98f8e259863e8cbcb71dcc989199e091e0942122689",
+        "publishedSha256": "21b37bd685aff6108ffefbd24473f8697414d00dc5c4f4ca50d188abb63409d2",
+        "transformations": []
+      },
+      {
+        "path": "match_join_tokens_test.go",
+        "sourceSha256": "b6c9985a06e9676a2a007c092cbe7c73cbb473a93baec21bcdfb384e5e9fe625",
+        "publishedSha256": "76c806fdb68d40abd379d16f1be46c98a1b319f01797bf9325bcc0755c60c296",
+        "transformations": []
+      },
+      {
+        "path": "match_response_test.go",
+        "sourceSha256": "44c14fc2a50bfa109a86527855a2bf1311a837a63a38e81de43f77980a798bf4",
+        "publishedSha256": "0cc449cea05601cebc3b5e3ddd673b5589f96d44d7fd1592f7ea7652f990cab2",
+        "transformations": []
+      },
+      {
+        "path": "match_rooms_test.go",
+        "sourceSha256": "082da69511955d856bb831cd13aff379f522e57f76739a7e9ffaf4ff523dbc97",
+        "publishedSha256": "dd1e4f06869f35b75f193138b8abe0d08ff05d4b4b90a880a397f2ef8f91025e",
+        "transformations": [
+          "Replace historical LAN test addresses with synthetic private-network fixtures."
+        ]
+      },
+      {
+        "path": "match_rooms.go",
+        "sourceSha256": "8f1d4670a49b1bf2758eabcb6c3119626af601cb840a3518d00ce7a8611afb69",
+        "publishedSha256": "62ccc7c1188ef16d735bfcde364b5481166feabe733912568dd4d6b7d016cab3",
+        "transformations": []
+      },
+      {
+        "path": "match_search_genesis_test.go",
+        "sourceSha256": "21d6faad341a07f63654ea7c0a604c8e820dc808386979b89fb0a21c3fa31ab9",
+        "publishedSha256": "3cda216ca54a088d997c1a253cd3ab6b12f3651e887dd6ad25c1becff60eef3f",
+        "transformations": []
+      },
+      {
+        "path": "messaging_diagnostic_test.go",
+        "sourceSha256": "949e7f9ae648173ba8e5ced0e576bc03f858165a7eaf2b08389783ccc4341e76",
+        "publishedSha256": "ad89e8d33ab8c0d2667e7d53a3ab9884dfbc8f466df80921fdba32931b0536b6",
+        "transformations": [
+          "Replace historical LAN test addresses with synthetic private-network fixtures."
+        ]
+      },
+      {
+        "path": "messaging.go",
+        "sourceSha256": "b2da2e444798df6dad30c810e281cd03990e30658d0fb4c109c3bf7aed008e89",
+        "publishedSha256": "efd12c734cc0c4e793503b39bf9752be493faaeac89603c02c90353c6dba0bea",
+        "transformations": []
+      },
+      {
+        "path": "network_lan.go",
+        "sourceSha256": "63f5c10e6be23317df5dce8ad11c40b76ae27f3b96f2bb3cc99fe284868b466d",
+        "publishedSha256": "0f9d268515cc9e863ae0fc26ce8aa3ad760e21ec5f2d5c4f5b87235d3e3b8da1",
+        "transformations": []
+      },
+      {
+        "path": "npln_test.go",
+        "sourceSha256": "17811a1a02c1253066d00b5b7678160633948d50b80048d35337245c4cec043f",
+        "publishedSha256": "15261f0f25e6105e92029089768fdede4926789886aff05fb4770e97c47bf7c5",
+        "transformations": []
+      },
+      {
+        "path": "npln.go",
+        "sourceSha256": "c7dc0d0af791f350457ea2cbdca714c0123cfcd561bb2c4ce09b7f538983fa68",
+        "publishedSha256": "f92e679e9bfb8d8b75c36f2c8265f1534745f10c4936553f50f47f4d84a36cbf",
+        "transformations": []
+      },
+      {
+        "path": "presence_diagnostic.go",
+        "sourceSha256": "5cbd614c2d5db0ea32d1840323775c711a59c53488e71aca096a9f48e86da961",
+        "publishedSha256": "0e5087b09d578db633b4c5b605838af0aeba4bc352365c858cf849797928a01c",
+        "transformations": []
+      },
+      {
+        "path": "presence_keepalive_test.go",
+        "sourceSha256": "8fd44e55d974c8bc4010a6a98f4ab70b1c84c52da199f74a5578ec0ea812354f",
+        "publishedSha256": "9e437f84dc990b3a4fbb8f421f3d2a5baeca3e04e33cb4862af8dcf4138efe4f",
+        "transformations": []
+      },
+      {
+        "path": "presence_keepalive.go",
+        "sourceSha256": "b61658f04289c3b72a50378bf789774d5ab0a06cadbc2855447e704d720997de",
+        "publishedSha256": "5010c99db020d9c0c7556803f95ea499e3c641635a5980d530c3c0f6358ed71b",
+        "transformations": []
+      },
+      {
+        "path": "rooms_test.go",
+        "sourceSha256": "d8236efa91ce0591a820987d82e803967677c7040b814d649a3278e139bf58b6",
+        "publishedSha256": "2383d41ced3776d7e67929ae129da95ffb8fb6c74427996efb7ddcf673a6e195",
+        "transformations": []
+      },
+      {
+        "path": "rooms.go",
+        "sourceSha256": "aad4d999b8012eb3b4a31d5904aad2415b18211e6c3305dcad3d374c6500fa49",
+        "publishedSha256": "44b2a167bf9cf1bcdb907e3af6d76a009d2fb6c6e5f156bb04f3ada66047353f",
+        "transformations": []
+      },
+      {
+        "path": "session_profile_test.go",
+        "sourceSha256": "0c8e898b95b86ec492d7835aac32f6c39fa62500ff33d436ef60b46c72d61ac7",
+        "publishedSha256": "54ebe15034d5d6342cd085e617c840abbb4f17cdacadb95b2872c9338a896fd4",
+        "transformations": []
+      },
+      {
+        "path": "session_times_test.go",
+        "sourceSha256": "6f98d9d85efbb2b4000b6b5e217ec2ab262aa340c4a300eda01bacacb8707b27",
+        "publishedSha256": "44bc494964dca8f21d8228e582b8b07f708ffd9598d451d32541265b0f2b8ffd",
+        "transformations": []
+      },
+      {
+        "path": "session_token_test.go",
+        "sourceSha256": "e66fd92262d3783dd2ac417f80f9f6054441ddb38f083ebd3b9b085d94dc015f",
+        "publishedSha256": "f447481d988309524a26f3a975a2c2b0cb4ca00b176ef2f975dda541e371a53b",
+        "transformations": []
+      },
+      {
+        "path": "session_token.go",
+        "sourceSha256": "ced89f29365d065177f3b4d4051102f3ef2ec0dd0c9613c423a4723c1f033df3",
+        "publishedSha256": "2e5450e03ba0c462b3ac1c905576c24651098ddb6b12455f138548b1f1ad2bdb",
+        "transformations": []
+      },
+      {
+        "path": "streams_test.go",
+        "sourceSha256": "10dc80582ff4db884c9b9eb3a6458ed7970f50d32ebdb11750561c1d7bc0eb58",
+        "publishedSha256": "a7a22b4291e50791f260779c854dc2f3f9b611762e4f488d0b829dd6b75c8437",
+        "transformations": []
+      },
+      {
+        "path": "streams.go",
+        "sourceSha256": "612a6ab1fd06e5c16373601a6c709e701fcbfab39c5d91bd52ba52f5af7c0fa7",
+        "publishedSha256": "0950080808c2c5ff7b0ca62f6af33c299c15a923d72c7dfabe903f6d0d9fa88e",
+        "transformations": []
+      },
+      {
+        "path": "THIRD_PARTY_NOTICES.md",
+        "sourceSha256": "39e159d43f2746266aa2fdadc2f360934471564931c5b84d1d1d53672041f259",
+        "publishedSha256": "6a443e57f991284b3cefdd52cc7564b21094dfc9dd2752d6b09ce355433cbc92",
+        "transformations": []
+      },
+      {
+        "path": "ticket_diagnostic_test.go",
+        "sourceSha256": "3ee671990bde3add0efc94963351b7a39f39621d4a218e29b62d0af427654db7",
+        "publishedSha256": "f71fc038b1d078357c731c16bd952fa1afb06330f26f422cb7a279237936374d",
+        "transformations": []
+      },
+      {
+        "path": "ticket_diagnostic.go",
+        "sourceSha256": "ae298200ed7c7511765143405260197104b3e0e872800181084291fdab502aaa",
+        "publishedSha256": "3188e0cee5cd2f0e42fad3ee943ce84e3d8af852c139d649078d55b34980fb40",
+        "transformations": []
+      },
+      {
+        "path": "ticket_uuid_test.go",
+        "sourceSha256": "bc22aebcbc90e6018f331c64c5e1e26d32194a210ac73a4938fdb3d9b2c55bc1",
+        "publishedSha256": "d2bc95e3723b3b345a78aae52832b8947172ece0e30b7a8e20f4995387a2bf35",
+        "transformations": []
+      },
+      {
+        "path": "transport_test.go",
+        "sourceSha256": "3ea7a599b45de9633a10a0498c244cbd6c1665824c4db91fc0e3f0d8d60be067",
+        "publishedSha256": "613b461217513204280d375cb79d24197fe093dc10240c78ec7f1c16830fd606",
+        "transformations": []
+      },
+      {
+        "path": "transport.go",
+        "sourceSha256": "fd2e228656330705de7b5a3c233df6a7305c44287c2b6dcf4f8a066670282326",
+        "publishedSha256": "5706f9becc6042d15881477a978956e2a60d947308990bbc8806e18f528915a7",
+        "transformations": []
+      },
+      {
+        "path": "turn_local_test.go",
+        "sourceSha256": "95cc0b1175e5fd7a72e3005e42def292f5d9b2275a40a2486d2c3b4dd709d534",
+        "publishedSha256": "d6718ecc25085c344a06bcea0f7e23d978dd43e9029406511cd888298a711347",
+        "transformations": []
+      },
+      {
+        "path": "turn_local.go",
+        "sourceSha256": "31724324fdd919b82154b8899049ffe45a3988df73af70f6fe47849d4b351c14",
+        "publishedSha256": "49484e0c0ebf46d06f3d7cbd12db127f35b077a4f123cf62d785b48e3d1b9568",
+        "transformations": []
+      },
+      {
+        "path": "udp_diagnostic_test.go",
+        "sourceSha256": "7a3fcba30560e2cfab409e92146abbdc39c718468fe1b0417b00b8c1d4b89733",
+        "publishedSha256": "73e091314a38c0c3170820c032b02008afa586c161bf9e3d7e6da70a4ba23e3c",
+        "transformations": [
+          "Replace historical LAN test addresses with synthetic private-network fixtures."
+        ]
+      },
+      {
+        "path": "udp_diagnostic.go",
+        "sourceSha256": "5af4b8eadb5b90b060e4b373ca95bcb45853f5ecb82d16a276c8b96e06496a5f",
+        "publishedSha256": "46192f6138891c7f2ed05c066a41d9e25c93fe268a3699dbf8d34de2f2d6eef7",
+        "transformations": []
+      }
+    ],
+    "publishedHashScope": "Git indexed file bytes after text normalization"
+  }
+]

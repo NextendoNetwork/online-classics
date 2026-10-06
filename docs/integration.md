@@ -11,4 +11,4 @@
 
 Client work belongs in separate changes: Prelude installation/routing, Ryujinx friend-cache behavior and Citron diagnostics should not be presented as server fixes. No production deployment or SpeedRunners 2 support is established by this contribution.
 
-Submit this branch as a draft pull request against main. Include the automated check results and the limitations above. Do not push directly to main or upload private lab archives.
+Submit subsequent contributions through a pull request against main. Include the automated check results and the limitations above. Merge reviewed changes using the repository's permitted workflow and keep private lab archives out of Git.

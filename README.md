@@ -1,7 +1,7 @@
-<h1 align="center">online-classics</h1>
+<h1 align="center">Nextendo Online Classics</h1>
 
 <p align="center">
-  <b>Genesis, Game Boy Advance and SNES server implementations for Nextendo Network.</b>
+  <b>Genesis, Game Boy Advance, SNES, NES and Game Boy server implementations for Nextendo Network.</b>
 </p>
 
 <p align="center">
@@ -13,9 +13,30 @@
 
 ---
 
+## Start here
+
+Choose the Nintendo Switch Online (NSO) application you want to test:
+
+| NES | SNES | Game Boy | Game Boy Advance | SEGA Genesis |
+| --- | --- | --- | --- | --- |
+| [NES 9.1.0](servers/nes/README.md) | [SNES 6.0.0](servers/snes) | [Game Boy 4.1.0](servers/gb/README.md) | [GBA 3.3.0](servers/gba) | [Genesis 3.1.1](servers/genesis) |
+
+### I want to play or test with a friend
+
+1. Use [Ryujinx-Nextendo](https://github.com/NextendoNetwork/Ryujinx-Nextendo), [Citron-Nextendo](https://github.com/NextendoNetwork/citron-nextendo), or a Switch prepared with [Prelude](https://github.com/NextendoNetwork/Prelude-Nro).
+2. Match the installed Classics application version to the table above and follow the [client setup guide](docs/client-setup.md). Matching client support, separately supplied authorized patch setup and service routing are required.
+3. Obtain the test server destination and account requirements from the operator. These sources do not establish that a public Nextendo service is deployed for every title.
+4. Have one player create a room and the other find and join it. Follow the [acceptance sequence](docs/client-setup.md#acceptance-sequence), including gameplay, leaving/rejoining and reversing the host.
+
+This repository supplies backend source and documentation. Games, firmware, console keys, patches and ready-to-run emulator packages are not included. See the [tested combinations](docs/test-matrix.md) before choosing clients. N64 remains in testing and is excluded.
+
+### I want to run a test server
+
+Start with [Build and run](#build-and-run), then the [integration guide](docs/integration.md). Run one Classics backend at a time when sharing ports. The local lab identity and relay options require operator configuration before connecting real clients.
+
 ## What is this?
 
-Experimental **Go** implementations of the NPLN/Gamesync services used by three Nintendo Switch Online Classics applications, contributed for integration with [Nextendo Network](https://nextendo.network).
+Experimental **Go** implementations of the NPLN/Gamesync services used by five Nintendo Switch Online Classics applications, contributed for integration with [Nextendo Network](https://nextendo.network).
 
 The backends handle lab authentication, session discovery and joining, friends and presence, Gamesync documents and watches, signaling, and local STUN/TURN experiments. They derive from Soul Genesis Lab. Public NPLN references and Nextendo server examples informed the protocol investigation.
 
@@ -28,8 +49,12 @@ Each title currently has an independent module. Shared-handler consolidation and
 | SEGA Genesis | 3.1.1 | [servers/genesis](servers/genesis) | Further validation required; Citron suspension freeze unresolved |
 | Game Boy Advance | 3.3.0 | [servers/gba](servers/gba) | Ryujinx/Ryujinx, Ryujinx/Switch and Citron/Ryujinx; both host directions tested |
 | Super Nintendo Entertainment System | 6.0.0 | [servers/snes](servers/snes) | Ryujinx/Ryujinx, Ryujinx/Switch and Citron/Ryujinx |
+| Nintendo Entertainment System | 9.1.0 | [servers/nes](servers/nes) | Ryujinx/Ryujinx, Citron/Ryujinx and Ryujinx/Switch; host reversal reported |
+| Game Boy | 4.1.0 | [servers/gb](servers/gb) | Ryujinx/Ryujinx, Citron/Ryujinx and Ryujinx/Switch; host reversal reported |
 
 These are owner-reported tests on a local network. Separate-network gameplay, four-player coverage, Switch/Switch and Citron/Switch remain unverified. See the [test matrix](docs/test-matrix.md) for the precise scope.
+
+**N64 is excluded from this update.** Its room and gameplay compatibility tests are ongoing; Ryujinx game-load crashes remain under investigation. SpeedRunners 2 is also outside this repository's scope.
 
 ## Build and run
 
@@ -41,7 +66,7 @@ go build -o server .
 go run . -log-file ""
 ```
 
-Replace `gba` with `genesis` or `snes` as needed. Defaults use loopback listeners. Run `go run . -help` for configuration flags and review the [integration guide](docs/integration.md) before configuring real clients.
+Replace `gba` with `genesis`, `snes`, `nes` or `gb` as needed. Defaults use loopback listeners. Run `go run . -help` for configuration flags and review the [integration guide](docs/integration.md) before configuring real clients.
 
 Temporary TLS/signing material and explicit local identity pairing support lab tests. Production use requires Nextendo account verification, persistent keys, permissions, reachable ICE/relay destinations and authorized relay access.
 
@@ -55,7 +80,7 @@ go vet ./...
 go build -o server .
 ```
 
-All three modules passed these checks locally and in GitHub's Linux workflow for the initial import. Automated checks validate server behavior; gameplay needs the separate manual acceptance sequence.
+The initial three modules passed these checks locally and in GitHub's Linux workflow. NES and Game Boy extend the same workflow; see [validation](docs/validation.md) for the current source checks. Automated checks validate server behavior; gameplay needs the separate manual acceptance sequence.
 
 ## Clients
 
@@ -71,6 +96,7 @@ Tests used [Ryujinx-Nextendo](https://github.com/NextendoNetwork/Ryujinx-Nextend
 - [Gameplay test matrix](docs/test-matrix.md)
 - [Automated validation](docs/validation.md)
 - [Source provenance and contribution scope](docs/contribution-scope.md)
+- [Publication policy and content checks](docs/publication-policy.md)
 - [Contributing](CONTRIBUTING.md)
 - [Credits](CREDITS.md)
 
@@ -91,4 +117,4 @@ Original server source, tests, protocol implementation notes and documentation a
 
 ## License
 
-The repository's root [PolyForm Shield License 1.0.0](LICENSE.md) is retained. Imported original server material preserves its **MIT** notices in [Genesis](servers/genesis/LICENSE.md), [GBA](servers/gba/LICENSE), and [SNES](servers/snes/LICENSE). Dependencies retain their own licenses. See [license boundaries and provenance](docs/contribution-scope.md).
+The repository's root [PolyForm Shield License 1.0.0](LICENSE.md) is retained. Imported original server material preserves its **MIT** notices in [Genesis](servers/genesis/LICENSE.md), [GBA](servers/gba/LICENSE), [SNES](servers/snes/LICENSE), [NES](servers/nes/LICENSE.md), and [Game Boy](servers/gb/LICENSE.md). Dependencies retain their own licenses. See [license boundaries and provenance](docs/contribution-scope.md).

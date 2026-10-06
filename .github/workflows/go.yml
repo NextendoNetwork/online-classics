@@ -10,7 +10,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        server: [genesis, gba, snes]
+        server: [genesis, gba, snes, nes, gb]
     defaults:
       run:
         working-directory: servers/${{ matrix.server }}
