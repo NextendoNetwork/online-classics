@@ -17,4 +17,4 @@ Record application version/build ID, backend revision, client revisions, optiona
 
 NES and Game Boy results were reported by the owner during the local acceptance sequence: discovery, joining, gameplay, leaving/rejoining and host reversal. The owner reported no observed errors in the final tested pairings. Exact duration and every bundled game were not independently recorded. Game Boy Switch testing initially used base version 1.0.0, which did not match the prepared 4.1.0 setup; confirm the installed version before reproducing the final test. These reports do not certify every game in a catalogue.
 
-N64 is deliberately absent: gameplay crashes and four-player testing remain unresolved in a separate private lab.
+N64 is deliberately absent from the validated implementation matrix: gameplay crashes and four-player testing remain unresolved in a separate private lab. See the [N64 experimental report](n64-testing.md) for its stage-by-stage evidence and reproduction plan.

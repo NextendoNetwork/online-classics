@@ -28,7 +28,7 @@ Choose the Nintendo Switch Online (NSO) application you want to test:
 3. Obtain the test server destination and account requirements from the operator. These sources do not establish that a public Nextendo service is deployed for every title.
 4. Have one player create a room and the other find and join it. Follow the [acceptance sequence](docs/client-setup.md#acceptance-sequence), including gameplay, leaving/rejoining and reversing the host.
 
-This repository supplies backend source and documentation. Games, firmware, console keys, patches and ready-to-run emulator packages are not included. See the [tested combinations](docs/test-matrix.md) before choosing clients. N64 remains in testing and is excluded.
+This repository supplies backend source and documentation. Games, firmware, console keys, patches and ready-to-run emulator packages are not included. See the [tested combinations](docs/test-matrix.md) before choosing clients. N64 remains experimental: see the [N64 test status and reproduction guide](docs/n64-testing.md).
 
 ### I want to run a test server
 
@@ -54,7 +54,7 @@ Each title currently has an independent module. Shared-handler consolidation and
 
 These are owner-reported tests on a local network. Separate-network gameplay, four-player coverage, Switch/Switch and Citron/Switch remain unverified. See the [test matrix](docs/test-matrix.md) for the precise scope.
 
-**N64 is excluded from this update.** Its room and gameplay compatibility tests are ongoing; Ryujinx game-load crashes remain under investigation. SpeedRunners 2 is also outside this repository's scope.
+**N64 implementation is excluded from this update.** Its room and gameplay compatibility tests are ongoing; Ryujinx game-load crashes remain under investigation. Its [experimental documentation](docs/n64-testing.md) includes the observed failures and four-player test plan. SpeedRunners 2 is also outside this repository's scope.
 
 ## Build and run
 
@@ -94,6 +94,7 @@ Tests used [Ryujinx-Nextendo](https://github.com/NextendoNetwork/Ryujinx-Nextend
 - [Maintainer integration](docs/integration.md)
 - [Client setup and test sequence](docs/client-setup.md)
 - [Gameplay test matrix](docs/test-matrix.md)
+- [N64 experimental status and four-player test plan](docs/n64-testing.md)
 - [Automated validation](docs/validation.md)
 - [Source provenance and contribution scope](docs/contribution-scope.md)
 - [Publication policy and content checks](docs/publication-policy.md)
