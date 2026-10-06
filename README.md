@@ -1,4 +1,4 @@
-<h1 align="center">online-classics</h1>
+<h1 align="center">Nextendo Online Classics</h1>
 
 <p align="center">
   <b>Genesis, Game Boy Advance, SNES, NES and Game Boy server implementations for Nextendo Network.</b>
@@ -12,6 +12,27 @@
 </p>
 
 ---
+
+## Start here
+
+Choose the Nintendo Switch Online (NSO) application you want to test:
+
+| NES | SNES | Game Boy | Game Boy Advance | SEGA Genesis |
+| --- | --- | --- | --- | --- |
+| [NES 9.1.0](servers/nes/README.md) | [SNES 6.0.0](servers/snes) | [Game Boy 4.1.0](servers/gb/README.md) | [GBA 3.3.0](servers/gba) | [Genesis 3.1.1](servers/genesis) |
+
+### I want to play or test with a friend
+
+1. Use [Ryujinx-Nextendo](https://github.com/NextendoNetwork/Ryujinx-Nextendo), [Citron-Nextendo](https://github.com/NextendoNetwork/citron-nextendo), or a Switch prepared with [Prelude](https://github.com/NextendoNetwork/Prelude-Nro).
+2. Match the installed Classics application version to the table above and follow the [client setup guide](docs/client-setup.md). Matching client support, separately supplied authorized patch setup and service routing are required.
+3. Obtain the test server destination and account requirements from the operator. These sources do not establish that a public Nextendo service is deployed for every title.
+4. Have one player create a room and the other find and join it. Follow the [acceptance sequence](docs/client-setup.md#acceptance-sequence), including gameplay, leaving/rejoining and reversing the host.
+
+This repository supplies backend source and documentation. Games, firmware, console keys, patches and ready-to-run emulator packages are not included. See the [tested combinations](docs/test-matrix.md) before choosing clients. N64 remains in testing and is excluded.
+
+### I want to run a test server
+
+Start with [Build and run](#build-and-run), then the [integration guide](docs/integration.md). Run one Classics backend at a time when sharing ports. The local lab identity and relay options require operator configuration before connecting real clients.
 
 ## What is this?
 
