@@ -11,4 +11,6 @@
 
 Client work belongs in separate changes: Prelude installation/routing, Ryujinx friend-cache behavior and Citron diagnostics should not be presented as server fixes. No production deployment or SpeedRunners 2 support is established by this contribution.
 
+N64's account-integrated service and lab reference are consolidated separately; see n64-integration.md. Before implementing the remaining Classics services on Nextendo, follow community-staging.md to distinguish accepted local behavior from account integration, relay and remote-network acceptance.
+
 Submit subsequent contributions through a pull request against main. Include the automated check results and the limitations above. Merge reviewed changes using the repository's permitted workflow and keep private lab archives out of Git.

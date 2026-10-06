@@ -1,6 +1,6 @@
 # Nintendo 64 Classics: experimental test status
 
-**Status: investigation in progress. This is documentation only; no N64 backend, client build or game patch is included in this repository.**
+**Status: server consolidation and staged validation in progress. N64 backend source is included; no client build or game patch is included.**
 
 Reference application: Nintendo 64 – Nintendo Classics 4.2.0, application ID `0100C9A00ECE6000`. Results below describe local tests reported by the owner and reviewed diagnostic traces as of October 5, 2026. They do not certify the catalogue or a public Nextendo deployment.
 
@@ -10,11 +10,11 @@ Reference application: Nintendo 64 – Nintendo Classics 4.2.0, application ID `
 | --- | --- | --- |
 | Citron / Citron: room discovery and joining | Owner reported successful entry after the local discovery changes | Repeat lifecycle and gameplay acceptance with recorded game and duration |
 | Citron / Citron: duplicate room listing | Owner reported that the phantom entry no longer appeared after the local fix | Repeat fresh creation, leave/rejoin and host reversal; production behavior is not established |
+| Citron / physical Switch: gameplay | Owner subsequently reported successful gameplay with the local fixes | Exact duration/game and reverse-host coverage were not independently recorded; repeat on the account-integrated staging backend |
 | Ryujinx / Citron: discovery and joining | Both host directions reached the shared room | Stable game loading and sustained gameplay remain unresolved |
 | Ryujinx: Mario Kart 64 offline | Owner reported crashes in One Player mode too | Diagnose the game-load failure independently of matchmaking |
 | Ryujinx: Super Mario 64 | Owner reported another crash during the comparison | Determine whether the shared failing path has the same underlying cause |
 | Ryujinx / Ryujinx | Two isolated clients were launched for comparison | Gameplay outcome has not yet been reported |
-| Physical Switch with N64 | Not validated in this investigation | Test after stable emulator gameplay is established |
 | Four distinct online players | Not validated | Complete the four-player sequence below |
 
 ## Ryujinx investigation
@@ -57,4 +57,8 @@ N64 exposes four player slots. Two accounts do not validate four-player online b
 6. Recreate the room under a different host. Test player-position changes separately from leaving and creating a new room, checking that they do not produce duplicate room entries.
 7. Extend to mixed emulator/Switch pairings and separate networks only after local four-player gameplay is stable.
 
-Record each discovery, join, input, lifecycle and reconnect outcome separately. N64 implementation publication should follow source/license review and a reproducible acceptance report; this documentation does not claim those gates are complete.
+Record each discovery, join, input, lifecycle and reconnect outcome separately. The source consolidation preserves license/provenance review, while integrated deployment acceptance remains pending.
+
+## Consolidated source
+
+The [Nextendo-integrated backend](../servers/n64/README.md) and [owner-tested lab snapshot](../servers/n64/lab/README.md) are now preserved separately. The integration adds scoped discovery/lifecycle regressions but has not been manually accepted with the Nextendo account service. See [integration and migration](n64-integration.md). The successful local report does not erase the earlier Ryujinx crashes or establish four-player/remote-network coverage.

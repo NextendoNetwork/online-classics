@@ -32,6 +32,9 @@ work/
 *.elf
 *.bin
 *.p12
+*.key
+*.crt
+*.cert
 *.pcap
 *.pcapng
 *.mp4
