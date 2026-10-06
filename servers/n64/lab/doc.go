@@ -1,6 +1,6 @@
-// Command genesis-lab runs the experimental Genesis NSO NPLN/Gamesync backend.
+// Command n64-classics-lab runs the experimental N64 Classics NPLN/Gamesync backend.
 //
-// The supported client reference is Genesis NSO 3.1.1. Requests use gRPC over
+// The supported client reference is N64 Classics 4.2.0. Requests use gRPC over
 // HTTP/2 with manually encoded protobuf messages. The lab implements local
 // identity pairing, matchmaking, per-room Gamesync storage and signaling,
 // presence, and local STUN/TURN experiments.
@@ -14,5 +14,5 @@
 // Integrating with the Nextendo service requires its account validation, TLS
 // configuration, external ICE destinations and relay authorization. The current
 // executable is a local test backend; Internet gameplay remains unverified.
-// See ../../docs/integration.md for the maintainer handoff and test sequence.
+// See ../../../docs/n64-integration.md for the maintainer handoff and test sequence.
 package main

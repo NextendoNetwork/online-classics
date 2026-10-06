@@ -2,7 +2,7 @@
 
 NPLN server for Nintendo 64 Classics 4.2.0, application `0100C9A00ECE6000`, tenant `t-7b4e32ca-lp1`.
 
-This module consolidates the Nextendo [standalone N64 implementation](https://github.com/NextendoNetwork/nintendo-64-switch-online) at revision `10fc1a0` under its unchanged [PolyForm Shield license](LICENSE.md). Its account-service integration, protobuf service types, Gamesync, friends, messaging, NNCS, STUN/TURN and observability are retained. The separately tested Genesis-derived backend is preserved in [lab/](lab/README.md), with its MIT attribution. They are independent executables, not interchangeable deployment configurations.
+This module consolidates the Nextendo standalone N64 implementation at revision `10fc1a0` under its unchanged [PolyForm Shield license](LICENSE.md); its original repository identity and source hashes are recorded in the [provenance manifest](../../provenance-n64.json). Its account-service integration, protobuf service types, Gamesync, friends, messaging, NNCS, STUN/TURN and observability are retained. The separately tested Genesis-derived backend is preserved in [lab/](lab/README.md), with its MIT attribution. They are independent executables, not interchangeable deployment configurations.
 
 ## Build and configuration
 

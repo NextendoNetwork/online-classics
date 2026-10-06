@@ -575,8 +575,10 @@
       {
         "path": "doc.go",
         "sourceSha256": "e4c317d26be085af91e2bb5c4ef100bf2bf57c8e4029a8f3ce2d23a88d5bb45e",
-        "transformations": [],
-        "publishedSha256": "942e74f920453eac34b890540df6bc92066b1a5dffce54d8bf68b20f3bf2a750"
+        "transformations": [
+          "Update command/title reference and integration link for N64."
+        ],
+        "publishedSha256": "027b9d89a015e892a2cda4256dcb84d1c2987c371bd870819cee21ba7b995277"
       },
       {
         "path": "friends_test.go",
