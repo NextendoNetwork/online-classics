@@ -1,4 +1,4 @@
-<h1 align="center">Nextendo Online Classics</h1>
+<h1 align="center">NPLN GAME SERVER FOR CLASSICS GAMES, NINTENDO SWITCH ONLINE</h1>
 
 <p align="center">
   <b>NES, SNES, Game Boy, Game Boy Advance, SEGA Genesis and Nintendo 64 for Nextendo Network.</b>
