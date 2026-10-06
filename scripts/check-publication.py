@@ -5,7 +5,7 @@ import subprocess
 import sys
 
 ALLOWED_SUFFIXES = {".go", ".mod", ".sum", ".md", ".json", ".yml", ".yaml", ".py"}
-ALLOWED_NAMES = {".gitignore", "LICENSE"}
+ALLOWED_NAMES = {".gitignore", "LICENSE", "example.env"}
 PRIVATE_DIRECTORIES = {"artifacts", "work", "captures", "profiles", "private-nso", "private-gpu"}
 PATTERNS = (
     ("private signing material", re.compile(r"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----")),

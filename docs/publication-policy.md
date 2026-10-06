@@ -6,7 +6,7 @@ This repository publishes original server source, tests and documentation with r
 
 Do not commit game archives, ROMs, extracted executable or asset data, firmware, console keys, patches, emulator binaries, account profiles, signing material or raw network/gameplay captures. Do not include downloads or mirrors for such material. Keep screenshots containing commercial game artwork and private lab recordings outside the repository. Use original prose and structural protocol tests for evidence.
 
-NES and Game Boy were imported through an explicit top-level source allowlist. Their manifest records input/output hashes and publication edits. Runtime profiles, patch generators, IPS files and captures were not imported. N64 remains under investigation; only its original written test-status documentation is published, without its implementation or private runtime artifacts.
+NES, Game Boy and N64 lab sources were imported through explicit source allowlists. The Nextendo-integrated N64 import also includes its existing generated protobuf Go types and a placeholder environment template. Manifests record input/output hashes and publication edits. Runtime profiles, patch generators, IPS files and captures were not imported. N64 deployment acceptance and client stability remain under investigation; the original source and license boundaries are preserved.
 
 ## Review before publication
 

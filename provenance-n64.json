@@ -1,0 +1,1036 @@
+[
+  {
+    "component": "upstream",
+    "destination": "servers/n64",
+    "source": "https://github.com/NextendoNetwork/nintendo-64-switch-online",
+    "sourceRevision": "10fc1a0130cb0b86d961b710943e99fe54aa7e7f",
+    "snapshotDate": "2026-10-05",
+    "files": [
+      {
+        "path": "account_client_test.go",
+        "sourceSha256": "fd6373cad475a6f5175951dc59e3c03aea9a4cc4d43c9c368c36edb9389d640e",
+        "transformations": [],
+        "publishedSha256": "742935a977b75853fa95d39a4daf6cb82ef72c02b25907c888b107af38fc7e0a"
+      },
+      {
+        "path": "account_client.go",
+        "sourceSha256": "5be63ba0168ed3b1cb5824b60ed5b440c2e5d08c964fa447d80fadfce0b7dc72",
+        "transformations": [],
+        "publishedSha256": "d9e57a2bd51cbb5934a2c87b098d73ef51164b2fc934b4e7be400e62d964975d"
+      },
+      {
+        "path": "auth_test.go",
+        "sourceSha256": "26b743fa33c5178419500fd8b21b25a4e58c4f0277dcc8fc5dd1129ad2511f69",
+        "transformations": [],
+        "publishedSha256": "1a1ede5a8c796da158fbc40c8e114e75e8745ece5c41d4228b7e77772bdd8c4e"
+      },
+      {
+        "path": "auth.go",
+        "sourceSha256": "ff1c3a2a5a68013e29a51c13243b3883e748136ee55b72cd7a506ec270f0da68",
+        "transformations": [],
+        "publishedSha256": "d362e968fc605a8859c191645bedeed47df7265e587a6a35fa7c1f12d32fcfbe"
+      },
+      {
+        "path": "cert_gen_test.go",
+        "sourceSha256": "4f1433d7014b565dd6d05f07900a3728121761d41beee25cab37e9018671b455",
+        "transformations": [],
+        "publishedSha256": "bf34006d3822666937ed8afdfc0225266d8d04a27478ca68d748a5c12fdc29d2"
+      },
+      {
+        "path": "cert_gen.go",
+        "sourceSha256": "456d340d534f106438c68d1c3984ef84666f2f131f31b61d0f2d3e41ad58e9a6",
+        "transformations": [],
+        "publishedSha256": "9a3f2c0c1d94aa5c3ee6b28815ec390b8423d8a78db979a12c7868d76e559899"
+      },
+      {
+        "path": "dashboard_test.go",
+        "sourceSha256": "58d983e17de023f17dd7ea332f994378ec75f7afa58e2f88f661110f0c67b8df",
+        "transformations": [],
+        "publishedSha256": "264614c17db0c9bee7a018f5977e4fbbff763fa0eeb2c53a7968c4e61cf0b70a"
+      },
+      {
+        "path": "dashboard.go",
+        "sourceSha256": "6c637ec55f804f00ed9a41c9160948e8b41b389eccd1b98b9bf7b8ab37c42848",
+        "transformations": [],
+        "publishedSha256": "381fc3f0841d90a9b4b35778ca3e87c0aa4089a44540580b86798ac4abed272a"
+      },
+      {
+        "path": "datastore.go",
+        "sourceSha256": "0af396e9bd9b2d6e3850143eba281e1bb42792b9bfd80034a7a0c1dfc07c3fd6",
+        "transformations": [],
+        "publishedSha256": "bf3dbbb33f21e0c75891d79d16beae3ca2bc37f41aa250ecad7be60cfa228961"
+      },
+      {
+        "path": "example.env",
+        "sourceSha256": "d68ba98f044a8062bdd9bde573e4a60d9ddfab09dad4ee3c79c6b0b10609711f",
+        "transformations": [],
+        "publishedSha256": "c1b9d0193e8b86930299384b8805e03d07991d5e731597207749da50b7d43bcc"
+      },
+      {
+        "path": "friend_namespace_test.go",
+        "sourceSha256": "6275ad290b13cd9b29f410cff833b14c768667a98b04057af12aadad9e8b8f2e",
+        "transformations": [],
+        "publishedSha256": "898f0391a8b32e219259cac97d7d838a5cece22080ffcf1a833f326fe48e7b97"
+      },
+      {
+        "path": "friend_namespace.go",
+        "sourceSha256": "384147a3c3806dcc5c0268526946c6b84ce010765b02472b1f8af5948c19f06e",
+        "transformations": [],
+        "publishedSha256": "65c1331d0842c3b2c44176f3bd610f6b79ff83fc9ce8d6dc99e66eaad597f237"
+      },
+      {
+        "path": "friends_test.go",
+        "sourceSha256": "13fbe1067ffa8cdc0f81f83a91cc2bec9bd661d1aeb7f9487ae16cce6aa5fdb7",
+        "transformations": [],
+        "publishedSha256": "be060a43afdb1a066b4449c140cc708e473c7eca2d218e253e5c93cfce89a4d9"
+      },
+      {
+        "path": "friends.go",
+        "sourceSha256": "1fab8426e59720bacd1079f3e6d3d1291d677def57737d98f440f7671aca5b83",
+        "transformations": [],
+        "publishedSha256": "b2569c085b06560909a39382768518f85bcee8e92d390c44c1732692b5a883c4"
+      },
+      {
+        "path": "gamesync_reads.go",
+        "sourceSha256": "8072487936f16215d2d8116f32d80a112b1d603090abbe95ac930df34a780f2c",
+        "transformations": [],
+        "publishedSha256": "3660a21e617699218184e3520aefbe807e6cb311ffcfdc7a0500375929f42481"
+      },
+      {
+        "path": "gamesync_store.go",
+        "sourceSha256": "575d5787f9d84629d28095c747dce278bdbf8ec5f076600b0351bc8f553f3794",
+        "transformations": [],
+        "publishedSha256": "fae3370507cb7ba5f0b69d496c5ef02d2cb7617f1f019c4be37161a550cbb417"
+      },
+      {
+        "path": "gamesync_test.go",
+        "sourceSha256": "8f33586f17616ab573c60a15c4fbd914da7d38035d9b5f75b6e8eeee4aed4b5a",
+        "transformations": [],
+        "publishedSha256": "696e3b032f947cf0d94b0127b83b03006d363724c1a9bcac45e1789243585a8f"
+      },
+      {
+        "path": "gamesync.go",
+        "sourceSha256": "41e4a3afb9d10b41a38dea091b06c1d73f391d657398a80770fc1558b2df081b",
+        "transformations": [],
+        "publishedSha256": "612104a7aa510696a9047e29f751ea0db8abc268802954138326d026401202c5"
+      },
+      {
+        "path": "go.mod",
+        "sourceSha256": "a2b4f2b9751b50ad9e6cafdc41593c534a4cab20f4fb42819a01b56f7216d6b3",
+        "transformations": [],
+        "publishedSha256": "b35b3a319ea1c4608df481fc616f1bfaab0fab5f6d6c7a18a280ba3cc0a04a24"
+      },
+      {
+        "path": "go.sum",
+        "sourceSha256": "32131b0823b2822afcace90623227fead49b5f2577f805f1a1456ab0bcf71e31",
+        "transformations": [],
+        "publishedSha256": "ae863acfc0d955e1b4560531d2b0cc5afea00fd4d4cb81a1ba62da5781e2c724"
+      },
+      {
+        "path": "LICENSE.md",
+        "sourceSha256": "d1012a9b18526666a3f90a5cb28481e623a76825dd7328400315b7924b86816b",
+        "transformations": [],
+        "publishedSha256": "12cfb22c48ad6e9cc701acd341af3bc2b1e1120b4ea7f8aa2e40c53a4cfe5bff"
+      },
+      {
+        "path": "local.go",
+        "sourceSha256": "5e8d5e18b55862e8564f40aa8beb5188dc58e709f8452ca7218c414701e4bc4f",
+        "transformations": [],
+        "publishedSha256": "b5ff63b1ca4ca9d6bc58f801ef3cfeb072bb16ef19c9c16410a5ae8e36b3af99"
+      },
+      {
+        "path": "main.go",
+        "sourceSha256": "32157648deb11a28d549cdedbef7f368be478a559f93cf5da08e99565b2739b8",
+        "transformations": [],
+        "publishedSha256": "5a8edb8f9b620b451272539099d67da6d2fa0dc830e337a2b4a9cda2f3f65a46"
+      },
+      {
+        "path": "maintenance.go",
+        "sourceSha256": "aa98e2c4a8a5e0e7572afe5d159d2ed1f944887b0267c26efd264a6c7034ca2a",
+        "transformations": [],
+        "publishedSha256": "3a48cef421cfd659760a92188c90431e2d18035348ee6b1311e14452e9a1f14d"
+      },
+      {
+        "path": "matchmaking_test.go",
+        "sourceSha256": "44154c5a2a39e63faf8db8caf8c07d9259a181484f1b4e5aeee9ef896da09ea0",
+        "transformations": [],
+        "publishedSha256": "0cf8b94aa5b575762275511df81a3f717416daf05c0807c916d174557122cba8"
+      },
+      {
+        "path": "matchmaking_values.go",
+        "sourceSha256": "3c867ef053ae50ec4453f9c5d03edb0b14d5bf0108b22e5fad536471a472ca83",
+        "transformations": [],
+        "publishedSha256": "f9a9a41b55fef24103551776d4770c21eff5f28d7331f05e2ad0a3020c5ab5a8"
+      },
+      {
+        "path": "matchmaking.go",
+        "sourceSha256": "3e1cafd847a2ea6e1815e9d0e33ea29aeecb382b425df91a695c1ecda22a11d8",
+        "transformations": [],
+        "publishedSha256": "39802212f3168bb5bd7251ab69d5a9b3b794fba48a36c98483ca87588c75b14f"
+      },
+      {
+        "path": "messaging_delivery.go",
+        "sourceSha256": "e887000fa6f1d97554f9002c9c5e0fa79b813535dbf74701ff76b073b84e96c3",
+        "transformations": [],
+        "publishedSha256": "e40d8a4c8ccbec3a27d3e641dd697154f5ea2d4bbac082910571bd77101b021e"
+      },
+      {
+        "path": "messaging_test.go",
+        "sourceSha256": "533ee7de86c4ea91c25114bad24f1059c55ef5630da40ccce486dda1720f0acf",
+        "transformations": [],
+        "publishedSha256": "44572c4c12cff30bd22f0fe5e183423d1ae8158796074c9f566d338e1981e579"
+      },
+      {
+        "path": "messaging.go",
+        "sourceSha256": "d9617bbbaa284f73dc1351dc20b7947005295f76dce5c34720c663cbae842eed",
+        "transformations": [],
+        "publishedSha256": "bd099f8c218f3eac63be3410047d303fb074b6f394f67844c5049befa82d3f61"
+      },
+      {
+        "path": "nncs_test.go",
+        "sourceSha256": "6b8e5cea24ea84f1731629bb6b4a6b42c9a9b66fc0e5065be65efee11300b620",
+        "transformations": [],
+        "publishedSha256": "3a8be532ebfedcf1f1603ec385f82dc2bc378c9836f97a71a73766ce9dcd8bc1"
+      },
+      {
+        "path": "nncs.go",
+        "sourceSha256": "9a766ee06bbbcf483f712784d0aaf2e2e9d49b640e6382a92525af49b92d1a8d",
+        "transformations": [],
+        "publishedSha256": "7a9c3536d330ef34e8ec9cc6f36a74ec294365c1bd4096b0041d37dae6eb44bb"
+      },
+      {
+        "path": "nnex_token.go",
+        "sourceSha256": "ea02912c82c14af96f9d4435239099477e170aa4025d5be401ec8e67c0a6a954",
+        "transformations": [],
+        "publishedSha256": "bd38667a9c91d5f83c5a3e961ab74b60c048110ab2a7c53e216ba0fa5a68bae4"
+      },
+      {
+        "path": "observability.go",
+        "sourceSha256": "062197dec1875295f9b3c3ff52343b89693a164cd1da6b9e6fcb2b9a758d5120",
+        "transformations": [],
+        "publishedSha256": "4550ae641688c9f24ea8e68248c5a2993c4979e5436919363a2e4f4e2098867c"
+      },
+      {
+        "path": "presence_account_test.go",
+        "sourceSha256": "63677c4b5ab5365598c9195d364fde290fe07f36b431a56dbcf42d896e53dc3b",
+        "transformations": [],
+        "publishedSha256": "4784ce4784158789198372fccf4d34d501c552350d7ff8bbc8690d94ffd2de97"
+      },
+      {
+        "path": "presence_account.go",
+        "sourceSha256": "ba955f9ac4db655689dacfd31aa2419564e815f5ee1a2a4f10889a6897731cc5",
+        "transformations": [],
+        "publishedSha256": "6ee3b59b1dbfc0adf315c8964d517141dfd3f5fcec6353d288ec844419d3bdbe"
+      },
+      {
+        "path": "presence_live_test.go",
+        "sourceSha256": "b835539c918c8eec5bdb2601e633d49be674e83a4f46b73f7823d4a6ae3a42b5",
+        "transformations": [],
+        "publishedSha256": "75395a19b7134ba24092c0b9072230376e773dd5ada6b20df7d9d2c47547ae89"
+      },
+      {
+        "path": "presence_live.go",
+        "sourceSha256": "0503a087bf757746294cacae41de93896f4d68fab0d849de1257c371341ee7a6",
+        "transformations": [],
+        "publishedSha256": "2a8eba2513c570c3166ee95cb3794210cf3118c2adf83c02036bcb1246f2b745"
+      },
+      {
+        "path": "proto/auth/v1/auth_grpc.pb.go",
+        "sourceSha256": "b4f67b37980387def21c02e575c90df76e30e593b8abab17750bb4933ac4658c",
+        "transformations": [],
+        "publishedSha256": "ada8509403b410d2bf706f96bc59124c35ed2c98f6552661be95a7ae61855010"
+      },
+      {
+        "path": "proto/auth/v1/auth.pb.go",
+        "sourceSha256": "8da3379101b89ec44e5417a15dfe2c921b1e0f2c7da67ad5683d13122e76a7de",
+        "transformations": [],
+        "publishedSha256": "ffcb58af1b915020632ef0eb49deea7253ee61b082c5421152b53c09fde9c8a6"
+      },
+      {
+        "path": "proto/auth/v1/resources.pb.go",
+        "sourceSha256": "9bbce7ff4947f2658eb6e650c87c35522c7e5fa907ee1d65ccf7a29425ebeecf",
+        "transformations": [],
+        "publishedSha256": "b812bdd80befa9e090e5f57abf11485da16dca4f8ecf0431825ca2678c84fdc5"
+      },
+      {
+        "path": "proto/auth/v1/user_grpc.pb.go",
+        "sourceSha256": "b41edc864d284310828bbd9d7c08e4939941e069743760edc16259cbfe28b1cf",
+        "transformations": [],
+        "publishedSha256": "0fc1594cd67bc07ea92914df119f9ff8aaee1617b83dda1bf3c76e58cf5c7d2c"
+      },
+      {
+        "path": "proto/auth/v1/user.pb.go",
+        "sourceSha256": "bfa19d67db63c188e03a84f34e293ab58a73c5d0c3f195a1f7d934bb2455670b",
+        "transformations": [],
+        "publishedSha256": "bde336bad72d6ccea348d606891f1235adf8341dce0f42c05d22e5f497d1b4ba"
+      },
+      {
+        "path": "proto/common/heartbeat.pb.go",
+        "sourceSha256": "ccd80e5076f888498e0082af3a774f4ea518b7c778c87c47adf7192495c1907c",
+        "transformations": [],
+        "publishedSha256": "c5aa4c5442967aff547c94c08ecbda5d05d7106ee77b34455a5b92aeff4d4128"
+      },
+      {
+        "path": "proto/common/resources.pb.go",
+        "sourceSha256": "3af68f0f6ffe6cfacef0831c1cbfcb2fd6093b3d5ec6e33ca511f31fef029d94",
+        "transformations": [],
+        "publishedSha256": "245780c997f15127a6842301fd289d4b3fad3ddf985fc1a6f9e0d0f9ae6665e3"
+      },
+      {
+        "path": "proto/common/value.pb.go",
+        "sourceSha256": "04490eaa7cab66db8cf02fb61326e1c56941ca83b08987e8e672039f04450e28",
+        "transformations": [],
+        "publishedSha256": "8b24d7e6a27dc87629af0c740732857f96cd5e3e50c35dafeeb44e90d4fc4ff8"
+      },
+      {
+        "path": "proto/friends/v1/friends_grpc.pb.go",
+        "sourceSha256": "0839fa764e4d5aa667ba0f5d8c8abe880a3e6ae1031bd1b8760800679c84f12f",
+        "transformations": [],
+        "publishedSha256": "af06c4323b2c83189684bebbb1014b2c8e7aff76ac351fc99fac94c9bf0eb5a1"
+      },
+      {
+        "path": "proto/friends/v1/friends.pb.go",
+        "sourceSha256": "dd9fa80d97d3d7a009715e4888d406ab8e9cf9966033fa2132233c1dff8cc177",
+        "transformations": [],
+        "publishedSha256": "74f30b9aa44f1552b00c5e9f3ce21e63e6acd6a3d4c0dd670a8eca38564ef39a"
+      },
+      {
+        "path": "proto/friends/v1/presence_grpc.pb.go",
+        "sourceSha256": "be742330bd5e14fb6c9b89f3774fc7c9b36ef8faab94fc1eba23760fcd35c8de",
+        "transformations": [],
+        "publishedSha256": "63d45deb84f490fc928fb6846354e649795c258537578da3e431c84762f220fd"
+      },
+      {
+        "path": "proto/friends/v1/presence.pb.go",
+        "sourceSha256": "1414259b9795e333c711eadd22ed2b1215f4d55613d357781b9b0baca18b4278",
+        "transformations": [],
+        "publishedSha256": "ef14413c3bee31b7b1db615b81b3b1681fb8e8bf2c64069d3db0d6038a20290b"
+      },
+      {
+        "path": "proto/friends/v1/resources.pb.go",
+        "sourceSha256": "932cd08d2b0c4397707f935589086cabaae5d5ce88402d79400eeecc44ae4dd9",
+        "transformations": [],
+        "publishedSha256": "4c0f4acaa886ac4c611a8ca7a370751b986d223ffc97b9e8aa4a8c00de060999"
+      },
+      {
+        "path": "proto/gamesync/v1/gamesync_grpc.pb.go",
+        "sourceSha256": "203db8e4b804dd3f84e681e61bb8206463af74a3f682604d2b5e48313f4cdbb1",
+        "transformations": [],
+        "publishedSha256": "38129be831755e8bfe6a33846c4a9a6230fc501b41e2f8b3db3d131a510f67ec"
+      },
+      {
+        "path": "proto/gamesync/v1/gamesync.pb.go",
+        "sourceSha256": "c616cbc21e5c918864da3a32690b57d96e8814eb713b7b47122b06cc06b3915a",
+        "transformations": [],
+        "publishedSha256": "db9cac088e6c57b767186484460ae0988671222d2d3a68e245985c1747e4987a"
+      },
+      {
+        "path": "proto/gamesync/v1/resources.pb.go",
+        "sourceSha256": "70592bb442101c138fb97dfd20aa51d031bbb0f239e3bf07948effe916304805",
+        "transformations": [],
+        "publishedSha256": "d44ed17c7af545c0ceb968daafa902f1d2b506aca5a0413392fbf445c74cce83"
+      },
+      {
+        "path": "proto/hydro/v1/datastore_grpc.pb.go",
+        "sourceSha256": "d5508dec4f1c4c27a75f907799d1a7e543b1a28d4521563954df61120c0891d7",
+        "transformations": [],
+        "publishedSha256": "87e130af5b05ecbaeca167f5f925ad0ec1d695b3f49a04f49eae16abf9eabc7c"
+      },
+      {
+        "path": "proto/hydro/v1/datastore.pb.go",
+        "sourceSha256": "1fefc9d2b95d1ee8706f17be436915080855a1574fa60ec4956e348a90f433d0",
+        "transformations": [],
+        "publishedSha256": "615c5ff7248ffc4e726a0e8adc77bb13fb8242b68de2fd8236a45ebf34e3ffc9"
+      },
+      {
+        "path": "proto/hydro/v1/resources.pb.go",
+        "sourceSha256": "350471874fa798e3a74fd70a81e0f605e669b78894fbbfd35b2ba2b334b3a0c2",
+        "transformations": [],
+        "publishedSha256": "3b3a5bcf5d296aaa1e1493660e1e2efa8e20dc61a66eb584b175c3a36227cfd3"
+      },
+      {
+        "path": "proto/maintenance/v1/maintenance_schedule_grpc.pb.go",
+        "sourceSha256": "98fc5155df047ffaea4cb4d37e4407674f2e806d13a20ceb215f4a41b231405a",
+        "transformations": [],
+        "publishedSha256": "368de4b160795e48ab0159e0a79cb804e64051db4ba1b9b76032b0f2dfe64e59"
+      },
+      {
+        "path": "proto/maintenance/v1/maintenance_schedule.pb.go",
+        "sourceSha256": "3cd4018c917bfd4706597fe3a84a4d0d17a659ea2c2988562dbae44b0d065b3b",
+        "transformations": [],
+        "publishedSha256": "d1958c8233e6e02628fa222875873f07703fcd407728e064619dec950c83b5ed"
+      },
+      {
+        "path": "proto/maintenance/v1/resources.pb.go",
+        "sourceSha256": "702255bea292589c5828d382f614c3f739b4f092a8d43746bd97e8b395af6ec4",
+        "transformations": [],
+        "publishedSha256": "eb69d4a3d70aa6dded8a2926b43e9d834597259d6984d643e2ce4828667f2684"
+      },
+      {
+        "path": "proto/matchmaking/v1/game_session_service_grpc.pb.go",
+        "sourceSha256": "343df418bbe05339ead578b3ae71a84c4266daf31ccd695dab0a8f07da278403",
+        "transformations": [],
+        "publishedSha256": "50f8b22389a2f110f003e410b456dd8db6685544be5e61c3c442c8794ca4d98c"
+      },
+      {
+        "path": "proto/matchmaking/v1/game_session_service.pb.go",
+        "sourceSha256": "96bc75f77f72b50953f55310fcf69cdd6711ff87260601bb337bb3be5ce5e164",
+        "transformations": [],
+        "publishedSha256": "ce1f2e56833a4abd99c6e5d49b4bfc77bb4b779fe781d7a8f3e5040c421f3f8f"
+      },
+      {
+        "path": "proto/matchmaking/v1/matchmaker_grpc.pb.go",
+        "sourceSha256": "73d4352f9e4071f30d7465ff26e4eda32b9288aa4c40631c645c5fe14b622d48",
+        "transformations": [],
+        "publishedSha256": "70b32069fef4ecbae252468859a1277aa0975cef6a022fd08175e7e3353958de"
+      },
+      {
+        "path": "proto/matchmaking/v1/matchmaker.pb.go",
+        "sourceSha256": "970147f8690a7f2f087715338649802352cadc15324ea4082d900e724d1e493b",
+        "transformations": [],
+        "publishedSha256": "3bd1f34111ffa9356fbcf1334d03aa4e9e20b03729260f004b0413c98f056ef2"
+      },
+      {
+        "path": "proto/matchmaking/v1/resources.pb.go",
+        "sourceSha256": "a0d8695819d42a13fb1fde4918913455109a065f46dd7aec68073827c8bb761c",
+        "transformations": [],
+        "publishedSha256": "c47a1bfa8219ca3f725ff38b7bd01bd71cde24bdff5166916e7e008fad5adba7"
+      },
+      {
+        "path": "proto/messaging/v1/messaging_grpc.pb.go",
+        "sourceSha256": "44463b81a4d40d9b232faf66e6869ba1209cab16e7c8e12ecc543fb162633008",
+        "transformations": [],
+        "publishedSha256": "972e9f7982356e17ffd9e6f2c4ff88d87c3175086b696bc3564576037ae67910"
+      },
+      {
+        "path": "proto/messaging/v1/messaging.pb.go",
+        "sourceSha256": "ce34b4697ed3b7106ac7443d5eda99851fb4522fdb9a01150e1d9b2de9e17fd7",
+        "transformations": [],
+        "publishedSha256": "13e46a7a3b2885f179ff6b187998dcc0162778131da9cd5d7eac460120530191"
+      },
+      {
+        "path": "proto/ugcstore/v1/query.pb.go",
+        "sourceSha256": "d17581c462e29a65e9a6c109d1b19dd5049100182708fa88796be222d212f00a",
+        "transformations": [],
+        "publishedSha256": "9c5a1920d86c35eea32feb039b96c7f199bfcf480f37863658c4f60bc3f12322"
+      },
+      {
+        "path": "proto/ugcstore/v1/resources.pb.go",
+        "sourceSha256": "a49038608b2cbf16d53ff1cb5c6f8f13e5d6c655cf9df7d5a90230a378a50e3c",
+        "transformations": [],
+        "publishedSha256": "99c7d32897a84670afc37b436511d69ab664fb6c228505f4128383c47c1ef196"
+      },
+      {
+        "path": "proto/ugcstore/v1/screening_grpc.pb.go",
+        "sourceSha256": "dbb33728dd998cce4c7e56bd60ea59b88c04b31d135921cf84dc5b35f02c5792",
+        "transformations": [],
+        "publishedSha256": "d28be481df7f65e4b8b324c1b5d18075cd94eacbb9efd7446857ef2d028c30cb"
+      },
+      {
+        "path": "proto/ugcstore/v1/screening.pb.go",
+        "sourceSha256": "53f0532af1798f0801bcedef5f05cef26683372adc5c98b0e14476ae166823e7",
+        "transformations": [],
+        "publishedSha256": "5e2eb161d9df8b0fdbc7353c123e4f855c44d20719e2339aeeb161c1e33f930a"
+      },
+      {
+        "path": "proto/ugcstore/v1/ugcstore_grpc.pb.go",
+        "sourceSha256": "6ce2e88f5917efdac2728bb8c1641152f16b7b0682df4fdee8107366aa624bc7",
+        "transformations": [],
+        "publishedSha256": "a955261cfe657af81fd804581ddc8b4a6384b556485874e8036afccafce0f04e"
+      },
+      {
+        "path": "proto/ugcstore/v1/ugcstore.pb.go",
+        "sourceSha256": "d498a08e857a67b58417fd59f52bcf956ad4ebaf6af121bbaca4766ca907783b",
+        "transformations": [],
+        "publishedSha256": "eb50466cc998350c27cd3db135c70b3412c39edc785b17f6e0928785575fe9be"
+      },
+      {
+        "path": "proto/ugcstore/v1/write.pb.go",
+        "sourceSha256": "61be46b1cd93a10acd0a3ffab40e3fb41ee146cca604abd544fbddc3f607deec",
+        "transformations": [],
+        "publishedSha256": "d253eeb3ce06cb45e38d7fbeaf39283b9db998c9927cd7ce20d9f427c9f3b087"
+      },
+      {
+        "path": "replay.go",
+        "sourceSha256": "bc79cc68579d3d7a21404ce74c2ea038d636cb4243a6437211ec2c2c310c0329",
+        "transformations": [],
+        "publishedSha256": "9c4a86699a7f9b47e507e1f746da845ad03e1220edfe5f31719c31698f93b370"
+      },
+      {
+        "path": "session_integration_test.go",
+        "sourceSha256": "a50031702a94e03d64729f173b3f7ffc6da5300d2a115ff3eb3d6d887f23e93d",
+        "transformations": [],
+        "publishedSha256": "0f5273dcfe5b8927ce6b0fac21de84f3e6b6a67449c9b715ae97d6dc656e4d05"
+      },
+      {
+        "path": "session_registry.go",
+        "sourceSha256": "f31789ce94de3a68acee606069d298eb87f44b2eebdfbf3e8a44fd8d9ce298c0",
+        "transformations": [
+          "Scoped Classics configuration/property compatibility and closed-room lifecycle changes; see docs/n64-integration.md."
+        ],
+        "publishedSha256": "b530445ad0a6bc83fd50e018d5be8b8333c6eefd0082b300efd11f2a2c5f4b4d"
+      },
+      {
+        "path": "session_service.go",
+        "sourceSha256": "678d4d04f9fa2ae865afa802a13c2c2d18d78731ccd0ab96f31cbc14aaba8218",
+        "transformations": [
+          "Scoped Classics configuration/property compatibility and closed-room lifecycle changes; see docs/n64-integration.md."
+        ],
+        "publishedSha256": "a5c2f1ca1b196103d85272f7eac2eb608d61a74ae7d74c8bbe4b4896c1c363e2"
+      },
+      {
+        "path": "session_validation_test.go",
+        "sourceSha256": "0514e40cd3ca895717de5ca1835fdeeff22a82878549c3de9b53693df43de318",
+        "transformations": [],
+        "publishedSha256": "bea501ad1490bcd25e14ed127b164589256e93562a5a423919d3965c5ab64bc6"
+      },
+      {
+        "path": "stun_test.go",
+        "sourceSha256": "fa8cbf9463770b6bdba79d37225bd9182af20a05f6d05d9d0883967a735a9943",
+        "transformations": [],
+        "publishedSha256": "593144a850eddeff9be59966f5ae403cb6999f07891834ef5aafec4779afe22a"
+      },
+      {
+        "path": "stun.go",
+        "sourceSha256": "dbc4d5483f42f6743b33d359498e998dfaf8db6b0f238e3b94a5cc57acb30c91",
+        "transformations": [],
+        "publishedSha256": "fcc57920f1bcd4247ddf8839f70f40f83b96923895191786ec50195b6c509dc9"
+      },
+      {
+        "path": "subsdk_token.go",
+        "sourceSha256": "40ef1a6069076e90bba050265a3f9068c61b268d4102fbebccfb2ec3592af3ce",
+        "transformations": [],
+        "publishedSha256": "1e1c3923c5bb32f29afffc673e9c059bfe01be5467813d4915270c85c77fdff5"
+      },
+      {
+        "path": "token_jwt_test.go",
+        "sourceSha256": "86260219b6bcb758326c64f223b95b65c065c6e36f0176b4e4689f4669a9cf53",
+        "transformations": [],
+        "publishedSha256": "db3edd2b8535d9fc4ad5918d8079ae82bcdedfd1bc33ebd7321c51391f97986e"
+      },
+      {
+        "path": "token_jwt.go",
+        "sourceSha256": "9cb0730843244b25114242f738b52dad57fee17dcfad60427f2609311be30fb1",
+        "transformations": [],
+        "publishedSha256": "756cdb9f7953f376b4a9e565795c557546884e8dd70d37ed359b21976f1d6add"
+      },
+      {
+        "path": "turn_test.go",
+        "sourceSha256": "b5c071a04825ab3e2eaed54aefd9248859cebd6e84ebc4d7b1edb66acc0bbf6d",
+        "transformations": [],
+        "publishedSha256": "9973af417d1513484c40fd5bfc93cf61040cf7dcba0d63b87e20d53b2110d7de"
+      },
+      {
+        "path": "turn.go",
+        "sourceSha256": "b8f0b8e4b674ade2a9fad1e41f6112db82b7187209334425424a7f671a0706e1",
+        "transformations": [],
+        "publishedSha256": "679110e6231fe2d5751efa7e3f86c0c24bb78b35e7d742b08e9af3d533f3d43a"
+      },
+      {
+        "path": "udp_observer_test.go",
+        "sourceSha256": "40ea6dc9c1557ddbfd31e46b818c9310a8e39ebdbf9ed5269591bf24e4bbcbbc",
+        "transformations": [],
+        "publishedSha256": "22faa6710016f457ccf0804e4fd5756e464e4dcd9c59dfff7a3f13acaeb4ce61"
+      },
+      {
+        "path": "udp_observer.go",
+        "sourceSha256": "55283e3a98115b11c97a75ecaeb2a57fd82be6b8b36123ac81e55c6ccfa2ca4b",
+        "transformations": [],
+        "publishedSha256": "4f75ad993571a7cef5e230997918a5045b68839e0995f5f200e66a810160b1b4"
+      },
+      {
+        "path": "ugcstore_test.go",
+        "sourceSha256": "a25f0f6cbc9846b5bb006186dd6665cd2124f193169eb603a2b0678d0acb77b8",
+        "transformations": [],
+        "publishedSha256": "960a5277840d37a8f48d62df8aea123e6f6621a33ba439a1c5135c9e8df01c1a"
+      },
+      {
+        "path": "ugcstore.go",
+        "sourceSha256": "0e382a010ec9bab2895a6a29575e649235ab99c71c152c3200029ac09cfc533a",
+        "transformations": [],
+        "publishedSha256": "394fb08295790b82c91682c561888eeb787ba7612e246768805db73bc059d465"
+      }
+    ],
+    "publishedHashScope": "Git indexed bytes after text normalization"
+  },
+  {
+    "component": "lab",
+    "destination": "servers/n64/lab",
+    "source": "Owner-maintained N64 lab derived from the MIT Genesis baseline",
+    "sourceRevision": null,
+    "snapshotDate": "2026-10-05",
+    "files": [
+      {
+        "path": "auth.go",
+        "sourceSha256": "679bd4cebef478b4ec549f6b56f6d57af6b9a15d4f775dbcc8f5376a893f0d12",
+        "transformations": [],
+        "publishedSha256": "5f9a68d82cc3c11b88480547347edadf4d4a84ffe38dc9a5c8e30c19c747804e"
+      },
+      {
+        "path": "certificate_test.go",
+        "sourceSha256": "f19acf769ade3472e7986ca39137c2be6022b4391f09e46c26156d73f62c5a85",
+        "transformations": [],
+        "publishedSha256": "adec14547d9b2bfba6b8285e06f6bb7bf7cb4d2a7702c978a39095e600d4fada"
+      },
+      {
+        "path": "doc.go",
+        "sourceSha256": "e4c317d26be085af91e2bb5c4ef100bf2bf57c8e4029a8f3ce2d23a88d5bb45e",
+        "transformations": [],
+        "publishedSha256": "942e74f920453eac34b890540df6bc92066b1a5dffce54d8bf68b20f3bf2a750"
+      },
+      {
+        "path": "friends_test.go",
+        "sourceSha256": "9dba2b4d3eb73f2243f5d80a06d98f16ab92fff39d943ded302e78a2006f27e2",
+        "transformations": [],
+        "publishedSha256": "46ab031960e12a5b47f3e50c0cdc9013edb60804d5d8ddfee38f60320cea7210"
+      },
+      {
+        "path": "friends.go",
+        "sourceSha256": "b8e9124d3f673ba92d126042a990f2f0f42bab546ec34a042fda15f4bf75fed7",
+        "transformations": [],
+        "publishedSha256": "2c7571978e508946bbf4b8ed872eb5f0082ff7c488d3a9991a39750a7878dff6"
+      },
+      {
+        "path": "gamesync_diagnostic_test.go",
+        "sourceSha256": "3facf4f5032d67e77d71716f3cba6e5c193a316fe81ba9947faf8f209ea96eb0",
+        "transformations": [],
+        "publishedSha256": "a47b3ee243da289b88f6de200c69560bc7b279c0b523fa8c71785390f308e7f2"
+      },
+      {
+        "path": "gamesync_diagnostic.go",
+        "sourceSha256": "738e66d4f53bd193d620fc4098773035fc75955d8cf594e883fd0bf11976d1c6",
+        "transformations": [],
+        "publishedSha256": "36805f9417a722edc23ee70147bc6c08e6b9323304a4fa788bb8d44874c49a91"
+      },
+      {
+        "path": "gamesync_document_test.go",
+        "sourceSha256": "15c818d31100915cb0ecbc4f3854e4edda7199702ee9404f8be1cdf900076db0",
+        "transformations": [],
+        "publishedSha256": "0c18138c9d45547c5d257bb0c00dc50dfd09b33b98a5f0592bae86b83eb882a8"
+      },
+      {
+        "path": "gamesync_document.go",
+        "sourceSha256": "0603eaac9eb9b822469926768ceb5b16b04c14e4b7d5b1fa5214ffef89a2820c",
+        "transformations": [],
+        "publishedSha256": "ae09f71d9163e34084f2843a0adfc3b10dc26c647e556ad7f51fd863bc35c93f"
+      },
+      {
+        "path": "gamesync_field_path_test.go",
+        "sourceSha256": "a46a4731fd3ec1f00081ec018241487eb3455d47ca37004929e184d84c526c4b",
+        "transformations": [],
+        "publishedSha256": "724bf068653e3f736ff7fd5b9917df05f519f313fece83f10a92030db287b4c1"
+      },
+      {
+        "path": "gamesync_field_path.go",
+        "sourceSha256": "73e8a64b784483a0bc11b9ed92a05a855aed23854e33e0db84c35d573ad58b64",
+        "transformations": [],
+        "publishedSha256": "040dcf532ec5cc0ba9423f7442254c9f9a455ce0c01dc5809b6352b98faba004"
+      },
+      {
+        "path": "gamesync_fixed_test.go",
+        "sourceSha256": "c19813a48fd56a85f850a8277ad513bec0657fd760f40a1db58ee54c37b19f95",
+        "transformations": [],
+        "publishedSha256": "b848590c82be8ca32ae3a71daacc4a6c37fba74ad9e16b0d1d4cea7345ee6a15"
+      },
+      {
+        "path": "gamesync_fixed.go",
+        "sourceSha256": "e39489b30c06fa0a52baf11f7497a4db5570c870330877a8297b5f99b261ef84",
+        "transformations": [],
+        "publishedSha256": "149f1350fe1f282b58df677b9a016ac813b625fe2a64bc7e48b92126a1626b7d"
+      },
+      {
+        "path": "gamesync_list_test.go",
+        "sourceSha256": "40ab5a82187ff2316235e8319c14c8372713eb1f666d50e843d60f2a347e6124",
+        "transformations": [],
+        "publishedSha256": "e4b59d952a48a7ca8c8a5cc07985871c0ffd37f8cf9cc066f493a3cccdfbc6ed"
+      },
+      {
+        "path": "gamesync_list.go",
+        "sourceSha256": "1269eb584a59d8f10709acf5ddf9d8f02084e8bc0a4a8dab3e755e95646dfbcb",
+        "transformations": [],
+        "publishedSha256": "69e457104bd48592c0db63bf4d8c2b645d07cdbb62f918e9ce4eeafbf3ce1045"
+      },
+      {
+        "path": "gamesync_next_test.go",
+        "sourceSha256": "ab2dc6ca48a75559f9b6cc6e08fd53560a16db2161a438d8ce85442eb47c68dc",
+        "transformations": [],
+        "publishedSha256": "17819a2f5787f3b668638f40eba4ebe9989b9cf4d83ef6294cfa871780fdc21a"
+      },
+      {
+        "path": "gamesync_rank_test.go",
+        "sourceSha256": "26af02d9705a4c054913ab4291d570779a4bbd14c13b469a469903de7414cc47",
+        "transformations": [],
+        "publishedSha256": "b6a21568f202bb1537c15c2b90d237b81df8e05fdac80b00f0a6abfec39522b2"
+      },
+      {
+        "path": "gamesync_signaling_test.go",
+        "sourceSha256": "4956264b384721e8877b5b3b1cae11d552c5f7633503f3c98ef4417a2363ec72",
+        "transformations": [],
+        "publishedSha256": "9dd6b726dbb216ff53dc15a7b68967222d13566736a91af74c2eeb8de9f13a10"
+      },
+      {
+        "path": "gamesync_signaling.go",
+        "sourceSha256": "6e0f8fcd0d63c72dc24b93bd4c6cc48cfab9c287cfc568e6610cd814698195f6",
+        "transformations": [],
+        "publishedSha256": "e303f5d23da405d3163c93531b1d62ea1c3b7594b5c3e3a124fd83d1c12f277c"
+      },
+      {
+        "path": "gamesync_stage_test.go",
+        "sourceSha256": "9a7c0d1ddaac6b23d6c9ad2109de9d36dfea181f8eb1c481d27b7aaf8803f284",
+        "transformations": [],
+        "publishedSha256": "0f8d84c21ae83846b97249a008a242aa03b7a087a3fcf2f884dfd4182f59ca90"
+      },
+      {
+        "path": "gamesync_stage.go",
+        "sourceSha256": "df27afe6d87770ee52c323fc58ca25135df5c68c1df27579bac03e3c0538b39d",
+        "transformations": [],
+        "publishedSha256": "a426893bbf2629a17349defde8070af08718c807f3dc825fdacecdf551f4b376"
+      },
+      {
+        "path": "gamesync_store_test.go",
+        "sourceSha256": "08b13da907764c1d630fe16f04556671d63c7b4f14d0998a9e7fc769dfdc38c5",
+        "transformations": [],
+        "publishedSha256": "88c4ff10153a8bf46180b89727dec4c0197b58af87447170eb8dc22df1a494a3"
+      },
+      {
+        "path": "gamesync_store.go",
+        "sourceSha256": "0ddf5753b76b1fb4b4d90ad1c83c7d7dd900dc8219010ac175e59af1e85bc5ec",
+        "transformations": [],
+        "publishedSha256": "877c53319fb0a46fa56b1385095b1c407b6ea84e21e8e12a6dad8ad0ea167886"
+      },
+      {
+        "path": "gamesync_stream_test.go",
+        "sourceSha256": "2a5ed37b7b0ff5f5c2c51b6c9226589f0a62211260c62ebf4eb913947fbefa83",
+        "transformations": [],
+        "publishedSha256": "d2cc9f3b0ad4af1f8f82b93519119e0f536f40be7c168cb2ea9b39f073e58ff9"
+      },
+      {
+        "path": "gamesync_stream.go",
+        "sourceSha256": "dc2e628961eeb8e8a9594dd18e9f0f72180ad8307754cfbf8203db9cadce9806",
+        "transformations": [],
+        "publishedSha256": "a5b0d10e6bb1addb2df654290828e2a9f2a5f4d43be55c13ee8e8567ce507969"
+      },
+      {
+        "path": "gamesync_test.go",
+        "sourceSha256": "6a2595c0e36f5969fbbe87fc20b6a7baeab92857263d6c7bfde96bce5a047231",
+        "transformations": [],
+        "publishedSha256": "b15210b4d61debbd768d996f5c55c76d8d65d1021677b58d373d669e22074033"
+      },
+      {
+        "path": "gamesync_user_state_test.go",
+        "sourceSha256": "df1a2b0245c546aeab95921032eca9f9bf3598801fe4e7001f626f58a8a4c68b",
+        "transformations": [],
+        "publishedSha256": "48f1ac629bf8a90a240c02c65f072fe8e874e06d3fcc6ed61184fad11693b84a"
+      },
+      {
+        "path": "gamesync_write.go",
+        "sourceSha256": "ea09697420c73fb5723cd33008a9f6a5337cb30da505aa5c35493af741cff8f7",
+        "transformations": [],
+        "publishedSha256": "d0fdb4b971c9fe738784140b2d895fc340503c62b1db3da48eb08a007fbf80e0"
+      },
+      {
+        "path": "gamesync.go",
+        "sourceSha256": "002b947aee850487313536b0feb1c1516738f7e72ab027136fe214ce8ca05d10",
+        "transformations": [],
+        "publishedSha256": "0277683535791c0cd6bc49fc7ba554c9cbad2466ed375a9a7e65664eea62dcac"
+      },
+      {
+        "path": "go.mod",
+        "sourceSha256": "fd3f917d99473bf4062c77c7f562583f13b90b01dc77ef9310847374fe9c8861",
+        "transformations": [],
+        "publishedSha256": "58f28d3bb91b2a955bcadf0cf7af2d928c8b1ee6e7b51a6c154bfe2095a88faf"
+      },
+      {
+        "path": "go.sum",
+        "sourceSha256": "3a4a87978aa5b3a37d216c947c3c599b7ae5a09e6c41211741282e7fb5722c6e",
+        "transformations": [],
+        "publishedSha256": "3b443e0272c767a13bc9667d1325e26c80f2483af0c1d7dacf88968007f8abb6"
+      },
+      {
+        "path": "h2_trace_test.go",
+        "sourceSha256": "6a0e93baf370b0cf485b49a5125fe788042d741113ae837dde0632920d689438",
+        "transformations": [],
+        "publishedSha256": "26c71b5bb3891cb146324c33de100b7c1223b2c15ccb99d8f6eaa4d3e378ddd5"
+      },
+      {
+        "path": "h2_trace.go",
+        "sourceSha256": "ab1a1a35ae8b48da05c8af3e5253ea5895f25dede788f08ac24022c9fc1bc567",
+        "transformations": [],
+        "publishedSha256": "9bd546a4bb3f6bf3066cda529b673f6987d250f25c7965b79e91c331484fca67"
+      },
+      {
+        "path": "ice_test.go",
+        "sourceSha256": "f033531b986df18022b303ff976375167f61e343cfcdc2dc28e4775acc103cf5",
+        "transformations": [],
+        "publishedSha256": "443b830d19f454299a0effeade2594c4adcd6fa1f4fdc4d0033f24696264225d"
+      },
+      {
+        "path": "ice.go",
+        "sourceSha256": "f03d7c12d742eb0a71f6d7712f60cabad1ff802ef2aa4e2bd3ed63bc3c70d9ab",
+        "transformations": [],
+        "publishedSha256": "5ebcabd6aee0b195f15009c115554df96520fb80deea200b69f4b987aa099da8"
+      },
+      {
+        "path": "identity_diagnostic_test.go",
+        "sourceSha256": "ae0599e6c099378592b6ed45270e2f05b604b1869ee1adc3e8abb7aa96a50ded",
+        "transformations": [
+          "Replace historical LAN test addresses with synthetic private-network fixtures."
+        ],
+        "publishedSha256": "4796cc518bee5d3970ba286f05c9be65fcc3c989ea0786a57606d2b7e3f8bb67"
+      },
+      {
+        "path": "identity_diagnostic.go",
+        "sourceSha256": "6b98f6941ffe7c4b6912f05b634d01354de800564bc9f3d60364aff9f369b6e5",
+        "transformations": [],
+        "publishedSha256": "bdf83e7db4d9da5454b51beea9d2c4852fbb1d71626a6903348ddcb45241ebe0"
+      },
+      {
+        "path": "local_friends_test.go",
+        "sourceSha256": "87bb672e686ae2d4335fc49569d2744111b2bc601bad74bceebfae9500613b16",
+        "transformations": [
+          "Replace historical LAN test addresses with synthetic private-network fixtures."
+        ],
+        "publishedSha256": "f60f6223b54752ebf65ba1da63a49b80de840c7e1584056bc4987bb7d6b65f93"
+      },
+      {
+        "path": "local_friends.go",
+        "sourceSha256": "2f1240346b6129845d99a4b27e21decf967a494fe810b1e9265ca573c08fd23a",
+        "transformations": [],
+        "publishedSha256": "7fe226257f7bf755877e67c3903d020c6a8949b1cf67559bb3443974a589e3a1"
+      },
+      {
+        "path": "local_messaging_test.go",
+        "sourceSha256": "a4d2b9db732805d88743ae712d81d40a79061d60165c9ad40ed2ca815be3bde9",
+        "transformations": [
+          "Replace historical LAN test addresses with synthetic private-network fixtures."
+        ],
+        "publishedSha256": "4a4bd2c147a009bd1e55dcf0e612f28797f938e1e0f2b9f79a8fc46fdd63ea11"
+      },
+      {
+        "path": "local_messaging.go",
+        "sourceSha256": "c8064e77aac6230fa4ff3b949208153e74661af40d34de4c1e70e696a7eb5aa7",
+        "transformations": [],
+        "publishedSha256": "216d6b6481eddf83c97e820e0ff1560a262f661f312b9c30dabe7bd905f7ae44"
+      },
+      {
+        "path": "local_presence_test.go",
+        "sourceSha256": "af02e50ba401ed7d58f588b4c394a625aa036d2c70b46a9917ab3163ce37f164",
+        "transformations": [
+          "Replace historical LAN test addresses with synthetic private-network fixtures."
+        ],
+        "publishedSha256": "4fe33f8126f0fa196a2c79b5c96ab44e87c6a885d49b615bcf3656fce2e36650"
+      },
+      {
+        "path": "local_presence.go",
+        "sourceSha256": "ce129603be47245fdf64caf5408d8e47f4f57c56e9cce52badb4c7e65ecd0eb4",
+        "transformations": [],
+        "publishedSha256": "b72bdfd96707ff2b37348789c33d21a134ce44038b31a5ba251c531aae5266bb"
+      },
+      {
+        "path": "main_test.go",
+        "sourceSha256": "a8569450ef6640d2d7a53f489d21dcaada93b8fdf1051bbfe0dca02c5755b893",
+        "transformations": [],
+        "publishedSha256": "7bea0d13e538a91e0679c43c652c8a1aca364555302a29e53d1e67195c2e199c"
+      },
+      {
+        "path": "main.go",
+        "sourceSha256": "633bef56b22f07291f39f98f8e259863e8cbcb71dcc989199e091e0942122689",
+        "transformations": [],
+        "publishedSha256": "21b37bd685aff6108ffefbd24473f8697414d00dc5c4f4ca50d188abb63409d2"
+      },
+      {
+        "path": "match_join_tokens_test.go",
+        "sourceSha256": "b6c9985a06e9676a2a007c092cbe7c73cbb473a93baec21bcdfb384e5e9fe625",
+        "transformations": [],
+        "publishedSha256": "76c806fdb68d40abd379d16f1be46c98a1b319f01797bf9325bcc0755c60c296"
+      },
+      {
+        "path": "match_response_test.go",
+        "sourceSha256": "44c14fc2a50bfa109a86527855a2bf1311a837a63a38e81de43f77980a798bf4",
+        "transformations": [],
+        "publishedSha256": "0cc449cea05601cebc3b5e3ddd673b5589f96d44d7fd1592f7ea7652f990cab2"
+      },
+      {
+        "path": "match_rooms_test.go",
+        "sourceSha256": "082da69511955d856bb831cd13aff379f522e57f76739a7e9ffaf4ff523dbc97",
+        "transformations": [
+          "Replace historical LAN test addresses with synthetic private-network fixtures."
+        ],
+        "publishedSha256": "dd1e4f06869f35b75f193138b8abe0d08ff05d4b4b90a880a397f2ef8f91025e"
+      },
+      {
+        "path": "match_rooms.go",
+        "sourceSha256": "eea3f2bbc1c7f0f6176a77b53285465008a3b610bf4c7db0b6e8d47488d67acf",
+        "transformations": [],
+        "publishedSha256": "eea3f2bbc1c7f0f6176a77b53285465008a3b610bf4c7db0b6e8d47488d67acf"
+      },
+      {
+        "path": "match_search_genesis_test.go",
+        "sourceSha256": "8a80633edb5e449e943c6e25ba2d379066a79e1e206cb2177d94bdb6a8d63cee",
+        "transformations": [],
+        "publishedSha256": "8a80633edb5e449e943c6e25ba2d379066a79e1e206cb2177d94bdb6a8d63cee"
+      },
+      {
+        "path": "match_search_n64_test.go",
+        "sourceSha256": "a1cb775bea8f248f6e4d9bce6a805b1b4e310efd08571e8866df8175c199d79b",
+        "transformations": [],
+        "publishedSha256": "a1cb775bea8f248f6e4d9bce6a805b1b4e310efd08571e8866df8175c199d79b"
+      },
+      {
+        "path": "messaging_diagnostic_test.go",
+        "sourceSha256": "949e7f9ae648173ba8e5ced0e576bc03f858165a7eaf2b08389783ccc4341e76",
+        "transformations": [
+          "Replace historical LAN test addresses with synthetic private-network fixtures."
+        ],
+        "publishedSha256": "ad89e8d33ab8c0d2667e7d53a3ab9884dfbc8f466df80921fdba32931b0536b6"
+      },
+      {
+        "path": "messaging.go",
+        "sourceSha256": "b2da2e444798df6dad30c810e281cd03990e30658d0fb4c109c3bf7aed008e89",
+        "transformations": [],
+        "publishedSha256": "efd12c734cc0c4e793503b39bf9752be493faaeac89603c02c90353c6dba0bea"
+      },
+      {
+        "path": "network_lan.go",
+        "sourceSha256": "63f5c10e6be23317df5dce8ad11c40b76ae27f3b96f2bb3cc99fe284868b466d",
+        "transformations": [],
+        "publishedSha256": "0f9d268515cc9e863ae0fc26ce8aa3ad760e21ec5f2d5c4f5b87235d3e3b8da1"
+      },
+      {
+        "path": "npln_test.go",
+        "sourceSha256": "17811a1a02c1253066d00b5b7678160633948d50b80048d35337245c4cec043f",
+        "transformations": [],
+        "publishedSha256": "15261f0f25e6105e92029089768fdede4926789886aff05fb4770e97c47bf7c5"
+      },
+      {
+        "path": "npln.go",
+        "sourceSha256": "c7dc0d0af791f350457ea2cbdca714c0123cfcd561bb2c4ce09b7f538983fa68",
+        "transformations": [],
+        "publishedSha256": "f92e679e9bfb8d8b75c36f2c8265f1534745f10c4936553f50f47f4d84a36cbf"
+      },
+      {
+        "path": "presence_diagnostic.go",
+        "sourceSha256": "5cbd614c2d5db0ea32d1840323775c711a59c53488e71aca096a9f48e86da961",
+        "transformations": [],
+        "publishedSha256": "0e5087b09d578db633b4c5b605838af0aeba4bc352365c858cf849797928a01c"
+      },
+      {
+        "path": "presence_keepalive_test.go",
+        "sourceSha256": "8fd44e55d974c8bc4010a6a98f4ab70b1c84c52da199f74a5578ec0ea812354f",
+        "transformations": [],
+        "publishedSha256": "9e437f84dc990b3a4fbb8f421f3d2a5baeca3e04e33cb4862af8dcf4138efe4f"
+      },
+      {
+        "path": "presence_keepalive.go",
+        "sourceSha256": "b61658f04289c3b72a50378bf789774d5ab0a06cadbc2855447e704d720997de",
+        "transformations": [],
+        "publishedSha256": "5010c99db020d9c0c7556803f95ea499e3c641635a5980d530c3c0f6358ed71b"
+      },
+      {
+        "path": "rooms_test.go",
+        "sourceSha256": "d8236efa91ce0591a820987d82e803967677c7040b814d649a3278e139bf58b6",
+        "transformations": [],
+        "publishedSha256": "2383d41ced3776d7e67929ae129da95ffb8fb6c74427996efb7ddcf673a6e195"
+      },
+      {
+        "path": "rooms.go",
+        "sourceSha256": "aad4d999b8012eb3b4a31d5904aad2415b18211e6c3305dcad3d374c6500fa49",
+        "transformations": [],
+        "publishedSha256": "44b2a167bf9cf1bcdb907e3af6d76a009d2fb6c6e5f156bb04f3ada66047353f"
+      },
+      {
+        "path": "session_profile_test.go",
+        "sourceSha256": "4810aa3d32ff57d606d83804f9accfc468f6c578215d5b4daee77371bdd466b7",
+        "transformations": [],
+        "publishedSha256": "ff030c98904cc0931dbef7352c54879e204a820e1b5a3025f22098bdc7f685b6"
+      },
+      {
+        "path": "session_times_test.go",
+        "sourceSha256": "6f98d9d85efbb2b4000b6b5e217ec2ab262aa340c4a300eda01bacacb8707b27",
+        "transformations": [],
+        "publishedSha256": "44bc494964dca8f21d8228e582b8b07f708ffd9598d451d32541265b0f2b8ffd"
+      },
+      {
+        "path": "session_token_test.go",
+        "sourceSha256": "e66fd92262d3783dd2ac417f80f9f6054441ddb38f083ebd3b9b085d94dc015f",
+        "transformations": [],
+        "publishedSha256": "f447481d988309524a26f3a975a2c2b0cb4ca00b176ef2f975dda541e371a53b"
+      },
+      {
+        "path": "session_token.go",
+        "sourceSha256": "0e4fb5613c7479e46d9d01ec26d33ab48ac2f689bb99bfa38221fd5146249e2e",
+        "transformations": [],
+        "publishedSha256": "4309d915b8c7868e0c6c087bdf6844e4a4ef37eafe1e8925af642a232361600f"
+      },
+      {
+        "path": "streams_test.go",
+        "sourceSha256": "10dc80582ff4db884c9b9eb3a6458ed7970f50d32ebdb11750561c1d7bc0eb58",
+        "transformations": [],
+        "publishedSha256": "a7a22b4291e50791f260779c854dc2f3f9b611762e4f488d0b829dd6b75c8437"
+      },
+      {
+        "path": "streams.go",
+        "sourceSha256": "612a6ab1fd06e5c16373601a6c709e701fcbfab39c5d91bd52ba52f5af7c0fa7",
+        "transformations": [],
+        "publishedSha256": "0950080808c2c5ff7b0ca62f6af33c299c15a923d72c7dfabe903f6d0d9fa88e"
+      },
+      {
+        "path": "ticket_diagnostic_test.go",
+        "sourceSha256": "3ee671990bde3add0efc94963351b7a39f39621d4a218e29b62d0af427654db7",
+        "transformations": [],
+        "publishedSha256": "f71fc038b1d078357c731c16bd952fa1afb06330f26f422cb7a279237936374d"
+      },
+      {
+        "path": "ticket_diagnostic.go",
+        "sourceSha256": "0e043876badd89dbbf8a479eb5c09d151ff358a8b7b8d6edd5b8e51d669a88fb",
+        "transformations": [],
+        "publishedSha256": "0e043876badd89dbbf8a479eb5c09d151ff358a8b7b8d6edd5b8e51d669a88fb"
+      },
+      {
+        "path": "ticket_uuid_test.go",
+        "sourceSha256": "bc22aebcbc90e6018f331c64c5e1e26d32194a210ac73a4938fdb3d9b2c55bc1",
+        "transformations": [],
+        "publishedSha256": "d2bc95e3723b3b345a78aae52832b8947172ece0e30b7a8e20f4995387a2bf35"
+      },
+      {
+        "path": "transport_test.go",
+        "sourceSha256": "3ea7a599b45de9633a10a0498c244cbd6c1665824c4db91fc0e3f0d8d60be067",
+        "transformations": [],
+        "publishedSha256": "613b461217513204280d375cb79d24197fe093dc10240c78ec7f1c16830fd606"
+      },
+      {
+        "path": "transport.go",
+        "sourceSha256": "fd2e228656330705de7b5a3c233df6a7305c44287c2b6dcf4f8a066670282326",
+        "transformations": [],
+        "publishedSha256": "5706f9becc6042d15881477a978956e2a60d947308990bbc8806e18f528915a7"
+      },
+      {
+        "path": "turn_local_test.go",
+        "sourceSha256": "95cc0b1175e5fd7a72e3005e42def292f5d9b2275a40a2486d2c3b4dd709d534",
+        "transformations": [],
+        "publishedSha256": "d6718ecc25085c344a06bcea0f7e23d978dd43e9029406511cd888298a711347"
+      },
+      {
+        "path": "turn_local.go",
+        "sourceSha256": "31724324fdd919b82154b8899049ffe45a3988df73af70f6fe47849d4b351c14",
+        "transformations": [],
+        "publishedSha256": "49484e0c0ebf46d06f3d7cbd12db127f35b077a4f123cf62d785b48e3d1b9568"
+      },
+      {
+        "path": "udp_diagnostic_test.go",
+        "sourceSha256": "7a3fcba30560e2cfab409e92146abbdc39c718468fe1b0417b00b8c1d4b89733",
+        "transformations": [
+          "Replace historical LAN test addresses with synthetic private-network fixtures."
+        ],
+        "publishedSha256": "73e091314a38c0c3170820c032b02008afa586c161bf9e3d7e6da70a4ba23e3c"
+      },
+      {
+        "path": "udp_diagnostic.go",
+        "sourceSha256": "5af4b8eadb5b90b060e4b373ca95bcb45853f5ecb82d16a276c8b96e06496a5f",
+        "transformations": [],
+        "publishedSha256": "46192f6138891c7f2ed05c066a41d9e25c93fe268a3699dbf8d34de2f2d6eef7"
+      }
+    ],
+    "publishedHashScope": "Git indexed bytes after text normalization"
+  }
+]
