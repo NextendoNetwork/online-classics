@@ -22,6 +22,8 @@ The transport manually encodes and decodes protobuf messages. Successful automat
 | Genesis | 0100B3C014BDA000 | 3.1.1 | t-7b4e32ca-lp1 |
 | GBA | 010012F017576000 | 3.3.0 | t-7b4e32ca-lp1 |
 | SNES | 01008D300C50C000 | 6.0.0 | t-4bdb1dd3-lp1 |
+| NES | 0100D870045B6000 | 9.1.0 | t-7b4e32ca-lp1 |
+| Game Boy | 0100C62011050000 | 4.1.0 | t-7b4e32ca-lp1 |
 
 Confirm the current game Build ID and destination when preparing clients. Version metadata does not establish that a separately supplied binary patch applies.
 
@@ -30,6 +32,12 @@ Confirm the current game Build ID and destination when preparing clients. Versio
 GBA creates LCLA6-4P sessions and searches LCLA6. Its server accepts the observed LCLA6-2P and LCLA6-4P configurations while retaining user, property, capacity and closed-session filtering. Creation/search use consoleName/ConsoleName and applicationVersion/ApplicationVersion aliases; exact keys take precedence. Tests cover mismatched values and unrelated configurations.
 
 The lab-genesis-query-members experiment is off by default. Enabling it alone did not resolve Switch-host discovery. The recovery test also used client friend-cache and routing changes, so its outcome cannot be attributed solely to this flag.
+
+## NES and Game Boy discovery
+
+NES and Game Boy derive from the Genesis backend with their own application claims. They retain LCLA6 search compatibility with LCLA6-2P creation and the observed consoleName/ConsoleName and applicationVersion/ApplicationVersion aliases. Exact keys take precedence and mismatched values, full rooms and closed rooms remain filtered. The imported regression tests cover these cases.
+
+Successful Switch discovery also involved separately maintained, bounded Ryujinx friend-resolution changes and corrected client routing. These server snapshots do not include those emulator changes or binary game patches. The lab launchers selected the npln-gss session token profile and explicit test identity pairing; deployment must reproduce the intended configuration rather than infer it from default startup.
 
 ## SNES and Genesis limitations
 

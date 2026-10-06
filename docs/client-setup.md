@@ -8,6 +8,8 @@ Prepare separate profiles for two distinct test accounts. Configure each client 
 
 The GBA discovery recovery involved a bounded Ryujinx friend-cache experiment and corrected routing. Review those changes independently before attributing recovery to the server. Genesis suspension freezing in Citron remains unresolved.
 
+NES 9.1.0 and Game Boy 4.1.0 acceptance also used separately maintained Ryujinx friend-resolution changes. Use the matching Nextendo client revision; these Go modules do not install that client support. A Game Boy 4.1.0 setup must not be applied to a base 1.0.0 installation.
+
 ## Physical Switch testing
 
 Use a separately prepared Prelude/Atmosphere setup that routes the intended service to the test destination. Preserve existing host-blocking rules and confirm whether the active environment uses default or emuMMC host configuration. Install only a patch matching the title Build ID. The original lab used consoles and a PC on the same LAN.
