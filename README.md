@@ -125,6 +125,8 @@ Original server source, tests, protocol implementation notes and documentation a
 
 ## License
 
-The repository's root [PolyForm Shield License 1.0.0](LICENSE.md) is retained. Imported original server material preserves its **MIT** notices in [Genesis](servers/genesis/LICENSE.md), [GBA](servers/gba/LICENSE), [SNES](servers/snes/LICENSE), [NES](servers/nes/LICENSE.md), and [Game Boy](servers/gb/LICENSE.md). Dependencies retain their own licenses. See [license boundaries and provenance](docs/contribution-scope.md).
+Released under the **[PolyForm Shield License 1.0.0](LICENSE.md)**, source-available: read, use, modify, and self-host, but do not use it to provide a product that competes with Nextendo Network.
+
+This describes the repository's root license. Imported original server material preserves its **MIT** notices in [Genesis](servers/genesis/LICENSE.md), [GBA](servers/gba/LICENSE), [SNES](servers/snes/LICENSE), [NES](servers/nes/LICENSE.md), and [Game Boy](servers/gb/LICENSE.md). Dependencies retain their own licenses. See [license boundaries and provenance](docs/contribution-scope.md).
 
 The account-integrated [N64 source](servers/n64/LICENSE.md) retains its original **PolyForm Shield** license; the separately derived [N64 lab](servers/n64/lab/LICENSE.md) preserves its **MIT** attribution. N64 upstream source is not relicensed as MIT.
