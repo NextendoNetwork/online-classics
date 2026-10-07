@@ -191,14 +191,14 @@ func TestRoomQueryCursorBoundToUserAndFilter(t *testing.T) {
 }
 
 func TestLANPeerPolicyAndListenerValidation(t *testing.T) {
-	_, subnet, err := net.ParseCIDR("192.168.50.0/24")
+	_, subnet, err := net.ParseCIDR("10.77.20.0/24")
 	if err != nil {
 		t.Fatal(err)
 	}
 	for _, tc := range []struct {
 		ip   string
 		want bool
-	}{{"192.168.50.9", true}, {"127.0.0.1", true}, {"192.168.51.9", false}, {"8.8.8.8", false}} {
+	}{{"10.77.20.9", true}, {"127.0.0.1", true}, {"10.77.21.9", false}, {"8.8.8.8", false}} {
 		if got := labPeerAllowed(subnet, net.ParseIP(tc.ip)); got != tc.want {
 			t.Fatalf("peer %s: %t", tc.ip, got)
 		}

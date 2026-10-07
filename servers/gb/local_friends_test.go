@@ -65,7 +65,7 @@ func TestLocalFriendLoopbackDestinationsUseSocketAddress(t *testing.T) {
 		t.Fatal("Merged the two emulator identities")
 	}
 	r := httptest.NewRequest("GET", "https://127.0.0.2", nil)
-	r.RemoteAddr = "192.168.50.92:45000"
+	r.RemoteAddr = "10.77.20.92:45000"
 	r = r.WithContext(context.WithValue(r.Context(), http.LocalAddrContextKey, &net.TCPAddr{IP: net.ParseIP("127.0.0.2"), Port: 443}))
 	if _, _, ok := pair.peerFor(r); ok {
 		t.Fatal("LAN client adopted a loopback emulator identity")
@@ -73,18 +73,18 @@ func TestLocalFriendLoopbackDestinationsUseSocketAddress(t *testing.T) {
 }
 
 func TestLocalFriendNSAOverridesAreAtomicAndKeepUserIdentities(t *testing.T) {
-	p, err := newLocalFriendPair("127.0.0.1,192.168.50.92")
+	p, err := newLocalFriendPair("127.0.0.1,10.77.20.92")
 	if err != nil {
 		t.Fatal(err)
 	}
 	uid := p.peers["127.0.0.1"].uid
-	if err := p.setNSAOverrides("127.0.0.1=0102030405060708,192.168.50.92=1112131415161718"); err != nil {
+	if err := p.setNSAOverrides("127.0.0.1=0102030405060708,10.77.20.92=1112131415161718"); err != nil {
 		t.Fatal(err)
 	}
-	if p.peers["127.0.0.1"].uid != uid || p.peers["192.168.50.92"].nsa != "1112131415161718" {
+	if p.peers["127.0.0.1"].uid != uid || p.peers["10.77.20.92"].nsa != "1112131415161718" {
 		t.Fatal("Mapping changed UID or lost NSA")
 	}
-	for _, config := range []string{"127.0.0.1=0102030405060708", "127.0.0.1=ffffffffffffffff,192.168.50.93=1112131415161718", "127.0.0.1=0000000000000000,192.168.50.92=1112131415161718", "127.0.0.1=1112131415161718,192.168.50.92=1112131415161718"} {
+	for _, config := range []string{"127.0.0.1=0102030405060708", "127.0.0.1=ffffffffffffffff,10.77.20.93=1112131415161718", "127.0.0.1=0000000000000000,10.77.20.92=1112131415161718", "127.0.0.1=1112131415161718,10.77.20.92=1112131415161718"} {
 		if p.setNSAOverrides(config) == nil {
 			t.Fatal("Accepted invalid mapping")
 		}
@@ -93,7 +93,7 @@ func TestLocalFriendNSAOverridesAreAtomicAndKeepUserIdentities(t *testing.T) {
 		}
 	}
 	var disabled *localFriendPair
-	if disabled.setNSAOverrides("127.0.0.1=0102030405060708,192.168.50.92=1112131415161718") == nil {
+	if disabled.setNSAOverrides("127.0.0.1=0102030405060708,10.77.20.92=1112131415161718") == nil {
 		t.Fatal("Accepted IDs without a pair")
 	}
 }
@@ -116,7 +116,7 @@ func authenticatePairTest(t *testing.T, a *labAuth, ip, external string) (string
 }
 
 func TestLocalFriendSubscriptionFeedsRealRoomSearch(t *testing.T) {
-	pair, err := newLocalFriendPair("127.0.0.1,192.168.50.92")
+	pair, err := newLocalFriendPair("127.0.0.1,10.77.20.92")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -161,8 +161,8 @@ func TestLocalFriendSubscriptionFeedsRealRoomSearch(t *testing.T) {
 	if len(decodeTestMessage(t, first)[1]) != 0 {
 		t.Fatal("Published friend before authenticating the second client")
 	}
-	guestUID, guestToken := authenticatePairTest(t, a, "192.168.50.92", "guest-token")
-	_, _ = authenticatePairTest(t, a, "192.168.50.93", "third-token")
+	guestUID, guestToken := authenticatePairTest(t, a, "10.77.20.92", "guest-token")
+	_, _ = authenticatePairTest(t, a, "10.77.20.93", "third-token")
 	update, err := readGRPCStreamFrame(response.Body)
 	if err != nil {
 		t.Fatal(err)
@@ -191,7 +191,7 @@ func TestLocalFriendSubscriptionFeedsRealRoomSearch(t *testing.T) {
 }
 
 func TestLocalFriendPairRejectsPublicOrDuplicatePeers(t *testing.T) {
-	for _, cfg := range []string{"127.0.0.1", "127.0.0.1,::1", "127.0.0.1,8.8.8.8", "127.0.0.1,192.168.1.3,192.168.1.4"} {
+	for _, cfg := range []string{"127.0.0.1", "127.0.0.1,::1", "127.0.0.1,8.8.8.8", "127.0.0.1,10.77.30.3,10.77.30.4"} {
 		if _, err := newLocalFriendPair(cfg); err == nil {
 			t.Fatalf("Accepts invalid pair %s", cfg)
 		}

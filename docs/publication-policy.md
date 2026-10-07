@@ -1,5 +1,7 @@
 # Publication policy
 
+Follow [network address privacy](privacy.md): operator PC/console/residential endpoints belong in private configuration. Publish placeholders or synthetic fixtures, never addresses copied from the owner's network.
+
 This repository publishes original server source, tests and documentation with recorded provenance. Retain the root PolyForm Shield license, per-server MIT notices and dependency attribution. A license grants only the rights held by its licensor; it does not grant rights to third-party games or assets.
 
 ## Content boundary

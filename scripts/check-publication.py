@@ -8,6 +8,7 @@ ALLOWED_SUFFIXES = {".go", ".mod", ".sum", ".md", ".json", ".yml", ".yaml", ".py
 ALLOWED_NAMES = {".gitignore", "LICENSE", "example.env"}
 PRIVATE_DIRECTORIES = {"artifacts", "work", "captures", "profiles", "private-nso", "private-gpu"}
 PATTERNS = (
+    ("personal LAN address; use synthetic fixtures", re.compile(r"\b192\.168\.\d{1,3}\.\d{1,3}\b")),
     ("private signing material", re.compile(r"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----")),
     ("embedded bearer credential", re.compile(r"Bearer\s+[A-Za-z0-9_./+=-]{40,}")),
     ("embedded GitHub credential", re.compile(r"(?:gh[pousr]_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{40,})")),
