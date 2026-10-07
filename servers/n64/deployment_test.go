@@ -16,7 +16,7 @@ import (
 )
 
 func TestNextendoDeploymentRejectsLocalAndExampleEndpoints(t *testing.T) {
-	for _, value := range []string{"", "192.168.100.3", "10.0.0.3", "172.16.0.3", "127.0.0.1", "0.0.0.0", "100.64.1.2", "169.254.1.2", "192.0.2.1", "198.51.100.1", "203.0.113.1", "198.18.0.1", "255.255.255.255", "::1", "localhost"} {
+	for _, value := range []string{"", "10.77.20.3", "10.0.0.3", "172.16.0.3", "127.0.0.1", "0.0.0.0", "100.64.1.2", "169.254.1.2", "192.0.2.1", "198.51.100.1", "203.0.113.1", "198.18.0.1", "255.255.255.255", "::1", "localhost"} {
 		if publicDeploymentIPv4(value) {
 			t.Errorf("accepted non-deployable client destination %q", value)
 		}
@@ -79,7 +79,7 @@ func TestNextendoDeploymentRequiresProvisioningAndNoBypass(t *testing.T) {
 		t.Fatal(err)
 	}
 	for _, tc := range []struct{ key, value, want string }{
-		{"NPLN_GAMESESSION_HOST", "192.168.100.3", "NPLN_GAMESESSION_HOST"},
+		{"NPLN_GAMESESSION_HOST", "10.77.20.3", "NPLN_GAMESESSION_HOST"},
 		{"NPLN_TURN_RELAY_IP", "127.0.0.1", "NPLN_TURN_RELAY_IP"},
 		{"NPLN_ALLOW_UNVERIFIED", "0", "unverified"},
 		{"NEXTENDO_SECRET", "3dworld-local-development-only-2026", "NEXTENDO_SECRET"},
