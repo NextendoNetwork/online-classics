@@ -30,12 +30,12 @@ func presenceUpdateTest(name string, state uint64, attributes map[string]string,
 }
 
 func TestLocalPresenceLiveDeliveryAndDisconnect(t *testing.T) {
-	pair, _ := newLocalFriendPair("127.0.0.1,192.168.100.92")
+	pair, _ := newLocalFriendPair("127.0.0.1,10.77.20.92")
 	a, _ := newLabAuth()
 	a.friendPair = pair
 	a.presences = newLocalPresenceStore()
 	host, hostToken := authenticatePairTest(t, a, "127.0.0.1", "host")
-	_, guestToken := authenticatePairTest(t, a, "192.168.100.92", "guest")
+	_, guestToken := authenticatePairTest(t, a, "10.77.20.92", "guest")
 	mux := http.NewServeMux()
 	mux.HandleFunc(presenceKeepAlivePath, a.keepPresenceAlive)
 	mux.HandleFunc(subscribePresencesPath, a.subscribePresences)
@@ -200,12 +200,12 @@ func TestLocalPresenceStateIsDerivedFromLeases(t *testing.T) {
 }
 
 func TestLocalPresenceEnumeratesDeclaredOfflineFriend(t *testing.T) {
-	pair, _ := newLocalFriendPair("127.0.0.1,192.168.100.92")
+	pair, _ := newLocalFriendPair("127.0.0.1,10.77.20.92")
 	a, _ := newLabAuth()
 	a.friendPair = pair
 	a.presences = newLocalPresenceStore()
 	host, _ := authenticatePairTest(t, a, "127.0.0.1", "host")
-	_, guestToken := authenticatePairTest(t, a, "192.168.100.92", "guest")
+	_, guestToken := authenticatePairTest(t, a, "10.77.20.92", "guest")
 	a.presences.open("u-outsider") // Never enumerate anyone outside the authorized friend pair.
 	mux := http.NewServeMux()
 	mux.HandleFunc(subscribePresencesPath, a.subscribePresences)

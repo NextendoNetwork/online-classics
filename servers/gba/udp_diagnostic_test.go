@@ -92,7 +92,7 @@ func TestUDPDiagnosticsReceiveFourDestinationsWithoutReplyOrPayload(t *testing.T
 }
 
 func TestUDPDiagnosticsRejectNonLoopbackAndRollbackStartup(t *testing.T) {
-	for _, address := range []string{"0.0.0.0:0", "192.168.100.3:0", "8.8.8.8:0"} {
+	for _, address := range []string{"0.0.0.0:0", "10.77.20.3:0", "8.8.8.8:0"} {
 		if conn, err := startUDPDiagnostic(address, quiet()); err == nil {
 			conn.Close()
 			t.Fatal("accepted non-loopback listener")
@@ -113,7 +113,7 @@ func TestUDPDiagnosticsRejectNonLoopbackAndRollbackStartup(t *testing.T) {
 		t.Fatal("startup rollback left first listener open")
 	}
 	probe.Close()
-	for _, tc := range []struct{ ip, class string }{{"127.0.0.2", "loopback"}, {"192.168.100.3", "private"}, {"8.8.8.8", "other"}} {
+	for _, tc := range []struct{ ip, class string }{{"127.0.0.2", "loopback"}, {"10.77.20.3", "private"}, {"8.8.8.8", "other"}} {
 		if udpSourceClass(net.ParseIP(tc.ip)) != tc.class {
 			t.Fatal("incorrect source classification")
 		}

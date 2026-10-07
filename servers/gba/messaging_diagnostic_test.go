@@ -21,7 +21,7 @@ func TestMessagingDiagnosticDoesNotExposeDeviceTokenOrMessageID(t *testing.T) {
 	body = protoBytes(body, 4, []byte("LoginDeviceToken"))
 	payload = protoBytes(payload, 3, body)
 	r := httptest.NewRequest("POST", sendMessagePath, bytes.NewReader(streamTestFrame(payload)))
-	r.RemoteAddr = "192.168.100.92:12345"
+	r.RemoteAddr = "10.77.20.92:12345"
 	r.Header.Set("Content-Type", "application/grpc")
 	r.Header.Set("npln-tenant-id", labTenant)
 	r.Header.Set("Authorization", "Bearer "+token)

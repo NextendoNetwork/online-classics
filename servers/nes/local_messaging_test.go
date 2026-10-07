@@ -11,10 +11,10 @@ import (
 
 func TestLoginDeviceTokenDeliveryIsPrivateAndPreservesBody(t *testing.T) {
 	a, _ := newLabAuth()
-	a.friendPair, _ = newLocalFriendPair("127.0.0.1,192.168.50.92")
+	a.friendPair, _ = newLocalFriendPair("127.0.0.1,10.77.20.92")
 	a.messages = newLocalMessageStore()
 	host, hostToken := authenticatePairTest(t, a, "127.0.0.1", "host")
-	guest, guestToken := authenticatePairTest(t, a, "192.168.50.92", "guest")
+	guest, guestToken := authenticatePairTest(t, a, "10.77.20.92", "guest")
 	mux := http.NewServeMux()
 	mux.HandleFunc(sendMessagePath, a.inspectSendMessage(quiet()))
 	mux.HandleFunc(recvMessagePath, a.recvMessage)
