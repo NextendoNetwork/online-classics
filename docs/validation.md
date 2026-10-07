@@ -21,3 +21,9 @@ The GitHub workflow additionally runs the content check on pushes and pull reque
 Both N64 modules passed tests, vet and build locally. The account-integrated module retains the upstream tests and adds regression coverage for bounded Classics configuration aliases, exact property precedence and host/guest departure behavior. The lab preserves its existing N64 matchmaking tests after fixture-address sanitation. CI includes both modules independently.
 
 These checks validate source behavior. Citron/Switch success was owner-reported on the lab backend; manual acceptance of the integrated account-service deployment and four-player gameplay remain pending. Original N64 and root PolyForm Shield notices, and the derived lab's MIT attribution, are retained.
+
+## Nextendo deployment configuration — October 6, 2026
+
+The account-integrated N64 module passed tests, vet and build after adding startup validation for the Nextendo deployment profile. Regression checks cover rejection of local/example client destinations, the unverified-authentication bypass, development secrets, public plaintext account traffic, missing persistent keys and mismatched TLS material. Unconfigured startup fails; historical reproduction requires explicit development mode.
+
+The VPS template no longer supplies local client destinations or default credentials. The deployment guide records the five other modules' pending account/public relay migration. No VPS or separate-network gameplay acceptance is claimed by these checks. The other modules' implementations and license boundaries are unchanged.

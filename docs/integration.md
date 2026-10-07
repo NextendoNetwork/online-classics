@@ -1,5 +1,7 @@
 # Maintainer integration
 
+Target Nextendo-operated public services using [the deployment configuration](nextendo-deployment.md). Do not advertise the original test LAN addresses to clients. N64 now defaults to validated Nextendo deployment mode; the other reference modules still require identity and public relay migration.
+
 1. Review the source provenance and per-directory licensing.
 2. Run tests, vet and build in each independent server module.
 3. Compare title-specific tenant/application defaults, matchmaking filters and Gamesync behavior before sharing handlers.

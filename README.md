@@ -30,9 +30,9 @@ Choose the Nintendo Switch Online (NSO) application you want to test:
 
 This repository supplies backend source and documentation. Games, firmware, console keys, patches and ready-to-run emulator packages are not included. See the [tested combinations](docs/test-matrix.md) before choosing clients. N64 has a successful owner-reported Citron/Switch lab test; the consolidated account-integrated backend still needs staging acceptance and Ryujinx stability remains unresolved. See the [N64 test status](docs/n64-testing.md).
 
-### I want to run a test server
+### I want to deploy on Nextendo servers
 
-Start with [Build and run](#build-and-run), then the [integration guide](docs/integration.md). Run one Classics backend at a time when sharing ports. The local lab identity and relay options require operator configuration before connecting real clients.
+Start with the [Nextendo deployment guide](docs/nextendo-deployment.md) and [integration guide](docs/integration.md). Use operator-provided public destinations for clients. N64 has an account-integrated deployment path; the other five modules require account and public relay migration before VPS rollout.
 
 ## What is this?
 
@@ -66,10 +66,9 @@ Use **Go 1.27.1 or newer**. Select a title module, then build it:
 ```sh
 cd servers/gba
 go build -o server .
-go run . -log-file ""
 ```
 
-Replace `gba` with `genesis`, `snes`, `nes` or `gb` as needed. Defaults use loopback listeners. Run `go run . -help` for configuration flags and review the [integration guide](docs/integration.md) before configuring real clients.
+Replace `gba` with `genesis`, `snes`, `nes` or `gb` to build their reference modules. Their local authentication and subnet-limited relays require migration before Nextendo deployment; a successful build does not make them public services. See the [deployment readiness table](docs/nextendo-deployment.md#module-readiness).
 
 For N64, follow [its module guide](servers/n64/README.md): the account-integrated service uses environment configuration, while the [lab reference](servers/n64/lab/README.md) uses the original lab flags.
 

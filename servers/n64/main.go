@@ -131,6 +131,9 @@ func buildServer(creds credentials.TransportCredentials) *grpc.Server {
 }
 
 func main() {
+	if err := validateDeployment(os.Getenv); err != nil {
+		log.Fatalf("Invalid deployment configuration: %v", err)
+	}
 	log.SetFlags(log.Ldate | log.Ltime | log.Lmicroseconds)
 	log.Printf("================================================================")
 	log.Printf(" Nextendo NPLN Server — Nintendo 64 - Nintendo Switch Online [%s]", nplnAppID)
