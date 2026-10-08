@@ -21,7 +21,7 @@ Provision [example.env](../servers/n64/example.env) through the deployment's sec
 - Supply public IPv4 addresses for Gamesession, latency, STUN, TURN and NNCS. Loopback, LAN, wildcard, CGNAT and documentation addresses are rejected as client destinations. This deployment profile requires IPv4 literals and does not resolve DNS.
 - Listener interfaces and advertised destinations are separate. `0.0.0.0` can be a listener but cannot be advertised to clients.
 - NNCS requires two distinct public IPv4 addresses assigned to the host. TURN now separates its bind interface (`NPLN_TURN_BIND_IP`) from the advertised relay address, with `NPLN_TURN_RELAY_MIN_PORT`/`NPLN_TURN_RELAY_MAX_PORT`. NNCS still needs its two assigned public addresses.
-- Set the internal account service URL explicitly. Public traffic requires HTTPS; HTTP is accepted only for private/loopback literal addresses on an operator-controlled service hop. Internal account addresses are not game-client destinations.
+- Set the internal account service URL explicitly. The shared verifier requires HTTPS, except for literal loopback HTTP in an isolated test. Internal account addresses are not game-client destinations.
 - Provision persistent TLS material and the P-256 NPLN signing key. Startup checks the matching TLS pair/profile and key format. Invalid deployment material fails instead of falling back to generated keys. Manage certificate renewal outside the running service.
 - Supply Nextendo proof, internal account and TURN credentials privately. Leave `NPLN_ALLOW_UNVERIFIED` absent/empty: even `0` enables the retained bypass. Legacy signing and forced certificate regeneration are rejected in deployment mode.
 

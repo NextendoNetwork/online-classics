@@ -2,6 +2,10 @@
 
 ## Scope
 
+This section preserves the historical automated run at `d15c7e5`. The current
+signed-account implementation at `c0f21bd` has its own
+[Linux verification record](signed-account-verification-2026-10-08.md).
+
 The six title modules' root-package test executables passed on a separate Linux/amd64 test VPS. The tested source revision was `d15c7e5ac50daacd2548ce534c39af4dd40f6382` on `codex/nextendo-deployment`, with no module source changes for this run. The date uses the operator's client timezone.
 
 The executables were cross-compiled with Go 1.27.1 on Windows/amd64, targeting Linux/amd64 with CGO disabled, then copied to a private test directory. Remote SHA-256 hashes matched the local artifacts. Each test executable ran with a 90-second test timeout and exited successfully; the retained private logs end in `PASS`.
@@ -55,7 +59,8 @@ Use a new shell for subsequent native-platform Go work so the cross-compilation 
 ## What remains pending
 
 - Actual Ryujinx, Citron and Prelude/Switch sessions against these VPS builds: discovery, joining, gameplay, host reversal, leave/rejoin, AFK and room recreation.
-- Account-integrated acceptance for N64, and account/public relay migration for the other five modules, as specified in the [deployment guide](nextendo-deployment.md#module-readiness).
+- Live acceptance of the newly implemented account and relay paths for all six
+  modules, as specified in the [deployment guide](nextendo-deployment.md#module-readiness).
 - Router forwarding and reachable advertised relay destinations. N64's direct public-address assumptions still need resolution for this test host behind a router.
 - Different-network, four-player and physical Switch/Switch acceptance.
 
