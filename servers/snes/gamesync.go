@@ -18,7 +18,7 @@ type issuedMatch struct {
 	expires time.Time
 }
 
-func (s *ticketStore) rememberMatchToken(ticket pendingTicket, token string, now time.Time) {
+func (s *ticketStore) rememberMatchToken(ticket pendingTicket, token string, now time.Time) *gsError {
 	s.mu.Lock()
 	defer s.mu.Unlock()
 	for key, issued := range s.issuedMatches {
@@ -26,8 +26,13 @@ func (s *ticketStore) rememberMatchToken(ticket pendingTicket, token string, now
 			delete(s.issuedMatches, key)
 		}
 	}
+	s.pruneNextendoLocked(now)
+	if s.bounded && len(s.issuedMatches) >= 4096 {
+		return gsFail("8", "Match credential capacity reached")
+	}
 	// Conservative limit for both profiles: the gss token lasts one hour.
 	s.issuedMatches[sha256.Sum256([]byte(token))] = issuedMatch{ticket: ticket, expires: now.Add(time.Hour)}
+	return nil
 }
 
 func parseGamesyncIssueToken(payload []byte) (string, string, error) {
@@ -131,6 +136,12 @@ func (s *ticketStore) issueGamesyncToken(a *labAuth, logger *log.Logger) http.Ha
 			if !time.Now().Before(previous.expires) {
 				delete(s.issuedGamesync, key)
 			}
+		}
+		s.pruneNextendoLocked(time.Now())
+		if s.bounded && len(s.issuedGamesync) >= 4096 {
+			s.mu.Unlock()
+			grpcStatus(w, "8", "Gamesync credential capacity reached", nil)
+			return
 		}
 		s.issuedGamesync[sha256.Sum256([]byte(access))] = issuedMatch{ticket: issued.ticket, expires: time.Now().Add(8 * time.Hour)}
 		s.mu.Unlock()

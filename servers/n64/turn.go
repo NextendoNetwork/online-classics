@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net"
+	"os"
 	"sync"
 
 	"github.com/pion/turn/v4"
@@ -18,9 +19,10 @@ const (
 )
 
 type turnServer struct {
-	server  *turn.Server
-	address net.Addr
-	once    sync.Once
+	accounts *turnAccountRegistry
+	server   *turn.Server
+	address  net.Addr
+	once     sync.Once
 }
 
 func startTURN(recorder *probeRecorder, listenAddress, relayAddress, username, password, realm string) (*turnServer, error) {
@@ -42,20 +44,37 @@ func startTURN(recorder *probeRecorder, listenAddress, relayAddress, username, p
 	}
 
 	key := turn.GenerateAuthKey(username, realm, password)
+	production := os.Getenv("NPLN_DEPLOYMENT") != "development"
+	state := &turnServer{accounts: &turnAccountRegistry{credentials: map[string]turnAccountCredential{}}}
+	var generator turn.RelayAddressGenerator = &turn.RelayAddressGeneratorStatic{RelayAddress: relayIP, Address: relayIP.String()}
+	permission := func(_ net.Addr, peer net.IP) bool { return true }
+	if production {
+		generator, err = productionRelayGenerator(relayIP)
+		if err != nil {
+			conn.Close()
+			return nil, err
+		}
+		permission = func(_ net.Addr, peer net.IP) bool { return publicDeploymentIPv4(peer.String()) }
+	}
 	server, err := turn.NewServer(turn.ServerConfig{
 		Realm: realm,
-		AuthHandler: func(candidate, candidateRealm string, _ net.Addr) ([]byte, bool) {
+		AuthHandler: func(candidate, candidateRealm string, source net.Addr) ([]byte, bool) {
+			if production {
+				return state.accounts.authenticate(candidate, candidateRealm, realm, source)
+			}
 			return key, candidate == username && candidateRealm == realm
 		},
 		PacketConnConfigs: []turn.PacketConnConfig{{
-			PacketConn: conn,
-			RelayAddressGenerator: &turn.RelayAddressGeneratorStatic{
-				RelayAddress: relayIP,
-				Address:      relayIP.String(),
-			},
+			PacketConn:            conn,
+			RelayAddressGenerator: generator,
+			PermissionHandler:     permission,
 		}},
 		EventHandler: turn.EventHandler{
 			OnAllocationCreated: func(src, dst net.Addr, protocol, eventUser, eventRealm string, relay net.Addr, requestedPort int) {
+				if production {
+					log.Print("[NPLN TURN] account allocation created")
+					return
+				}
 				log.Printf("[NPLN TURN] allocation created src=%s relay=%s protocol=%s user=%q requested_port=%d", src, relay, protocol, eventUser, requestedPort)
 				if recorder != nil {
 					recorder.record(probeEvent{Kind: "turn_allocation_created", Fields: map[string]interface{}{
@@ -65,6 +84,10 @@ func startTURN(recorder *probeRecorder, listenAddress, relayAddress, username, p
 				}
 			},
 			OnAllocationDeleted: func(src, dst net.Addr, protocol, eventUser, eventRealm string) {
+				if production {
+					log.Print("[NPLN TURN] account allocation deleted")
+					return
+				}
 				log.Printf("[NPLN TURN] allocation deleted src=%s protocol=%s user=%q", src, protocol, eventUser)
 				if recorder != nil {
 					recorder.record(probeEvent{Kind: "turn_allocation_deleted", Fields: map[string]interface{}{
@@ -81,7 +104,8 @@ func startTURN(recorder *probeRecorder, listenAddress, relayAddress, username, p
 	}
 
 	log.Printf("[NPLN TURN] RFC 8656 UDP listening on %s relay_ip=%s realm=%q user=%q", conn.LocalAddr(), relayIP, realm, username)
-	return &turnServer{server: server, address: conn.LocalAddr()}, nil
+	state.server, state.address = server, conn.LocalAddr()
+	return state, nil
 }
 
 func (s *turnServer) Close() {

@@ -274,6 +274,19 @@ func (a *labAuth) listLocalFriends(w http.ResponseWriter, r *http.Request) {
 		grpcStatus(w, "3", "No further page exists", nil)
 		return
 	}
+	if a.nextendo != nil {
+		peers, err := a.accountFriends(r, uid)
+		if err != nil {
+			grpcStatus(w, "14", "Account authority unavailable", nil)
+			return
+		}
+		var response []byte
+		for _, peer := range peers {
+			response = protoBytes(response, 1, encodeLocalFriend(uid, peer))
+		}
+		grpcStatus(w, "0", "", response)
+		return
+	}
 	if a.friendPair == nil {
 		grpcStatus(w, "0", "", nil)
 		return

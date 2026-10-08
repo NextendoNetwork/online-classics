@@ -74,10 +74,16 @@ func (a *labAuth) keepPresenceAlive(w http.ResponseWriter, r *http.Request) {
 	if !ok {
 		return
 	}
+	if a.nextendo != nil {
+		claims, _ := a.verifyJWT(splitBearer(r))
+		var end func()
+		r.Body, end = a.trackAccountStream(claims.Session, r.Body)
+		defer end()
+	}
 	defer r.Body.Close()
 	var lease uint64
 	if a.presences != nil {
-		_, _, known := a.friendPair.snapshot(uid)
+		_, _, known := a.friendSnapshot(r, uid)
 		if !known {
 			grpcStatus(w, "7", "User outside the local pair", nil)
 			return
@@ -134,6 +140,11 @@ func (a *labAuth) keepPresenceAlive(w http.ResponseWriter, r *http.Request) {
 			}
 			return
 		case <-ticker.C:
+			if a.nextendo != nil {
+				if _, ok := a.authorizedUser(w, r); !ok {
+					return
+				}
+			}
 			if writeGRPCFrame(w, heartbeat) != nil {
 				return
 			}

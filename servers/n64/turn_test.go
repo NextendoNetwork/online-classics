@@ -11,6 +11,7 @@ import (
 )
 
 func TestTURNAllocationAndRelayRoundTrip(t *testing.T) {
+	t.Setenv("NPLN_DEPLOYMENT", "development")
 	server, err := startTURN(nil, "127.0.0.1:0", "127.0.0.1", defaultTURNUsername, defaultTURNPassword, defaultTURNRealm)
 	if err != nil {
 		t.Fatal(err)
@@ -72,6 +73,7 @@ func TestTURNAllocationAndRelayRoundTrip(t *testing.T) {
 }
 
 func TestAllocateIceServerSetAdvertisesTURN(t *testing.T) {
+	t.Setenv("NPLN_DEPLOYMENT", "development")
 	response, err := newGameSessionServer(newSessionRegistry()).AllocateIceServerSet(
 		context.Background(),
 		&mmpb.AllocateIceServerSetRequest{Tenant: nplnTenant},
@@ -90,6 +92,7 @@ func TestAllocateIceServerSetAdvertisesTURN(t *testing.T) {
 }
 
 func TestAllocateIceServerSetAdvertisesConfiguredSTUN(t *testing.T) {
+	t.Setenv("NPLN_DEPLOYMENT", "development")
 	t.Setenv("NPLN_STUN_HOST", "100.100.100.100")
 	t.Setenv("NPLN_STUN_PORT", "13478")
 	response, err := newGameSessionServer(newSessionRegistry()).AllocateIceServerSet(
@@ -106,6 +109,7 @@ func TestAllocateIceServerSetAdvertisesConfiguredSTUN(t *testing.T) {
 }
 
 func TestAllocateIceServerSetPreservesLocalSTUNDefaults(t *testing.T) {
+	t.Setenv("NPLN_DEPLOYMENT", "development")
 	t.Setenv("NPLN_STUN_HOST", "")
 	t.Setenv("NPLN_STUN_PORT", "")
 	response, err := newGameSessionServer(newSessionRegistry()).AllocateIceServerSet(context.Background(), &mmpb.AllocateIceServerSetRequest{Tenant: nplnTenant})

@@ -1,0 +1,26 @@
+{
+  "listen": "0.0.0.0:443",
+  "tlsCertificate": "/etc/online-classics/tls/certificate.pem",
+  "tlsKey": "/etc/online-classics/tls/private-key.pem",
+  "signingKey": "/etc/online-classics/gba/npln-signing-key.pem",
+  "statsListen": "127.0.0.1:8108",
+  "statsKeyEnv": "DASH_TOKEN",
+  "advertisedIPv4": "",
+  "udpBindIPv4": "0.0.0.0",
+  "stunPort": 3478,
+  "turnPort": 3479,
+  "relayMinPort": 48000,
+  "relayMaxPort": 48063,
+  "isolatedLoopbackTest": false,
+  "account": {
+    "titleId": "010012F017576000",
+    "jwksPath": "/etc/online-classics/trusted-baas-jwks.json",
+    "issuer": "",
+    "audience": "",
+    "allowAllAccounts": true,
+    "profileURL": "",
+    "onlineCheckURL": "",
+    "internalKeyEnv": "NEXTENDO_INTERNAL_KEY",
+    "deviceKindsByKeyId": {}
+  }
+}

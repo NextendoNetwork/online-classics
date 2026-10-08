@@ -327,7 +327,7 @@ func (a *labAuth) subscribeLocalPresences(w http.ResponseWriter, r *http.Request
 		grpcStatus(w, "12", "Presence resumption not implemented", nil)
 		return
 	}
-	peers, _, known := a.friendPair.snapshot(uid)
+	peers, _, known := a.friendSnapshot(r, uid)
 	if !known {
 		grpcStatus(w, "7", "User outside the local pair", nil)
 		return
@@ -367,7 +367,12 @@ func (a *labAuth) subscribeLocalPresences(w http.ResponseWriter, r *http.Request
 	defer ticker.Stop()
 	first := true
 	for {
-		peers, friendChanged, _ := a.friendPair.snapshot(uid)
+		if a.nextendo != nil {
+			if _, ok := a.authorizedUser(w, r); !ok {
+				return
+			}
+		}
+		peers, friendChanged, _ := a.friendSnapshot(r, uid)
 		allowed = map[string]bool{uid: true}
 		for _, peer := range peers {
 			allowed[peer.uid] = true

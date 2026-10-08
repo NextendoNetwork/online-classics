@@ -14,6 +14,7 @@ import (
 )
 
 func TestConsoleFriendNamespaceSurvivesRefresh(t *testing.T) {
+	t.Setenv("NPLN_DEPLOYMENT", "development")
 	for _, console := range []bool{false, true} {
 		tok := newTokenPID(1800001100, nplnTenant+"/users/u-test", console)
 		ctx := metadata.NewIncomingContext(context.Background(), metadata.Pairs("authorization", "Bearer "+tok.AccessToken))

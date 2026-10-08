@@ -67,6 +67,10 @@ func (a *labAuth) authorizedUser(w http.ResponseWriter, r *http.Request) (string
 		grpcStatus(w, "16", "Invalid local token", nil)
 		return "", false
 	}
+	if a.nextendo != nil && !a.checkAccountSession(claims.Session, claims.Subject, remotePeerIP(r)) {
+		grpcStatus(w, "16", "Account gate rejected", nil)
+		return "", false
+	}
 	return claims.Subject, true
 }
 
@@ -130,7 +134,7 @@ func (a *labAuth) subscribePresences(w http.ResponseWriter, r *http.Request) {
 		grpcStatus(w, "3", "Incorrect user", nil)
 		return
 	}
-	if a.presences != nil && a.friendPair != nil {
+	if a.presences != nil && (a.friendPair != nil || a.nextendo != nil) {
 		a.subscribeLocalPresences(w, r, uid, payload)
 		return
 	}
@@ -179,6 +183,10 @@ func (a *labAuth) subscribeFriends(w http.ResponseWriter, r *http.Request) {
 	user, err := protoStringField1(payload)
 	if err != nil || !validUserPath(user, uid) {
 		grpcStatus(w, "3", "Incorrect user", nil)
+		return
+	}
+	if a.nextendo != nil {
+		a.subscribeAccountFriends(w, r, uid)
 		return
 	}
 	// Field 3 = keep_alive_interval; do not invent friends.

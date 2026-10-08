@@ -107,7 +107,7 @@ func (s *localMessageStore) next(uid string) (localMessage, bool, <-chan struct{
 	return m, true, b.changed
 }
 func (a *labAuth) recvLocalMessages(w http.ResponseWriter, r *http.Request, uid string, payload []byte) {
-	_, _, known := a.friendPair.snapshot(uid)
+	_, _, known := a.friendSnapshot(r, uid)
 	if !known {
 		grpcStatus(w, "7", "User outside the local pair", nil)
 		return

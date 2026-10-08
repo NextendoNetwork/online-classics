@@ -32,15 +32,15 @@ This repository supplies backend source and documentation. Games, firmware, cons
 
 ### I want to deploy on Nextendo servers
 
-Start with the [Nextendo deployment guide](docs/nextendo-deployment.md) and [integration guide](docs/integration.md). Use operator-provided public destinations for clients. N64 has an account-integrated deployment path; the other five modules require account and public relay migration before VPS rollout.
+Start with the [Nextendo deployment guide](docs/nextendo-deployment.md) and [integration guide](docs/integration.md). Use operator-provided public destinations for clients. All six modules now have signed-account staging paths. The five shared-baseline modules default to Nextendo mode with authenticated TURN; current-client acceptance and service lifecycle testing remain required. See [the account/transport staging record](docs/account-transport-staging.md).
 
 ## What is this?
 
 **Go** implementations of the NPLN/Gamesync services used by six Nintendo Switch Online Classics applications, contributed for integration with [Nextendo Network](https://nextendo.network).
 
-The backends handle lab authentication, session discovery and joining, friends and presence, Gamesync documents and watches, signaling, and local STUN/TURN experiments. They derive from Soul Genesis Lab. Public NPLN references and Nextendo server examples informed the protocol investigation.
+The backends handle account authentication, session discovery and joining, friends and presence, Gamesync documents and watches, signaling, and STUN/TURN. Historical development authentication and local relay experiments require an explicit development mode. They derive from Soul Genesis Lab. Public NPLN references and Nextendo server examples informed the protocol investigation.
 
-Each title currently has an independent module. Shared-handler consolidation and production account integration remain maintainer work. Run one backend at a time when using the same ports.
+Each title currently has an independent module. The signed account verifier is shared; title handlers remain independent. Production account/client integration and live acceptance remain maintainer work. Run one backend at a time when using the same ports.
 
 N64 consolidates the Nextendo account-integrated implementation and preserves the separately tested lab backend under [servers/n64/lab](servers/n64/lab). Review their [different deployment and license boundaries](docs/n64-integration.md).
 
@@ -68,7 +68,7 @@ cd servers/gba
 go build -o server .
 ```
 
-Replace `gba` with `genesis`, `snes`, `nes` or `gb` to build their reference modules. Their local authentication and subnet-limited relays require migration before Nextendo deployment; a successful build does not make them public services. See the [deployment readiness table](docs/nextendo-deployment.md#module-readiness).
+Replace `gba` with `genesis`, `snes`, `nes` or `gb` to build their reference modules. Run with `./server -deployment nextendo -config /etc/online-classics/gba/config.json`, using the title-specific private configuration. Historical flags require `-deployment development`. The default now requires verified Nextendo credentials and authenticated bounded TURN; a successful build does not establish gameplay acceptance. See the [deployment readiness table](docs/nextendo-deployment.md#module-readiness).
 
 For N64, follow [its module guide](servers/n64/README.md): the account-integrated service uses environment configuration, while the [lab reference](servers/n64/lab/README.md) uses the original lab flags.
 
@@ -97,6 +97,7 @@ Tests used [Ryujinx-Nextendo](https://github.com/NextendoNetwork/Ryujinx-Nextend
 ## Documentation
 
 - [Architecture and title-specific behavior](docs/architecture.md)
+- [Signed-account and transport staging](docs/account-transport-staging.md)
 - [Maintainer integration](docs/integration.md)
 - [Community staging and deployment acceptance](docs/community-staging.md)
 - [Client setup and test sequence](docs/client-setup.md)

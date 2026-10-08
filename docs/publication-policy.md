@@ -15,7 +15,7 @@ NES, Game Boy and N64 lab sources were imported through explicit source allowlis
 1. Identify the original author, source and applicable license of every contribution.
 2. Inspect the complete staged diff and dependency notices.
 3. Stage only intended redistributable source and documentation.
-4. Run `python scripts/check-publication.py` and the affected Go checks.
+4. Run `go run scripts/check-publication.go` and the affected Go checks.
 5. Submit a pull request with the actual test scope and unresolved issues.
 
 The automated check inspects Git's indexed file set, rejects binary/non-text material, prohibited artifact types, private runtime directories and common embedded credential formats. Synthetic test identities, loopback addresses and private-network fixtures are not live account credentials. The check cannot determine authorship, all secrets, infringement or the legal character of source code; human review remains necessary.

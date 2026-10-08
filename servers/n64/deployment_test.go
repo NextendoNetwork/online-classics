@@ -33,6 +33,7 @@ func TestNextendoDeploymentRequiresProvisioningAndNoBypass(t *testing.T) {
 		"NPLN_NNCS_ENABLED": "1", "NEXTENDO_ACCOUNT_URL": "https://accounts.example.invalid",
 		"NPLN_LISTEN": "0.0.0.0:443", "NPLN_STUN_LISTEN": "0.0.0.0:3478", "NPLN_TURN_LISTEN": "0.0.0.0:3479",
 		"NPLN_TURN_USERNAME": "operator", "NPLN_TURN_REALM": "operator-realm",
+		"NPLN_TURN_BIND_IP": "0.0.0.0", "NPLN_TURN_RELAY_MIN_PORT": "48000", "NPLN_TURN_RELAY_MAX_PORT": "48063",
 	}
 	for _, key := range []string{"NPLN_GAMESESSION_HOST", "NPLN_LATENCY_HOST", "NPLN_STUN_HOST", "NPLN_TURN_HOST", "NPLN_TURN_RELAY_IP", "NEXTENDO_NNCS1_IP", "NPLN_NNCS_LOCAL_IP"} {
 		config[key] = "8.8.8.8" // Validation only: never contacted or bound.
@@ -40,7 +41,7 @@ func TestNextendoDeploymentRequiresProvisioningAndNoBypass(t *testing.T) {
 	for _, key := range []string{"NEXTENDO_SECRET", "NEXTENDO_INTERNAL_KEY", "NPLN_TURN_PASSWORD"} {
 		config[key] = "test-only-secret-material"
 	}
-	for _, key := range []string{"CERT_FILE", "KEY_FILE", "NPLN_JWT_KEY"} {
+	for _, key := range []string{"CERT_FILE", "KEY_FILE", "NPLN_JWT_KEY", "NPLN_ACCOUNT_CONFIG"} {
 		config[key] = file
 	}
 	tlsKey, err := rsa.GenerateKey(rand.Reader, 2048)

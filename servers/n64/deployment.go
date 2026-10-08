@@ -6,9 +6,11 @@ import (
 	"crypto/x509"
 	"encoding/pem"
 	"fmt"
+	"net"
 	"net/netip"
 	"net/url"
 	"os"
+	"strconv"
 	"strings"
 )
 
@@ -33,6 +35,12 @@ func validateDeployment(get func(string) string) error {
 	}
 	if get("NPLN_NNCS_ENABLED") != "1" {
 		return fmt.Errorf("NPLN_NNCS_ENABLED must be 1 in Nextendo deployment")
+	}
+	bindIP := net.ParseIP(get("NPLN_TURN_BIND_IP"))
+	minPort, e1 := strconv.Atoi(get("NPLN_TURN_RELAY_MIN_PORT"))
+	maxPort, e2 := strconv.Atoi(get("NPLN_TURN_RELAY_MAX_PORT"))
+	if bindIP == nil || bindIP.To4() == nil || e1 != nil || e2 != nil || minPort < 1024 || maxPort < minPort || maxPort > 65535 || maxPort-minPort > 255 {
+		return fmt.Errorf("NPLN_TURN_BIND_IP and bounded relay port range required")
 	}
 	// The retained verifier treats any nonempty value, including "0", as a bypass.
 	if get("NPLN_ALLOW_UNVERIFIED") != "" || envDeploymentEnabled(get("NPLN_ALLOW_LEGACY_SIGNER")) || envDeploymentEnabled(get("NPLN_REGENERATE_CERT")) {
@@ -60,7 +68,7 @@ func validateDeployment(get func(string) string) error {
 			return fmt.Errorf("public account service traffic requires HTTPS")
 		}
 	}
-	for _, key := range []string{"CERT_FILE", "KEY_FILE", "NPLN_JWT_KEY"} {
+	for _, key := range []string{"CERT_FILE", "KEY_FILE", "NPLN_JWT_KEY", "NPLN_ACCOUNT_CONFIG"} {
 		path := strings.TrimSpace(get(key))
 		file, err := os.Open(path)
 		if err != nil {

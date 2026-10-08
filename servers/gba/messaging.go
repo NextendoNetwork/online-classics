@@ -101,7 +101,7 @@ func (a *labAuth) inspectSendMessage(logger *log.Logger) http.HandlerFunc {
 		self, friend, other := 0, 0, 0
 		var peers []localFriendPeer
 		if a.friendPair != nil {
-			peers, _, _ = a.friendPair.snapshot(uid)
+			peers, _, _ = a.friendSnapshot(r, uid)
 		}
 		for _, name := range receiverNames {
 			if messagingOwnUser(name, uid) {
@@ -123,7 +123,7 @@ func (a *labAuth) inspectSendMessage(logger *log.Logger) http.HandlerFunc {
 		}
 		logger.Printf("Messaging routes: client=%q own=%d friends=%d others=%d requires_ack=%t", r.RemoteAddr, self, friend, other, needAck)
 		if a.messages != nil && messageType == "LoginDeviceToken" && receivers == 1 && self == 1 && !needAck {
-			_, _, known := a.friendPair.snapshot(uid)
+			_, _, known := a.friendSnapshot(r, uid)
 			if !known {
 				grpcStatus(w, "7", "User outside the local pair", nil)
 				return

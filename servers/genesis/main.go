@@ -51,19 +51,29 @@ func handlerWithSessionExperiments(logger *log.Logger, profile string, ice iceEn
 }
 
 func handlerWithUserStateExperiment(logger *log.Logger, profile string, ice iceEndpoint, diagnostic *identityDiagnostic, pair *localFriendPair, queryMembers, stage, userState bool, relays ...*localTURN) http.Handler {
+	return handlerWithConfiguredAuth(nil, logger, profile, ice, diagnostic, pair, queryMembers, stage, userState, relays...)
+}
+
+func handlerWithConfiguredAuth(configured *labAuth, logger *log.Logger, profile string, ice iceEndpoint, diagnostic *identityDiagnostic, pair *localFriendPair, queryMembers, stage, userState bool, relays ...*localTURN) http.Handler {
 	mux := http.NewServeMux()
 	labRooms := newRoomStore()
-	mux.HandleFunc("/lab/rooms", labRooms.listOrCreate)
-	mux.HandleFunc("/lab/rooms/", labRooms.join)
-	auth, err := newLabAuth()
-	if err != nil {
-		panic(err)
+	if configured == nil {
+		mux.HandleFunc("/lab/rooms", labRooms.listOrCreate)
+		mux.HandleFunc("/lab/rooms/", labRooms.join)
+	}
+	auth := configured
+	if auth == nil {
+		var err error
+		auth, err = newLabAuth()
+		if err != nil {
+			panic(err)
+		}
 	}
 	auth.sessionProfile = profile
 	auth.identityDiagnostic = diagnostic
 	auth.friendPair = pair
 	auth.logger = logger
-	if pair != nil {
+	if pair != nil || auth.nextendo != nil {
 		auth.presences = newLocalPresenceStore()
 		// Disabled: looping LoginDeviceToken delivery is unverified for Genesis;
 		// the real-client test left both clients waiting.
@@ -79,6 +89,10 @@ func handlerWithUserStateExperiment(logger *log.Logger, profile string, ice iceE
 		auth.publicKeySet(w, r)
 	})
 	tickets := newTicketStore()
+	if auth.nextendo != nil {
+		tickets.bounded = true
+		auth.nextendo.rooms = tickets
+	}
 	tickets.genesisQueryMembers = queryMembers
 	tickets.genesisStage = stage
 	tickets.genesisUserState = userState
@@ -92,6 +106,9 @@ func handlerWithUserStateExperiment(logger *log.Logger, profile string, ice iceE
 	mux.HandleFunc(gamesyncListDocumentsPath, tickets.listGamesyncDocuments(logger))
 	mux.HandleFunc(gamesyncWriteDocumentsPath, tickets.inspectGamesyncWrites(logger))
 	mux.HandleFunc(issuePrearrangedUserTokenPath, auth.issuePrearrangedUserToken)
+	if auth.nextendo != nil {
+		mux.HandleFunc(refreshTokenPath, auth.refreshAccountToken)
+	}
 	mux.HandleFunc(activateUserPath, auth.activateUser)
 	mux.HandleFunc(subscribeMaintenancePath, subscribeMaintenance)
 	mux.HandleFunc(subscribeFriendsPath, auth.subscribeFriends)
@@ -125,7 +142,7 @@ func handlerWithUserStateExperiment(logger *log.Logger, profile string, ice iceE
 		w.Header().Set("Grpc-Message", "genesis-lab: method not implemented")
 	})
 	var presenceLogs presenceLogLimiter
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+	result := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		logRequest := true
 		if r.URL.Path == subscribePresencesPath {
 			var skipped int
@@ -148,6 +165,10 @@ func handlerWithUserStateExperiment(logger *log.Logger, profile string, ice iceE
 			}
 		}
 	})
+	if auth.nextendo != nil {
+		return auth.enforceGamesyncAccounts(result, tickets)
+	}
+	return result
 }
 
 func developmentCertificate() (tls.Certificate, error) {
@@ -187,6 +208,8 @@ func developmentCertificate() (tls.Certificate, error) {
 }
 
 func main() {
+	deployment := flag.String("deployment", "nextendo", "nextendo or explicit development")
+	config := flag.String("config", "", "Private Nextendo deployment JSON")
 	addr := flag.String("addr", "127.0.0.1:8443", "Local listen address for the lab")
 	logPath := flag.String("log-file", "genesis-lab.log", "Diagnostic file (empty for console output only)")
 	traceH2 := flag.Bool("trace-h2", false, "Log HTTP/2 metadata without bodies or tokens; requires Go 1.27")
@@ -202,6 +225,25 @@ func main() {
 	stage := flag.Bool("lab-genesis-stage", false, "Experiment: publish __stg/All for Genesis LCLA6-2P; requires a local pair")
 	userState := flag.Bool("lab-genesis-user-state", false, "Experiment: seed __stu with actual suid/susid and empty pl; requires a local pair")
 	flag.Parse()
+	if *deployment == "nextendo" {
+		invalid := false
+		flag.Visit(func(f *flag.Flag) {
+			if f.Name != "deployment" && f.Name != "config" {
+				invalid = true
+			}
+		})
+		if invalid {
+			log.Fatal("Nextendo mode accepts only deployment and config flags")
+		}
+		if err := runNextendoDeployment(*config); err != nil {
+			log.Fatal(err)
+		}
+		return
+	}
+	if *deployment != "development" {
+		log.Fatal("unknown deployment mode")
+	}
+
 	logger := log.New(log.Writer(), "genesis-lab: ", log.LstdFlags|log.Lmicroseconds)
 	pair, err := newLocalFriendPair(*friendsClients)
 	if err != nil {
