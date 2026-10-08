@@ -86,6 +86,8 @@ go build -o server .
 
 The initial three modules passed these checks locally and in GitHub's Linux workflow. NES and Game Boy extend the same workflow; see [validation](docs/validation.md) for the current source checks. Automated checks validate server behavior; gameplay needs the separate manual acceptance sequence.
 
+On October 8, 2026, all six title modules' root-package test executables passed on a separate Linux/amd64 test VPS. See the [VPS evidence record](docs/vps-testing-2026-10-08.md) for the exact revision, commands, hashes and pending live acceptance. This run does not establish production account integration or new emulator/console gameplay results.
+
 ## Clients
 
 Tests used [Ryujinx-Nextendo](https://github.com/NextendoNetwork/Ryujinx-Nextendo), [Citron-Nextendo](https://github.com/NextendoNetwork/citron-nextendo), and a physical Switch. Clients need the matching application version, authorized patch setup, service routing, and an identity accepted by the backend.

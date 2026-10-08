@@ -1,5 +1,7 @@
 # Import validation
 
+The later [October 8 VPS test record](vps-testing-2026-10-08.md) documents six automated Linux root-package suite passes with source revision and executable fingerprints. It does not extend the manual gameplay matrix or certify production deployment.
+
 On October 5, 2026, each of the Genesis, GBA and SNES modules passed:
 
 - `go test ./... -timeout 60s`
