@@ -8,6 +8,7 @@ import (
 	"context"
 	"fmt"
 	"log"
+	"os"
 	"strings"
 	"sync"
 	"time"
@@ -647,6 +648,16 @@ func (g *gameSessionServer) AllocateIceServerSet(ctx context.Context, req *mmpb.
 	turnPort := envInt("NPLN_TURN_PORT", 3479)
 	turnUsername := envOr("NPLN_TURN_USERNAME", defaultTURNUsername)
 	turnPassword := envOr("NPLN_TURN_PASSWORD", defaultTURNPassword)
+	if os.Getenv("NPLN_DEPLOYMENT") != "development" {
+		if tenant != nplnTenant {
+			return nil, status.Error(codes.InvalidArgument, "tenant mismatch")
+		}
+		var err error
+		turnUsername, turnPassword, err = accountICETURN(ctx, req.GetUser())
+		if err != nil {
+			return nil, status.Error(codes.Unauthenticated, "account ICE gate rejected")
+		}
+	}
 	stunHost := envOr("NPLN_STUN_HOST", "127.0.0.1")
 	stunPort := envInt("NPLN_STUN_PORT", 3478)
 	return &mmpb.IceServerSet{
@@ -663,7 +674,7 @@ func (g *gameSessionServer) AllocateIceServerSet(ctx context.Context, req *mmpb.
 			Username: turnUsername,
 			Password: turnPassword,
 		}},
-		Ttl:        durationpb.New(24 * time.Hour),
+		Ttl:        durationpb.New(time.Hour),
 		UpdateTime: timestamppb.Now(),
 	}, nil
 }

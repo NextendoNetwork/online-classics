@@ -27,6 +27,15 @@ func callerPID(ctx context.Context) (uint64, bool) {
 		a = strings.TrimPrefix(a, "bearer ")
 
 		if pid, ok := pidFromJWT(a); ok {
+			if deploymentAccountVerifier != nil {
+				kind := "ryujinx"
+				if consoleFriendsFromContext(ctx) {
+					kind = "switch"
+				}
+				if _, err := gateAccountPID(ctx, pid, kind); err != nil {
+					return 0, false
+				}
+			}
 			return pid, true
 		}
 

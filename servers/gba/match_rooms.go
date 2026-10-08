@@ -54,6 +54,10 @@ func (s *ticketStore) publishMatchSession(host pendingTicket) *gsError {
 		}
 		return nil
 	}
+	s.pruneNextendoLocked(time.Now())
+	if s.bounded && len(s.sessions) >= 128 {
+		return gsFail("8", "Room capacity reached")
+	}
 	s.sessions[host.sessionName] = &matchSession{host: host, members: map[string]pendingTicket{host.owner: host}}
 	return nil
 }
@@ -620,6 +624,12 @@ func (s *ticketStore) joinMatchSession(a *labAuth, logger *log.Logger) http.Hand
 			return
 		}
 		s.mu.Lock()
+		s.pruneNextendoLocked(time.Now())
+		if s.bounded && len(s.issuedMatches) >= 4096 {
+			s.mu.Unlock()
+			grpcStatus(w, "8", "Match credential capacity reached", nil)
+			return
+		}
 		session := s.sessions[canonical]
 		if session == nil || session.closed {
 			s.mu.Unlock()
@@ -640,6 +650,10 @@ func (s *ticketStore) joinMatchSession(a *labAuth, logger *log.Logger) http.Hand
 		}
 		if !exists {
 			member = pendingTicket{createdAt: time.Now().UTC(), owner: uid, user: user, config: session.host.config, request: session.host.request, sessionName: canonical, userName: canonical + "/userSessions/" + id}
+		}
+		if a.nextendo != nil {
+			claims, _ := a.verifyJWT(splitBearer(r))
+			member.accountSession = claims.Session
 		}
 		token, err := a.sessionToken(member, time.Now())
 		if err != nil {

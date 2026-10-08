@@ -60,6 +60,16 @@ func authenticatedNPLNUID(ctx context.Context) (string, error) {
 	if hinted := uidFromCtx(ctx); hinted != "" && hinted != claims.Subject {
 		return "", status.Error(codes.PermissionDenied, "uid metadata does not match bearer subject")
 	}
+	if deploymentAccountVerifier != nil {
+		pid, ok := callerPID(ctx)
+		if !ok {
+			return "", status.Error(codes.PermissionDenied, "account gate rejected")
+		}
+		identity, err := deploymentAccountIdentity(pid)
+		if err != nil || identity.UserID != claims.Subject {
+			return "", status.Error(codes.PermissionDenied, "account identity mismatch")
+		}
+	}
 	return claims.Subject, nil
 }
 

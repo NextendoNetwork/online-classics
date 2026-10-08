@@ -2,6 +2,12 @@
 
 Owner-reported local results; these are not automated gameplay certification.
 
+The separate [October 8 VPS record](vps-testing-2026-10-08.md) reports automated Linux tests for all six modules. Those passes do not add confirmed gameplay pairings to this matrix.
+
+The [current signed-account verification](signed-account-verification-2026-10-08.md)
+also passed automated Linux checks for all six modules. All gameplay rows below
+remain historical and must be repeated with that account-integrated mode.
+
 | Pairing | Genesis | GBA 3.3.0 | SNES 6.0.0 | NES 9.1.0 | Game Boy 4.1.0 |
 | --- | --- | --- | --- | --- | --- |
 | Ryujinx / Ryujinx | Historical tests; fresh verification required for this import | Confirmed | Confirmed | Both host directions confirmed | Confirmed |

@@ -66,7 +66,14 @@ func (a *labAuth) allocateIceServerSet(endpoint iceEndpoint, logger *log.Logger,
 		turnCount := 0
 		if len(relays) > 0 && relays[0] != nil {
 			relay := relays[0]
-			username, password, err := relay.credentials(time.Now())
+			var username, password string
+			var err error
+			if a.nextendo != nil {
+				claims, _ := a.verifyJWT(splitBearer(r))
+				username, password, err = relay.credentialsForAccount(time.Now(), func(ip string) bool { return a.checkAccountSession(claims.Session, uid, ip) })
+			} else {
+				username, password, err = relay.credentials(time.Now())
+			}
 			if err != nil {
 				grpcStatus(w, "13", "Could not issue ICE credentials", nil)
 				return

@@ -6,9 +6,14 @@ Application reference: Nintendo Entertainment System 9.1.0, ID 0100D870045B6000,
 go test ./... -timeout 60s
 go vet ./...
 go build -o server .
-./server -log-file "" -session-token-profile npln-gss
+./server -deployment development -log-file "" -session-token-profile npln-gss
 ```
 
 Default TLS listener: 127.0.0.1:8443. Run `./server -help` for explicit listeners and local identity pairing. Pairing requires two distinct, authorized accounts and operator-supplied identities; do not copy private lab account configuration. Some inherited diagnostic flags and log prefixes retain Genesis names. They are not automatic NES compatibility fixes.
 
 Local owner reports cover Ryujinx/Ryujinx, Citron/Ryujinx and Ryujinx/Switch. Matching client routing, version-specific patch setup and separately maintained Ryujinx friend-resolution changes were required. Patches and client binaries are not distributed here. Review [client setup](../../docs/client-setup.md), [integration](../../docs/integration.md), and the [test matrix](../../docs/test-matrix.md) before extending the tests.
+
+
+## Nextendo staging mode
+
+The default requires private Nextendo configuration and fails closed. See [account and transport staging](../../docs/account-transport-staging.md). Commands above reproduce historical development behavior and must use `-deployment development`; they are not public deployment instructions.

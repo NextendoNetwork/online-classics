@@ -6,6 +6,7 @@ package main
 import (
 	"context"
 	"crypto/hmac"
+	"crypto/rand"
 	"crypto/sha256"
 	"encoding/base64"
 	"encoding/json"
@@ -15,6 +16,7 @@ import (
 	"strconv"
 	"strings"
 	"sync"
+	"time"
 
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
@@ -39,10 +41,10 @@ func describe(t *authpb.ExternalIdToken) string {
 		return "<none>"
 	}
 	if v := t.GetNsaIdToken(); v != "" {
-		return "nsa:" + short(v)
+		return "nsa:present"
 	}
 	if v := t.GetDummyExtIdToken(); v != "" {
-		return "dummy:" + v
+		return "dummy:present"
 	}
 	return "<empty>"
 }
@@ -88,6 +90,9 @@ func tenantOr(t string) string {
 }
 
 func gatedIdentity(ext *authpb.ExternalIdToken, tenant string) (uint64, string, error) {
+	if os.Getenv("NPLN_DEPLOYMENT") != "development" {
+		return 0, "", status.Error(codes.Unauthenticated, "legacy identity disabled outside development")
+	}
 	tenant = tenantOr(tenant)
 
 	fallback := func(why string) (uint64, string, error) {
@@ -176,6 +181,13 @@ func newTokenPID(pid uint64, userPath string, console ...bool) *authpb.Token {
 
 func jetonRafraichissement(pid uint64, console ...bool) string {
 	corps := fmt.Sprintf("nextendo-npln-refresh.%d", pid)
+	if os.Getenv("NPLN_DEPLOYMENT") != "development" {
+		var nonce [16]byte
+		if _, err := rand.Read(nonce[:]); err != nil {
+			return ""
+		}
+		corps += fmt.Sprintf(".%d.%s", time.Now().Add(24*time.Hour).Unix(), base64.RawURLEncoding.EncodeToString(nonce[:]))
+	}
 	if len(console) > 0 && console[0] {
 		corps += ".console"
 	}
@@ -190,7 +202,20 @@ func pidDuJetonRafraichissement(tok string) (uint64, bool) {
 		return 0, false
 	}
 	corps, sig := tok[:i], tok[i+1:]
-	pid, err := strconv.ParseUint(strings.TrimSuffix(strings.TrimPrefix(corps, "nextendo-npln-refresh."), ".console"), 10, 64)
+	identity := strings.TrimSuffix(strings.TrimPrefix(corps, "nextendo-npln-refresh."), ".console")
+	if os.Getenv("NPLN_DEPLOYMENT") != "development" {
+		parts := strings.Split(identity, ".")
+		if len(parts) != 3 {
+			return 0, false
+		}
+		expiry, err := strconv.ParseInt(parts[1], 10, 64)
+		nonce, decodeErr := base64.RawURLEncoding.DecodeString(parts[2])
+		if err != nil || expiry <= time.Now().Unix() || expiry > time.Now().Add(24*time.Hour+time.Minute).Unix() || decodeErr != nil || len(nonce) != 16 {
+			return 0, false
+		}
+		identity = parts[0]
+	}
+	pid, err := strconv.ParseUint(identity, 10, 64)
 	if err != nil || pid == 0 || !strings.HasPrefix(corps, "nextendo-npln-refresh.") {
 		return 0, false
 	}
@@ -204,7 +229,7 @@ func pidDuJetonRafraichissement(tok string) (uint64, bool) {
 }
 
 func (s *authServer) CreateUser(ctx context.Context, req *authpb.CreateUserRequest) (*authpb.User, error) {
-	pid, userPath, err := gatedIdentity(req.GetExternalIdToken(), req.GetParent())
+	pid, userPath, err := authenticatedIdentity(ctx, req.GetExternalIdToken(), req.GetParent())
 	if err != nil {
 		return nil, err
 	}
@@ -213,13 +238,13 @@ func (s *authServer) CreateUser(ctx context.Context, req *authpb.CreateUserReque
 }
 
 func (s *authServer) IssueToken(ctx context.Context, req *authpb.IssueTokenRequest) (*authpb.IssueTokenResponse, error) {
-	pid, userPath, err := gatedIdentity(req.GetExternalIdToken(), "")
+	pid, userPath, err := authenticatedIdentity(ctx, req.GetExternalIdToken(), "")
 	if err != nil {
 		log.Printf("[NPLN Auth] IssueToken DENIED ext=%s: %v", describe(req.GetExternalIdToken()), err)
 		return nil, err
 	}
 	log.Printf("[NPLN Auth] IssueToken pid=%d user=%s", pid, userPath)
-	return &authpb.IssueTokenResponse{Token: newTokenPID(pid, userPath, externalConsoleFriends(req.GetExternalIdToken(), pid))}, nil
+	return &authpb.IssueTokenResponse{Token: newTokenPID(pid, userPath, authenticatedConsole(req.GetExternalIdToken(), pid))}, nil
 }
 
 func (s *authServer) RefreshToken(ctx context.Context, req *authpb.RefreshTokenRequest) (*authpb.RefreshTokenResponse, error) {
@@ -236,11 +261,24 @@ func (s *authServer) RefreshToken(ctx context.Context, req *authpb.RefreshTokenR
 	if rp, valid := pidDuJetonRafraichissement(req.GetRefreshToken()); valid && rp == pid {
 		console = strings.Contains(req.GetRefreshToken(), ".console.")
 	}
+	if os.Getenv("NPLN_DEPLOYMENT") != "development" {
+		kind := "ryujinx"
+		if console {
+			kind = "switch"
+		}
+		identity, err := gateAccountPID(ctx, pid, kind)
+		if err != nil {
+			return nil, err
+		}
+		if req.GetUser() != nplnTenant+"/users/"+identity.UserID {
+			return nil, status.Error(codes.PermissionDenied, "refresh user mismatch")
+		}
+	}
 	return &authpb.RefreshTokenResponse{Token: newTokenPID(pid, req.GetUser(), console)}, nil
 }
 
 func (s *authServer) IssuePrearrangedUserToken(ctx context.Context, req *authpb.IssuePrearrangedUserTokenRequest) (*authpb.IssuePrearrangedUserTokenResponse, error) {
-	pid, userPath, err := gatedIdentity(req.GetExternalIdToken(), req.GetTenant())
+	pid, userPath, err := authenticatedIdentity(ctx, req.GetExternalIdToken(), req.GetTenant())
 	if err != nil {
 		log.Printf("[NPLN Auth] IssuePrearrangedUserToken DENIED ext=%s: %v", describe(req.GetExternalIdToken()), err)
 		return nil, err
@@ -248,11 +286,11 @@ func (s *authServer) IssuePrearrangedUserToken(ctx context.Context, req *authpb.
 	user := &authpb.User{Name: userPath, ShortId: int64(req.GetUserIndex())}
 	log.Printf("[NPLN Auth] IssuePrearrangedUserToken SUCCESS tenant=%q pid=%d user=%s user_index=%d",
 		req.GetTenant(), pid, userPath, req.GetUserIndex())
-	return &authpb.IssuePrearrangedUserTokenResponse{User: user, Token: newTokenPID(pid, userPath, externalConsoleFriends(req.GetExternalIdToken(), pid))}, nil
+	return &authpb.IssuePrearrangedUserTokenResponse{User: user, Token: newTokenPID(pid, userPath, authenticatedConsole(req.GetExternalIdToken(), pid))}, nil
 }
 
 func (s *authServer) IssueAnonymousUserToken(ctx context.Context, req *authpb.IssueAnonymousUserTokenRequest) (*authpb.IssueAnonymousUserTokenResponse, error) {
-	pid, userPath, err := gatedIdentity(req.GetExternalIdToken(), req.GetTenant())
+	pid, userPath, err := authenticatedIdentity(ctx, req.GetExternalIdToken(), req.GetTenant())
 	if err != nil {
 		log.Printf("[NPLN Auth] IssueAnonymousUserToken DENIED: %v", err)
 		return nil, err

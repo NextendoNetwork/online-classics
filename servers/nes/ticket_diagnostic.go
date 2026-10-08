@@ -58,13 +58,14 @@ type creationTicketSummary struct {
 }
 
 type pendingTicket struct {
-	createdAt   time.Time
-	owner       string
-	config      string
-	user        []byte
-	request     requestedGameSession
-	sessionName string
-	userName    string
+	accountSession string
+	createdAt      time.Time
+	owner          string
+	config         string
+	user           []byte
+	request        requestedGameSession
+	sessionName    string
+	userName       string
 }
 
 type requestedGameSession struct {
@@ -75,6 +76,7 @@ type requestedGameSession struct {
 }
 
 type ticketStore struct {
+	bounded             bool
 	genesisUserState    bool // Opt-in experiment: partial Genesis __stu seed.
 	genesisStage        bool // Explicit experiment: __stg/All room document.
 	genesisQueryMembers bool // Explicit experiment: participants in Genesis Query BASIC.
@@ -371,7 +373,17 @@ func (s *ticketStore) createGameSessionCreationTicket(a *labAuth, logger *log.Lo
 			sessionName: sessionName,
 			userName:    sessionName + "/userSessions/" + participantID,
 		}
+		if a.nextendo != nil {
+			claims, _ := a.verifyJWT(splitBearer(r))
+			ticket.accountSession = claims.Session
+		}
 		s.mu.Lock()
+		s.pruneNextendoLocked(time.Now())
+		if s.bounded && len(s.tickets) >= 512 {
+			s.mu.Unlock()
+			grpcStatus(w, "8", "Ticket capacity reached", nil)
+			return
+		}
 		s.tickets[name] = ticket
 		s.mu.Unlock()
 		logger.Printf("Creation ticket pending: id=%s", id)
@@ -432,7 +444,10 @@ func (s *ticketStore) trackGameSessionCreationTicket(a *labAuth, logger *log.Log
 			return
 		case <-time.After(200 * time.Millisecond):
 		}
-		s.rememberMatchToken(ticket, sessionToken, time.Now())
+		if err := s.rememberMatchToken(ticket, sessionToken, time.Now()); err != nil {
+			w.Header().Set("Grpc-Status", err.code)
+			return
+		}
 		if err := s.publishMatchSession(ticket); err != nil {
 			w.Header().Set("Grpc-Status", err.code)
 			return

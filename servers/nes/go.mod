@@ -16,3 +16,7 @@ require (
 	golang.org/x/crypto v0.48.0 // indirect
 	golang.org/x/sys v0.41.0 // indirect
 )
+
+require github.com/NextendoNetwork/online-classics/accountauth v0.0.0
+
+replace github.com/NextendoNetwork/online-classics/accountauth => ../../shared/accountauth

@@ -1,15 +1,6 @@
 module npln.nintendo.net/npln-practice
 
-go 1.26.4
-
-require (
-	github.com/envoyproxy/protoc-gen-validate v1.3.3
-	github.com/pion/turn/v4 v4.1.4
-	google.golang.org/genproto/googleapis/api v0.0.0-20260618152121-87f3d3e198d3
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20260618152121-87f3d3e198d3
-	google.golang.org/grpc v1.81.1
-	google.golang.org/protobuf v1.36.11
-)
+go 1.27
 
 require (
 	github.com/pion/dtls/v3 v3.0.7 // indirect
@@ -24,3 +15,15 @@ require (
 	golang.org/x/sys v0.42.0 // indirect
 	golang.org/x/text v0.34.0 // indirect
 )
+
+require (
+	github.com/NextendoNetwork/online-classics/accountauth v0.0.0
+	github.com/envoyproxy/protoc-gen-validate v1.3.3
+	github.com/pion/turn/v4 v4.1.4
+	google.golang.org/genproto/googleapis/api v0.0.0-20260618152121-87f3d3e198d3
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20260618152121-87f3d3e198d3
+	google.golang.org/grpc v1.81.1
+	google.golang.org/protobuf v1.36.11
+)
+
+replace github.com/NextendoNetwork/online-classics/accountauth => ../../shared/accountauth

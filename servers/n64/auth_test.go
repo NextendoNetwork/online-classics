@@ -9,6 +9,7 @@ import (
 )
 
 func TestIssuePrearrangedUserToken(t *testing.T) {
+	t.Setenv("NPLN_DEPLOYMENT", "development")
 	srv := &authServer{}
 	ctx := context.Background()
 

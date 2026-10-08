@@ -5,6 +5,18 @@ on:
 permissions:
   contents: read
 jobs:
+  account-auth:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: shared/accountauth
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.27.1'
+      - run: go test ./... -timeout 60s
+      - run: go vet ./...
   check:
     runs-on: ubuntu-latest
     strategy:

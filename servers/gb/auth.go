@@ -19,11 +19,14 @@ import (
 	"strings"
 	"sync"
 	"time"
+
+	"github.com/NextendoNetwork/online-classics/accountauth"
 )
 
 const issuePrearrangedUserTokenPath = "/nn.npln.auth.v1.Auth/IssuePrearrangedUserToken"
 
 type labAuth struct {
+	nextendo           *nextendoSessions
 	key                *ecdsa.PrivateKey
 	sessionProfile     string
 	identityDiagnostic *identityDiagnostic
@@ -69,6 +72,19 @@ func (a *labAuth) issuePrearrangedUserToken(w http.ResponseWriter, r *http.Reque
 		return
 	}
 
+	if a.nextendo != nil {
+		if request.index != 0 {
+			grpcStatus(w, "3", "Nextendo requires user_index zero", nil)
+			return
+		}
+		identity, kind, err := a.nextendo.enroll(request.externalToken, remotePeerIP(r))
+		if err != nil {
+			grpcStatus(w, "16", "Nextendo authentication rejected", nil)
+			return
+		}
+		request.localPeerIdentity, request.localPeerNSA = identity.UserID, identity.AccountHex
+		request.accountPID, request.accountKind, request.accountIdentity = identity.PID, kind, identity
+	}
 	peerKey, peer, paired := a.friendPair.peerFor(r)
 	if paired {
 		if request.index != 0 {
@@ -105,6 +121,9 @@ func (a *labAuth) issuePrearrangedUserToken(w http.ResponseWriter, r *http.Reque
 }
 
 type authRequest struct {
+	accountPID        uint64
+	accountKind       string
+	accountIdentity   accountauth.Identity
 	tenant            string
 	index             uint64
 	externalToken     string
@@ -206,8 +225,23 @@ func (a *labAuth) makeResponse(request authRequest) ([]byte, error) {
 	userName := "tenants/" + labTenant + "/users/" + uid
 
 	now := time.Now()
+	lifetime := 8 * time.Hour
+	issuer := "genesis-lab"
+	sid, refreshCredential := "", ""
+	if a.nextendo != nil {
+		if request.accountPID == 0 {
+			return nil, errors.New("missing verified identity")
+		}
+		var err error
+		sid, refreshCredential, err = a.nextendo.store(request.accountIdentity, request.accountKind)
+		if err != nil {
+			return nil, err
+		}
+		lifetime = 15 * time.Minute
+		issuer = "nextendo-classics"
+	}
 	claims := map[string]any{
-		"iss": "genesis-lab", "sub": uid, "iat": now.Unix(), "exp": now.Add(8 * time.Hour).Unix(),
+		"iss": issuer, "sub": uid, "sid": sid, "iat": now.Unix(), "exp": now.Add(lifetime).Unix(),
 		"npln": map[string]any{
 			"tid": labTenant, "aid": account, "app_id": "0100c62011050000",
 			"ext_id": extID, "ext_id_type": request.externalType,
@@ -226,11 +260,18 @@ func (a *labAuth) makeResponse(request authRequest) ([]byte, error) {
 
 	user := protoBytes(nil, 1, []byte(userName))
 	user = protoBytes(user, 2, []byte("accounts/"+account))
-	user = protoVarint(user, 5, binary.BigEndian.Uint64(identity[:8])&0x7fffffffffffffff)
+	pid := binary.BigEndian.Uint64(identity[:8]) & 0x7fffffffffffffff
+	if a.nextendo != nil {
+		pid = request.accountPID
+	}
+	user = protoVarint(user, 5, pid)
 	token := protoBytes(nil, 1, []byte(userName))
 	token = protoBytes(token, 2, []byte(accessToken))
-	token = protoBytes(token, 3, []byte(hex.EncodeToString(refresh)))
-	token = protoBytes(token, 4, protoVarint(nil, 1, 8*60*60))
+	if a.nextendo == nil {
+		refreshCredential = hex.EncodeToString(refresh)
+	}
+	token = protoBytes(token, 3, []byte(refreshCredential))
+	token = protoBytes(token, 4, protoVarint(nil, 1, uint64(lifetime/time.Second)))
 	response := protoBytes(nil, 1, user)
 	return protoBytes(response, 2, token), nil
 }
@@ -261,6 +302,8 @@ func (a *labAuth) signJWTHeader(claims any, metadata map[string]string) (string,
 }
 
 type labClaims struct {
+	Session string `json:"sid"`
+	Issuer  string `json:"iss"`
 	Subject string `json:"sub"`
 	Expires int64  `json:"exp"`
 	NPLN    struct {
@@ -299,6 +342,12 @@ func (a *labAuth) verifyJWT(token string) (labClaims, bool) {
 	}
 	if claims.Subject == "" || claims.NPLN.Tenant != labTenant || claims.Expires <= time.Now().Unix() {
 		return claims, false
+	}
+	if a.nextendo != nil {
+		v, ok := a.nextendo.get(claims.Session)
+		if !ok || v.identity.UserID != claims.Subject || claims.Issuer != "nextendo-classics" {
+			return claims, false
+		}
 	}
 	return claims, true
 }

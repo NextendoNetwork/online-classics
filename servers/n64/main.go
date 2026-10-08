@@ -131,6 +131,12 @@ func buildServer(creds credentials.TransportCredentials) *grpc.Server {
 }
 
 func main() {
+	if err := validateDeployment(os.Getenv); err != nil {
+		log.Fatalf("Invalid deployment configuration: %v", err)
+	}
+	if err := configureAccountVerifier(); err != nil {
+		log.Fatalf("Account verifier configuration rejected: %v", err)
+	}
 	log.SetFlags(log.Ldate | log.Ltime | log.Lmicroseconds)
 	log.Printf("================================================================")
 	log.Printf(" Nextendo NPLN Server — Nintendo 64 - Nintendo Switch Online [%s]", nplnAppID)
@@ -164,6 +170,7 @@ func main() {
 	if err != nil {
 		log.Fatalf("Failed to start advertised TURN endpoint: %v", err)
 	}
+	deploymentTURN = turnRelay
 	defer turnRelay.Close()
 
 	nncsConfig, nncsEnabled, err := configuredNNCS()

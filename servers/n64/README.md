@@ -12,7 +12,9 @@ go vet ./...
 go build -o server .
 ```
 
-Use Go 1.27.1 or newer for the consolidated repository. Review [example.env](example.env) and supply your own account-service configuration, certificates, signing material and relay credentials through your deployment's secret management. Go does not automatically load this file as environment variables. Defaults describe local development, not a reachable public service.
+Use Go 1.27.1 or newer for the consolidated repository. Provision [example.env](example.env) with the Nextendo operator's public IPv4 destinations, account-service configuration, persistent certificates, signing material and relay credentials. Go does not automatically load this file as environment variables. Startup defaults to `NPLN_DEPLOYMENT=nextendo` and rejects missing configuration, local client destinations, development secrets and authentication bypasses. See [Nextendo deployment](../../docs/nextendo-deployment.md).
+
+Historical local reproduction requires explicit `NPLN_DEPLOYMENT=development`. The deployment template contains no LAN addresses or default credentials; empty fields must be provisioned before launching.
 
 Advertised STUN/TURN destinations must be reachable client addresses, not wildcard bind addresses. TURN relay sockets use OS-assigned UDP ports; the relay bind/advertisement must use an address assigned to the server. Follow the original endpoint distinctions in example.env and validate relay traffic on the deployment network.
 

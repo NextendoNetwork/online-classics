@@ -30,17 +30,17 @@ Choose the Nintendo Switch Online (NSO) application you want to test:
 
 This repository supplies backend source and documentation. Games, firmware, console keys, patches and ready-to-run emulator packages are not included. See the [tested combinations](docs/test-matrix.md) before choosing clients. N64 has a successful owner-reported Citron/Switch lab test; the consolidated account-integrated backend still needs staging acceptance and Ryujinx stability remains unresolved. See the [N64 test status](docs/n64-testing.md).
 
-### I want to run a test server
+### I want to deploy on Nextendo servers
 
-Start with [Build and run](#build-and-run), then the [integration guide](docs/integration.md). Run one Classics backend at a time when sharing ports. The local lab identity and relay options require operator configuration before connecting real clients.
+Start with the [Nextendo deployment guide](docs/nextendo-deployment.md) and [integration guide](docs/integration.md). Use operator-provided public destinations for clients. All six modules now have signed-account staging paths. The five shared-baseline modules default to Nextendo mode with authenticated TURN; current-client acceptance and service lifecycle testing remain required. See [the account/transport staging record](docs/account-transport-staging.md).
 
 ## What is this?
 
 **Go** implementations of the NPLN/Gamesync services used by six Nintendo Switch Online Classics applications, contributed for integration with [Nextendo Network](https://nextendo.network).
 
-The backends handle lab authentication, session discovery and joining, friends and presence, Gamesync documents and watches, signaling, and local STUN/TURN experiments. They derive from Soul Genesis Lab. Public NPLN references and Nextendo server examples informed the protocol investigation.
+The backends handle account authentication, session discovery and joining, friends and presence, Gamesync documents and watches, signaling, and STUN/TURN. Historical development authentication and local relay experiments require an explicit development mode. They derive from Soul Genesis Lab. Public NPLN references and Nextendo server examples informed the protocol investigation.
 
-Each title currently has an independent module. Shared-handler consolidation and production account integration remain maintainer work. Run one backend at a time when using the same ports.
+Each title currently has an independent module. The signed account verifier is shared; title handlers remain independent. Production account/client integration and live acceptance remain maintainer work. Run one backend at a time when using the same ports.
 
 N64 consolidates the Nextendo account-integrated implementation and preserves the separately tested lab backend under [servers/n64/lab](servers/n64/lab). Review their [different deployment and license boundaries](docs/n64-integration.md).
 
@@ -66,10 +66,9 @@ Use **Go 1.27.1 or newer**. Select a title module, then build it:
 ```sh
 cd servers/gba
 go build -o server .
-go run . -log-file ""
 ```
 
-Replace `gba` with `genesis`, `snes`, `nes` or `gb` as needed. Defaults use loopback listeners. Run `go run . -help` for configuration flags and review the [integration guide](docs/integration.md) before configuring real clients.
+Replace `gba` with `genesis`, `snes`, `nes` or `gb` to build their reference modules. Run with `./server -deployment nextendo -config /etc/online-classics/gba/config.json`, using the title-specific private configuration. Historical flags require `-deployment development`. The default now requires verified Nextendo credentials and authenticated bounded TURN; a successful build does not establish gameplay acceptance. See the [deployment readiness table](docs/nextendo-deployment.md#module-readiness).
 
 For N64, follow [its module guide](servers/n64/README.md): the account-integrated service uses environment configuration, while the [lab reference](servers/n64/lab/README.md) uses the original lab flags.
 
@@ -87,6 +86,8 @@ go build -o server .
 
 The initial three modules passed these checks locally and in GitHub's Linux workflow. NES and Game Boy extend the same workflow; see [validation](docs/validation.md) for the current source checks. Automated checks validate server behavior; gameplay needs the separate manual acceptance sequence.
 
+On October 8, 2026, all six title modules' root-package test executables passed on a separate Linux/amd64 test VPS. See the [VPS evidence record](docs/vps-testing-2026-10-08.md) for the exact revision, commands, hashes and pending live acceptance. This run does not establish production account integration or new emulator/console gameplay results.
+
 ## Clients
 
 Tests used [Ryujinx-Nextendo](https://github.com/NextendoNetwork/Ryujinx-Nextendo), [Citron-Nextendo](https://github.com/NextendoNetwork/citron-nextendo), and a physical Switch. Clients need the matching application version, authorized patch setup, service routing, and an identity accepted by the backend.
@@ -96,6 +97,7 @@ Tests used [Ryujinx-Nextendo](https://github.com/NextendoNetwork/Ryujinx-Nextend
 ## Documentation
 
 - [Architecture and title-specific behavior](docs/architecture.md)
+- [Signed-account and transport staging](docs/account-transport-staging.md)
 - [Maintainer integration](docs/integration.md)
 - [Community staging and deployment acceptance](docs/community-staging.md)
 - [Client setup and test sequence](docs/client-setup.md)

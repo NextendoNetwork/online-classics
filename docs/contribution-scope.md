@@ -26,3 +26,7 @@ The NES and Game Boy imports preserve the same per-server MIT attribution and ro
 Game archives, extracted executables/assets, firmware, console keys, IPS patches, emulator binaries, account caches, credentials, private addresses and raw gameplay/network logs are outside this contribution. No emulator or Prelude source trees are imported. The source directories are not copies of the private development archives.
 
 N64 consolidation imports the standalone Nextendo source at the revision recorded in provenance-n64.json under its original PolyForm Shield terms, plus a separately attributed MIT lab snapshot. Scoped compatibility/lifecycle edits are documented in n64-integration.md. Only server source/tests, generated protobuf Go types and a placeholder configuration template are imported; client-patches and private runtime data are excluded. SpeedRunners 2 remains excluded. See publication-policy.md for the repository content gate and its limitations.
+
+## October 8 account staging changes
+
+The shared account verifier derives from the MIT UCH backend at ef38293; its attribution is retained in shared/accountauth/NOTICE.md and LICENSE. The imported checksums remain records of the original snapshots. Subsequent account, relay, deployment and test changes are documented in account-transport-staging.md and are independently reviewable in Git history. No proprietary DLL or extracted game code is imported.

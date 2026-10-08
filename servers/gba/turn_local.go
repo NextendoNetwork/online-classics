@@ -23,6 +23,7 @@ import (
 const localTURNRealm = "genesis-lab"
 
 type localTURN struct {
+	accounts *turnAccounts
 	server   *turn.Server
 	endpoint iceEndpoint
 	secret   [32]byte
